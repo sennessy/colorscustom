@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: fragment"></div>
+
+<!-- HERO -->
+<section class="tint-hero">
+    <h1>Revêtement céramique</h1>
+    <p>
+        Le revêtement céramique crée une barrière invisible entre votre véhicule et les agressions extérieures.
+        Il renforce la brillance, protège la peinture et facilite l’entretien au quotidien.
+        Le résultat : un véhicule plus éclatant, plus propre, plus longtemps.
+    </p>
+</section>
+
+<!-- DOUBLE SLIDER -->
+<section class="tint-sliders">
+
+    <!-- SLIDER VERTICAL -->
+    <div class="tint-vertical-slider">
+
+        <div class="tint-vertical-item active" data-index="0">
+            <h3>Céramique 1 couche</h3>
+            <p>Protection durable, brillance renforcée, entretien facilité.</p>
+            <span class="tint-price">À partir de CHF 350.–</span>
+        </div>
+
+        <div class="tint-vertical-item" data-index="1">
+            <h3>Céramique 2 couches</h3>
+            <p>Protection renforcée, meilleure résistance aux micro‑rayures.</p>
+            <span class="tint-price">À partir de CHF 550.–</span>
+        </div>
+
+        <div class="tint-vertical-item" data-index="2">
+            <h3>Céramique 5 ans</h3>
+            <p>Durabilité extrême, brillance profonde, effet hydrophobe maximal.</p>
+            <span class="tint-price">À partir de CHF 850.–</span>
+        </div>
+
+    </div>
+
+    <!-- SLIDER HORIZONTAL -->
+    <div class="tint-horizontal-slider">
+
+        <div class="tint-horizontal-item active" data-index="0">
+            <img src="/img/placeholder-service.jpg">
+            <a href="/devis" class="tint-cta">Faire un devis</a>
+        </div>
+
+        <div class="tint-horizontal-item" data-index="1">
+            <img src="/img/placeholder-service.jpg">
+            <a href="/devis" class="tint-cta">Faire un devis</a>
+        </div>
+
+        <div class="tint-horizontal-item" data-index="2">
+            <img src="/img/placeholder-service.jpg">
+            <a href="/devis" class="tint-cta">Faire un devis</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION AVANTAGES -->
+<section class="tint-benefits">
+
+    <h2>Pourquoi choisir la céramique ?</h2>
+
+    <div class="benefit">
+        <h3>Protection longue durée</h3>
+        <p>Résiste aux UV, aux produits chimiques et aux agressions extérieures.</p>
+    </div>
+
+    <div class="benefit">
+        <h3>Brillance profonde</h3>
+        <p>Effet miroir premium, rendu esthétique haut de gamme.</p>
+    </div>
+
+    <div class="benefit">
+        <h3>Hydrophobie extrême</h3>
+        <p>L’eau perle instantanément, le véhicule reste propre plus longtemps.</p>
+    </div>
+
+</section>
+
+<!-- SECTION EXPERT -->
+<section class="tint-expert">
+    <h2>Parle à un expert</h2>
+    <ul>
+        <li>Réponse sous 24–48h</li>
+        <li>Devis gratuit et sans engagement</li>
+        <li>Solutions sur‑mesure uniquement</li>
+    </ul>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="tint-form">
+
+    <h2>Votre projet commence ici.</h2>
+    <p>Chaque véhicule est différent. Dites‑nous ce que vous avez en tête.</p>
+
+    <form class="contact-form">
+
+        <input type="text" placeholder="Nom*" required>
+        <input type="email" placeholder="Email*" required>
+        <input type="text" placeholder="Téléphone*">
+
+        <label>Service</label>
+        <div class="checkboxes">
+            <label><input type="checkbox"> Revêtement céramique</label>
+            <label><input type="checkbox"> Film de protection</label>
+            <label><input type="checkbox"> Vitres teintées</label>
+            <label><input type="checkbox"> Feux teintés</label>
+            <label><input type="checkbox"> Création visuelle</label>
+            <label><input type="checkbox"> Autre service</label>
+        </div>
+
+        <textarea placeholder="Message*" required></textarea>
+
+        <button type="submit" class="contact-submit">Envoyer</button>
+
+    </form>
+
+</section>
+
+<script src="/js/vitres.js"></script>
+
+</body>
+</html>

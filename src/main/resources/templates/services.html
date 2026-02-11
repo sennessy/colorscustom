@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div th:replace="fragments/header :: fragment"></div>
+
+<!-- HERO SERVICES -->
+<section class="services-hero">
+
+    <h1 class="services-hero-title">SERVICES</h1>
+
+    <button class="services-hero-btn" onclick="scrollToCategories()">
+        Découvrir
+    </button>
+
+    <img src="/img/placeholder-service.jpg" class="services-hero-image" alt="Services">
+</section>
+
+<!-- CATEGORIES -->
+<section id="services-categories" class="services-categories">
+
+    <!-- COVERING -->
+    <div class="service-overview-card">
+        <img src="/img/placeholder-service.jpg" class="service-overview-image">
+        <h2>Covering</h2>
+        <p>
+            Le film de protection de carrosserie est la solution la plus avancée pour préserver la peinture d'origine.
+        </p>
+        <a href="/services/covering" class="service-overview-cta">En savoir plus</a>
+    </div>
+
+    <!-- REVÊTEMENT CÉRAMIQUE -->
+    <div class="service-overview-card">
+        <img src="/img/placeholder-service.jpg" class="service-overview-image">
+        <h2>Revêtement céramique</h2>
+        <p>
+            Le revêtement céramique crée une barrière invisible entre votre véhicule et les agressions extérieures.
+        </p>
+        <a href="/services/ceramique" class="service-overview-cta">En savoir plus</a>
+    </div>
+
+    <!-- FEUX TEINTÉS -->
+    <div class="service-overview-card">
+        <img src="/img/placeholder-service.jpg" class="service-overview-image">
+        <h2>Feux teintés</h2>
+        <p>
+            Les feux teintés apportent une signature visuelle forte à votre véhicule.
+        </p>
+        <a href="/services/feux-teintes" class="service-overview-cta">En savoir plus</a>
+    </div>
+
+    <!-- CRÉATION VISUELLE -->
+    <div class="service-overview-card">
+        <img src="/img/placeholder-service.jpg" class="service-overview-image">
+        <h2>Création visuelle personnalisée</h2>
+        <p>
+            La création visuelle sur-mesure transforme votre véhicule en un objet unique.
+        </p>
+        <a href="/services/creation-visuelle" class="service-overview-cta">En savoir plus</a>
+    </div>
+
+</section>
+
+<script src="/js/services.js"></script>
+
+</body>
+</html>

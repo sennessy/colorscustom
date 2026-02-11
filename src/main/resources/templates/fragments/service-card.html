@@ -1,0 +1,11 @@
+<!-- fragments/service-card.html -->
+<div class="service-card">
+    <img src="/img/placeholder-service.jpg" alt="Image service" class="service-image">
+
+    <div class="service-content">
+        <h2 class="service-title">[[${title}]]</h2>
+        <p class="service-description">[[${description}]]</p>
+
+        <a th:href="@{${link}}" class="service-cta">En savoir plus</a>
+    </div>
+</div>

@@ -1,0 +1,455 @@
+/* -----------------------------------------------------------
+   GLOBAL SECTIONS
+----------------------------------------------------------- */
+
+.services-section,
+.expertise-section,
+.engagement-section,
+.faq-section,
+.footer,
+.contact-section,
+.service-page,
+.boutique-page,
+.entreprise-page {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+/* -----------------------------------------------------------
+   SERVICES (overview)
+----------------------------------------------------------- */
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 80px;
+}
+
+.service-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    background-color: #eaeaea;
+}
+
+.service-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.service-cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    border: 2px solid #000;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.service-cta:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* -----------------------------------------------------------
+   B2 SLIDER
+----------------------------------------------------------- */
+
+.b2-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.b2-slide {
+    min-width: 80%;
+    scroll-snap-align: start;
+}
+
+.b2-image {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eaeaea;
+}
+
+.b2-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.b2-cta {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid #000;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.b2-cta:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* -----------------------------------------------------------
+   EXPERTISE
+----------------------------------------------------------- */
+
+.expertise-card {
+    margin-bottom: 80px;
+}
+
+.expertise-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+    background-color: #eaeaea;
+}
+
+.expertise-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.expertise-cta {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    border: 2px solid #000;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.expertise-cta:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* -----------------------------------------------------------
+   ENGAGEMENT
+----------------------------------------------------------- */
+
+.engagement-slider {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.engagement-slide {
+    min-width: calc(33.33% - 20px);
+    scroll-snap-align: start;
+}
+
+.engagement-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #eaeaea;
+}
+
+/* -----------------------------------------------------------
+   FAQ
+----------------------------------------------------------- */
+
+.faq-tabs {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+}
+
+.faq-tab {
+    padding: 10px 20px;
+    border: 2px solid #000;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.faq-tab.active {
+    background: #000;
+    color: #fff;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 0;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+/* -----------------------------------------------------------
+   FOOTER
+----------------------------------------------------------- */
+
+.footer-cta-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-btn {
+    padding: 10px 20px;
+    border: 2px solid #000;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.footer-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* -----------------------------------------------------------
+   HEADER + DROPDOWN + BURGER
+----------------------------------------------------------- */
+
+.nav {
+    background: #fff;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 15px 0;
+    list-style: none;
+    display: none;
+    min-width: 220px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.25s ease;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* BURGER */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 28px;
+    height: 3px;
+    background: #000;
+    border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 20px 0;
+        display: none;
+        border-top: 1px solid #eee;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+        border: none;
+        opacity: 1;
+        transform: none;
+        display: none;
+        padding-left: 20px;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+}
+
+/* -----------------------------------------------------------
+   CONTACT PAGE
+----------------------------------------------------------- */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-submit {
+    padding: 12px 24px;
+    border: 2px solid #000;
+    background: #000;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* -----------------------------------------------------------
+   VITRES TEINTÉES — DOUBLE SLIDER
+----------------------------------------------------------- */
+
+.tint-hero {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tint-sliders {
+    display: flex;
+    gap: 40px;
+    padding: 80px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* VERTICAL SLIDER */
+.tint-vertical-slider {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tint-vertical-item {
+    padding: 20px;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.tint-vertical-item.active {
+    border-left: 3px solid #000;
+}
+
+/* HORIZONTAL SLIDER */
+.tint-horizontal-slider {
+    width: 65%;
+}
+
+.tint-horizontal-item {
+    display: none;
+}
+
+.tint-horizontal-item.active {
+    display: block;
+}
+
+.tint-horizontal-item img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.tint-options {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tint-options span {
+    padding: 8px 14px;
+    border: 1px solid #000;
+    border-radius: 6px;
+}
+
+.tint-cta {
+    padding: 12px 24px;
+    border: 2px solid #000;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* BENEFITS */
+.tint-benefits {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* EXPERT */
+.tint-expert {
+    padding: 80px 20px;
+    background: #f7f7f7;
+}
+
+/* FORM */
+.tint-form {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-slider-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 12px;
+}

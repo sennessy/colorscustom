@@ -1,0 +1,112 @@
+cat > src/main/resources/templates/contact.html <<'HTML'
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Colors Custom</title>
+
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div th:replace="fragments/header :: main-header"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="contact-page-hero">
+      <h1>Contact</h1>
+      <p>
+        Dis-nous ton projet (vitres teintées, covering, etc.) et on te répond rapidement.
+      </p>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="contact-page">
+      <div class="contact-main-grid">
+
+        <!-- Infos -->
+        <aside class="contact-infos">
+          <p class="contact-text">
+            Colors Custom – Gland (VD). Tu peux nous appeler, envoyer un mail ou venir directement.
+          </p>
+
+          <div class="contact-block">
+            <h3>Adresse</h3>
+            <p>
+              Route des Avouillons 17C<br>
+              1196 Gland, Suisse
+            </p>
+            <p>
+              <a class="link"
+                 href="https://www.google.com/maps/search/?api=1&query=Route+des+Avouillons+17C+1196+Gland"
+                 target="_blank" rel="noopener">
+                Ouvrir dans Google Maps →
+              </a>
+            </p>
+          </div>
+
+          <div class="contact-block">
+            <h3>Téléphone</h3>
+            <p>
+              <a class="link" href="tel:+41212113600">+41 21 211 36 00</a>
+            </p>
+          </div>
+
+          <div class="contact-block">
+            <h3>Email</h3>
+            <p>
+              <a class="link" href="mailto:contact@colorscustom.ch">contact@colorscustom.ch</a>
+            </p>
+          </div>
+
+          <div class="contact-block">
+            <h3>Horaires</h3>
+            <p>Lun–Sam : 09:00 – 19:00</p>
+          </div>
+        </aside>
+
+        <!-- Form -->
+        <div class="contact-form-wrapper">
+          <h2>Demander un devis</h2>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" placeholder="Ton nom" />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="ton@email.com" />
+            </div>
+
+            <div class="form-row">
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option>Vitres teintées</option>
+                <option>Covering</option>
+                <option>Film de protection</option>
+                <option>Autre</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Explique ton projet..."></textarea>
+              <div class="contact-hint">Réponse en général sous 24–48h.</div>
+            </div>
+
+            <button class="btn-primary contact-submit" type="button" disabled>
+              Envoyer (bientôt)
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+HTML

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: fragment"></div>
+
+<!-- HERO -->
+<section class="tint-hero">
+    <h1>Vitres teintées</h1>
+    <p>
+        Que vous rouliez en ville ou sur route, chaque fenêtre est optimisée pour performance et style.
+        Transformez vos vitres en un bouclier invisible. Nos solutions protègent du soleil, améliorent
+        votre intimité et ajoutent une touche esthétique haut de gamme.
+    </p>
+</section>
+
+<!-- DOUBLE SLIDER -->
+<section class="tint-sliders">
+
+    <!-- SLIDER VERTICAL (GAUCHE) -->
+    <div class="tint-vertical-slider">
+
+        <div class="tint-vertical-item active" data-index="0">
+            <h3>Nano‑Ceramic Window Tint</h3>
+            <p>Ultra‑performant contre la chaleur et les UV, sans altérer la visibilité.</p>
+            <span class="tint-price">À partir de CHF 150.–</span>
+        </div>
+
+        <div class="tint-vertical-item" data-index="1">
+            <h3>Metallic Window Tint</h3>
+            <p>Finition brillante et résistante, idéale pour un style premium.</p>
+            <span class="tint-price">À partir de CHF 150.–</span>
+        </div>
+
+        <div class="tint-vertical-item" data-index="2">
+            <h3>Dyed Window Tint</h3>
+            <p>Solution classique et efficace pour un look sombre élégant.</p>
+            <span class="tint-price">À partir de CHF 150.–</span>
+        </div>
+
+    </div>
+
+    <!-- SLIDER HORIZONTAL (DROITE) -->
+    <div class="tint-horizontal-slider">
+
+        <div class="tint-horizontal-item active" data-index="0">
+            <img src="/img/placeholder-service.jpg">
+            <div class="tint-options">
+                <span>5%</span><span>10%</span><span>15%</span><span>20%</span>
+            </div>
+            <a href="/devis" class="tint-cta">Faire un devis</a>
+        </div>
+
+        <div class="tint-horizontal-item" data-index="1">
+            <img src="/img/placeholder-service.jpg">
+            <div class="tint-options">
+                <span>5%</span><span>10%</span><span>15%</span><span>20%</span>
+            </div>
+            <a href="/devis" class="tint-cta">Faire un devis</a>
+        </div>
+
+        <div class="tint-horizontal-item" data-index="2">
+            <img src="/img/placeholder-service.jpg">
+            <div class="tint-options">
+                <span>5%</span><span>10%</span><span>15%</span><span>20%</span>
+            </div>
+            <a href="/devis" class="tint-cta">Faire un devis</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION AVANTAGES -->
+<section class="tint-benefits">
+
+    <h2>La différence se ressent dès le premier trajet.</h2>
+
+    <div class="benefit">
+        <h3>Bouclier thermique solide</h3>
+        <p>Réduit la chaleur intérieure et augmente le confort de conduite.</p>
+    </div>
+
+    <div class="benefit">
+        <h3>Protection UV complète</h3>
+        <p>Protège vos passagers et votre intérieur contre les rayons nocifs.</p>
+    </div>
+
+    <div class="benefit">
+        <h3>Finition sombre mais claire</h3>
+        <p>Visibilité parfaite tout en donnant un style raffiné.</p>
+    </div>
+
+</section>
+
+<!-- SECTION EXPERT -->
+<section class="tint-expert">
+    <h2>Parle à un expert</h2>
+    <ul>
+        <li>Réponse sous 24–48h</li>
+        <li>Devis gratuit et sans engagement</li>
+        <li>Solutions sur‑mesure uniquement</li>
+    </ul>
+</section>
+
+<!-- FORMULAIRE -->
+<section class="tint-form">
+
+    <h2>Votre projet commence ici.</h2>
+    <p>Chaque véhicule est différent. Dites‑nous ce que vous avez en tête.</p>
+
+    <form class="contact-form">
+
+        <input type="text" placeholder="Nom*" required>
+        <input type="email" placeholder="Email*" required>
+        <input type="text" placeholder="Téléphone*">
+
+        <label>Service</label>
+        <div class="checkboxes">
+            <label><input type="checkbox"> Vitres teintées</label>
+            <label><input type="checkbox"> Film de protection</label>
+            <label><input type="checkbox"> Revêtement céramique</label>
+            <label><input type="checkbox"> Feux teintés</label>
+            <label><input type="checkbox"> Création visuelle</label>
+            <label><input type="checkbox"> Autre service</label>
+        </div>
+
+        <textarea placeholder="Message*" required></textarea>
+
+        <button type="submit" class="contact-submit">Envoyer</button>
+
+    </form>
+
+</section>
+
+<script src="/js/vitres.js"></script>
+
+</body>
+</html>

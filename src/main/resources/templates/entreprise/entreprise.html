@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: fragment"></div>
+
+<!-- HERO ENTREPRISES -->
+<section class="entreprises-hero">
+
+    <h1 class="entreprises-hero-title">ENTREPRISES</h1>
+
+    <button class="entreprises-hero-btn" onclick="scrollToEntreprisesCategories()">
+        Découvrir
+    </button>
+
+    <img src="/img/placeholder-service.jpg" class="entreprises-hero-image" alt="Entreprises">
+</section>
+
+<!-- CATEGORIES -->
+<section id="entreprises-categories" class="entreprises-categories">
+
+    <!-- FLOTTE -->
+    <div class="entreprise-card">
+        <img src="/img/placeholder-service.jpg" class="entreprise-card-image">
+        <h2>Flotte d'entreprise</h2>
+        <p>
+            Nous accompagnons les entreprises dans la protection, la personnalisation et la gestion esthétique
+            de leurs flottes afin de préserver la valeur des véhicules et renforcer l'image de marque.
+        </p>
+        <a href="/entreprises/flotte" class="entreprise-card-cta">En savoir plus</a>
+    </div>
+
+    <!-- PUBLICITÉ -->
+    <div class="entreprise-card">
+        <img src="/img/placeholder-service.jpg" class="entreprise-card-image">
+        <h2>Publicité sur véhicules</h2>
+        <p>
+            Votre véhicule devient un support de communication mobile. Nous concevons et installons des solutions
+            publicitaires efficaces, élégantes et adaptées à votre image.
+        </p>
+        <a href="/entreprises/publicite" class="entreprise-card-cta">En savoir plus</a>
+    </div>
+
+    <!-- PROJET SUR MESURE -->
+    <div class="entreprise-card">
+        <img src="/img/placeholder-service.jpg" class="entreprise-card-image">
+        <h2>Projet sur mesure</h2>
+        <p>
+            Chaque entreprise a des contraintes spécifiques. Nous développons des solutions personnalisées
+            adaptées à vos enjeux techniques, esthétiques et opérationnels.
+        </p>
+        <a href="/entreprises/projet-sur-mesure" class="entreprise-card-cta">En savoir plus</a>
+    </div>
+
+</section>
+
+<script src="/js/entreprises.js"></script>
+
+</body>
+</html>

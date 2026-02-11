@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vitres teintées – Colors Custom</title>
+    <meta name="description"
+          content="Vitres teintées par Colors Custom : confort, discrétion, protection et style, dans le respect des règles suisses.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header class="header header-simple">
+  <div class="logo">
+    <a th:href="@{/}">Colors Custom</a>
+  </div>
+
+  <nav class="nav nav-simple" aria-label="Navigation principale">
+    <!-- Services : renvoie sur la home, section #services -->
+    <a th:href="@{/#services}">Services</a>
+
+    <a th:href="@{/boutique}">Boutique</a>
+
+    <a th:href="@{/contact}" class="btn-primary">Contact</a>
+
+    <!-- Panier : visible partout -->
+    <a th:href="@{/panier}" class="nav-cart" aria-label="Panier">
+      <span class="cart-ico" aria-hidden="true">🛒</span>
+      <span class="cart-badge" th:text="${cartCount}">0</span>
+    </a>
+  </nav>
+</header>
+
+
+<main>
+
+    <!-- HERO VITRES TEINTÉES -->
+    <section class="vt-hero">
+        <div class="vt-hero-text">
+            <h1>Vitres teintées – confort, discrétion & style</h1>
+            <p>
+                Pour le look, le confort à bord ou la discrétion, les vitres teintées apportent un vrai plus à votre véhicule.
+                Chez <strong>Colors Custom</strong>, on pose vos films proprement, dans le respect des règles suisses.
+            </p>
+            <div class="hero-actions">
+                <a th:href="@{/tarifs}" class="btn-secondary">Voir les tarifs</a>
+                <a th:href="@{/contact}" class="btn-primary">Demander un devis</a>
+            </div>
+        </div>
+        <div class="vt-hero-image">
+            <img th:src="@{/img/vt-hero.jpg}" alt="Voiture avec vitres teintées par Colors Custom">
+        </div>
+    </section>
+
+    <!-- CE QUE L’ON PROPOSE -->
+    <section class="vt-section">
+        <h2>Ce que nous proposons</h2>
+        <div class="vt-grid">
+            <article class="vt-card">
+                <h3>Vitres arrière teintées</h3>
+                <p>
+                    Teinte des vitres arrière (portes arrière, custodes, hayon) avec différents niveaux d’assombrissement,
+                    pour un look plus agressif et une meilleure discrétion.
+                </p>
+            </article>
+            <article class="vt-card">
+                <h3>Teintes avant légales</h3>
+                <p>
+                    Pour l’avant, la loi est plus stricte. Nous vous conseillons uniquement des solutions
+                    compatibles avec la législation suisse, afin d’éviter les mauvaises surprises lors des contrôles.
+                </p>
+            </article>
+            <article class="vt-card">
+                <h3>Films hautes performances</h3>
+                <p>
+                    Films de qualité, résistants aux UV et à la chaleur, avec une bonne stabilité
+                    dans le temps. Disponible aussi en version céramique, sur devis.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- TEINTES DISPONIBLES -->
+    <section class="vt-section shades">
+        <h2>Choisir sa teinte</h2>
+        <p class="vt-intro">
+            On choisit la teinte avec vous en fonction du look que vous voulez, de la luminosité souhaitée
+            et de l’usage du véhicule (famille, trajets pro, etc.).
+        </p>
+        <div class="vt-teinte-grid">
+            <div class="vt-teinte">
+                <span class="vt-label">Teinte légère</span>
+                <p>Look discret, légère réduction de chaleur et des UV, idéal pour rester sobre.</p>
+            </div>
+            <div class="vt-teinte">
+                <span class="vt-label">Teinte moyenne</span>
+                <p>Bon équilibre entre style, confort et discrétion. Parfait pour un usage quotidien.</p>
+            </div>
+            <div class="vt-teinte">
+                <span class="vt-label">Teinte foncée</span>
+                <p>Effet “privacy” marqué, look affirmé et protection maximale des regards extérieurs.</p>
+            </div>
+        </div>
+        <p class="vt-warning">
+            ⚠️ Pour les vitres avant, nous restons dans les limites autorisées en Suisse afin de rester en règle.
+        </p>
+    </section>
+
+    <!-- POURQUOI TEINTER SES VITRES ? -->
+    <section class="why-prices">
+        <h2>Pourquoi teinter ses vitres ?</h2>
+        <div class="why-grid">
+
+            <!-- CONFORT -->
+            <div class="why-card">
+                <svg viewBox="0 0 24 24" class="why-icon" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <line x1="12" y1="2" x2="12" y2="5"></line>
+                    <line x1="12" y1="19" x2="12" y2="22"></line>
+                    <line x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                    <line x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                    <line x1="2" y1="12" x2="5" y2="12"></line>
+                    <line x1="19" y1="12" x2="22" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                    <line x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                </svg>
+                <h3>Confort</h3>
+                <p>
+                    Les vitres teintées réduisent l’éblouissement, la chaleur et bloquent une partie des rayons UV,
+                    améliorant ainsi le confort à bord, notamment pour les enfants ou animaux. Elles offrent aussi une
+                    discrétion efficace et esthétique, en protégeant l’intérieur des regards indiscrets.
+                </p>
+            </div>
+
+            <!-- SÉCURITÉ -->
+            <div class="why-card">
+                <svg viewBox="0 0 24 24" class="why-icon" aria-hidden="true">
+                    <path d="M12 2l7 3v6c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"></path>
+                    <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <h3>Sécurité</h3>
+                <p>
+                    Toutes nos vitres teintées ont un effet anti-effraction. Grâce à plusieurs couches protectrices,
+                    elles renforcent la vitre, ralentissent les tentatives de bris et limitent les éclats,
+                    rendant l’intrusion plus difficile et dissuasive.
+                </p>
+            </div>
+
+            <!-- GARANTIE -->
+            <div class="why-card">
+                <svg viewBox="0 0 24 24" class="why-icon" aria-hidden="true">
+                    <path d="M12 2l3 2 3.5-.5.5 3.5 2 3-2 3 .5 3.5-3.5.5-3 2-3-2-3.5.5.5-3.5-2-3 2-3-.5-3.5L9 4z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <h3>Garantie</h3>
+                <p>
+                    Nos produits sont garantis à vie sur la tenue du film (décollement anormal, bulles persistantes,
+                    défauts majeurs liés à la pose). On privilégie des matériaux durables et une pose soignée.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="vt-section">
+        <h2>Comment se déroule la pose ?</h2>
+        <div class="vt-grid">
+            <article class="vt-card">
+                <h3>1. Prise de contact</h3>
+                <p>Vous nous envoyez le modèle de votre véhicule et le type de teinte souhaitée (ou juste votre idée).</p>
+            </article>
+            <article class="vt-card">
+                <h3>2. Devis & choix de la teinte</h3>
+                <p>On discute du rendu, des contraintes légales et du budget, puis on fixe un rendez-vous.</p>
+            </article>
+            <article class="vt-card">
+                <h3>3. Pose & rendu final</h3>
+                <p>Vous déposez votre voiture, on s’occupe de tout. Vous repartez avec un véhicule au look transformé.</p>
+            </article>
+        </div>
+        <div class="vt-center-cta">
+            <a th:href="@{/contact}" class="btn-primary">Parler de mon projet</a>
+        </div>
+    </section>
+     <!-- FAQ COURTE -->
+    <section class="faq">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-item">
+            <h3>Je peux juste teindre les vitres arrière ?</h3>
+            <p>Oui, beaucoup de clients commencent par l’arrière pour l'estéthique et la discrétion.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Combien de temps je dois laisser la voiture ?</h3>
+            <p>Pour des vitres teintées, il faut en général compter entre 1h et 3h selon le véhicule.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Vous faites aussi des stickers ?</h3>
+            <p>Oui, toit, rétros, calandre, bande centrale, détails… on peut partir sur des stickers personnaliser.</p>
+        </div>
+    </section>
+
+</main>
+
+<!-- Barre de CTA mobile (comme sur l'accueil) -->
+<div class="mobile-cta-bar">
+    <a th:href="@{/contact}" class="mobile-cta-btn primary">Demander un devis</a>
+    <a href="tel:+41212113600" class="mobile-cta-btn">Appeler</a>
+</div>
+
+<footer class="footer">
+    <p>© <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Colors Custom. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>

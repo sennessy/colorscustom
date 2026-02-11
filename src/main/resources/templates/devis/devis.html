@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<div th:replace="fragments/header :: fragment"></div>
+
+<!-- HERO / INTRO -->
+<section class="tint-hero">
+    <h1>Votre projet commence ici.</h1>
+    <p>
+        Chaque véhicule est différent.  
+        Dites‑nous ce que vous avez en tête, on s’occupe du reste.
+    </p>
+</section>
+
+<!-- EXPERT BLOCK -->
+<section class="tint-expert">
+    <h2>Parle à un expert</h2>
+    <ul>
+        <li>Réponse sous 24–48h</li>
+        <li>Devis gratuit et sans engagement</li>
+        <li>Solutions sur‑mesure uniquement</li>
+    </ul>
+</section>
+
+<!-- FORMULAIRE DE DEVIS -->
+<section class="tint-form">
+
+    <form class="contact-form">
+
+        <input type="text" placeholder="Nom*" required>
+        <input type="email" placeholder="Email*" required>
+        <input type="text" placeholder="Téléphone*" required>
+
+        <label>Service souhaité</label>
+        <div class="checkboxes">
+            <label><input type="checkbox"> Vitres teintées</label>
+            <label><input type="checkbox"> Film de protection (PPF)</label>
+            <label><input type="checkbox"> Revêtement céramique</label>
+            <label><input type="checkbox"> Feux teintés</label>
+            <label><input type="checkbox"> Création visuelle</label>
+            <label><input type="checkbox"> Autre service</label>
+        </div>
+
+        <textarea placeholder="Décrivez votre projet*" required></textarea>
+
+        <button type="submit" class="contact-submit">Envoyer ma demande</button>
+
+    </form>
+
+</section>
+
+</body>
+</html>

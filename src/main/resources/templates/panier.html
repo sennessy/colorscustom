@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Panier</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background:#fafafa; color:#111; }
+    .announce { background:#111; color:#fff; padding:10px 14px; font-weight: 900; text-align:center; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 18px 16px 60px; }
+    .row { display:flex; justify-content:space-between; gap:12px; align-items:baseline; }
+    .card { background:#fff; border-radius:16px; padding: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.10); margin-top: 14px; }
+    .item { display:flex; gap: 12px; align-items:center; padding: 10px 0; border-top: 1px solid #eee; }
+    .item:first-child { border-top: none; }
+    img { width: 64px; height: 64px; object-fit: cover; border-radius: 12px; background:#f3f3f3; }
+    .name { font-weight: 900; margin:0; }
+    .sub { margin:0; opacity:.75; font-size: 13px; }
+    .qty { display:flex; gap: 8px; align-items:center; }
+    .btn { border:none; border-radius: 10px; padding: 8px 10px; font-weight: 900; cursor:pointer; background:#111; color:#fff; }
+    .btnGhost { background:#fff; color:#111; border: 1px solid rgba(0,0,0,.12); }
+    .total { font-size: 18px; font-weight: 900; }
+    a { color:#111; font-weight: 900; text-decoration:none; }
+    .usp { font-weight: 900; }
+    .note { opacity:.75; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="announce" th:text="${shippingUSP}">Livraison gratuite partout en Suisse 🇨🇭</div>
+
+  <div class="wrap">
+    <div class="row">
+      <h1 style="margin:0;">Panier</h1>
+      <a th:href="@{/boutique}">← Continuer mes achats</a>
+    </div>
+
+    <div class="card">
+      <div class="usp">🚚 Livraison gratuite Suisse 🇨🇭</div>
+      <div class="note">Aucun frais caché au checkout.</div>
+    </div>
+
+    <div class="card" th:if="${#lists.isEmpty(cart.items)}">
+      Ton panier est vide.
+    </div>
+
+    <div class="card" th:if="${!#lists.isEmpty(cart.items)}">
+      <div class="item" th:each="it : ${cart.items}">
+        <img th:src="${it.imageUrl}" th:alt="${it.name}"/>
+        <div style="flex:1;">
+          <p class="name" th:text="${it.name}">Produit</p>
+          <p class="sub" th:text="${it.subtitle}">Sous-titre</p>
+          <p style="margin:6px 0 0; font-weight:900;" th:text="${'CHF ' + #numbers.formatDecimal(it.unitPrice, 1, 2)}">CHF 0.00</p>
+        </div>
+
+        <div class="qty">
+          <form th:action="@{'/cart/dec/' + ${it.productId}}" method="post">
+            <button class="btn btnGhost" type="submit">−</button>
+          </form>
+          <div style="min-width:24px; text-align:center; font-weight:900;" th:text="${it.quantity}">1</div>
+          <form th:action="@{'/cart/add/' + ${it.productId}}" method="post">
+            <button class="btn btnGhost" type="submit">+</button>
+          </form>
+        </div>
+
+        <form th:action="@{'/cart/remove/' + ${it.productId}}" method="post">
+          <button class="btn" type="submit">Supprimer</button>
+        </form>
+      </div>
+
+      <div class="row" style="margin-top: 14px;">
+        <div class="note">Sous-total</div>
+        <div class="total" th:text="${'CHF ' + #numbers.formatDecimal(cart.subtotal, 1, 2)}">CHF 0.00</div>
+      </div>
+
+      <div class="row" style="margin-top: 12px;">
+        <div class="note">Livraison</div>
+        <div class="total">CHF 0.00</div>
+      </div>
+
+      <div class="row" style="margin-top: 12px;">
+        <div class="total">Total</div>
+        <div class="total" th:text="${'CHF ' + #numbers.formatDecimal(cart.subtotal, 1, 2)}">CHF 0.00</div>
+      </div>
+
+      <form th:action="@{/checkout}" method="post" style="margin-top: 14px;">
+        <button class="btn" style="width:100%; padding: 12px;">Passer au paiement (Apple Pay / Carte)</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

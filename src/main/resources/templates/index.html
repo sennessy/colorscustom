@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div th:replace="fragments/header :: fragment"></div>
+
+<!-- SERVICES -->
+<section class="services-section">
+
+    <div th:replace="fragments/service-card :: fragment(
+        title='Vitres teintées',
+        description='Réduisez l\'éblouissement et roulez avec style. Profitez d\'un confort visuel optimal tout en protégeant votre véhicule.',
+        link='/services/vitres-teintees'
+    )"></div>
+
+    <div th:replace="fragments/service-card :: fragment(
+        title='Covering',
+        description='Ajoutez un style vibrant sans compromis sur la protection. Colors Custom offre un nouveau look audacieux avec une durabilité éprouvée.',
+        link='/services/covering'
+    )"></div>
+
+    <div th:replace="fragments/service-card :: fragment(
+        title='Revêtement céramique',
+        description='Repoussez saletés et liquides tout en prenant la route. Conçu pour tous types de surfaces, se fixe au niveau moléculaire pour faciliter le nettoyage et réduire l\'entretien.',
+        link='/services/ceramique'
+    )"></div>
+
+    <div th:replace="fragments/service-card :: fragment(
+        title='Feux teintés',
+        description='Vos feux arrière, le détail qui fait la différence. Sublimez le style de votre véhicule grâce à notre teintage sur mesure.',
+        link='/services/feux-teintes'
+    )"></div>
+
+    <div th:replace="fragments/service-card :: fragment(
+        title='Création visuelle sur mesure',
+        description='Stickers, logos, lettrages ou bandes décoratives. Choisissez parmi plusieurs couleurs, tailles et finitions pour un résultat unique.',
+        link='/services/creation-visuelle'
+    )"></div>
+
+    <div th:replace="fragments/service-card :: fragment(
+        title='Produits d\'entretien',
+        description='Tout ce qu\'il vous faut pour entretenir et protéger votre véhicule, des accessoires aux produits spécialisés.',
+        link='/boutique/entretien'
+    )"></div>
+
+</section>
+
+<!-- B2 SECTION -->
+<section class="b2-section">
+
+    <div class="b2-slider">
+
+        <div class="b2-slide"
+             th:replace="fragments/b2-section-card :: fragment(
+                title='Privés',
+                link='/services'
+             )"></div>
+
+        <div class="b2-slide"
+             th:replace="fragments/b2-section-card :: fragment(
+                title='Entreprises',
+                link='/entreprises'
+             )"></div>
+
+    </div>
+
+</section>
+
+<script src="/js/b2-slider.js"></script>
+
+<!-- EXPERTISE -->
+<section class="expertise-section">
+
+    <div th:replace="fragments/expertise-card :: fragment(
+        title='Voiture',
+        link='/expertise/voiture'
+    )"></div>
+
+    <div th:replace="fragments/expertise-card :: fragment(
+        title='Moto',
+        link='/expertise/moto'
+    )"></div>
+
+    <div th:replace="fragments/expertise-card :: fragment(
+        title='Nautique',
+        link='/expertise/nautique'
+    )"></div>
+
+    <div th:replace="fragments/expertise-card :: fragment(
+        title='Véhicules d\'entreprise',
+        link='/expertise/entreprise'
+    )"></div>
+
+    <div th:replace="fragments/expertise-card :: fragment(
+        title='Mobilité spéciale',
+        link='/expertise/mobilite-speciale'
+    )"></div>
+
+</section>
+
+<!-- ENGAGEMENT -->
+<section class="engagement-section">
+
+    <h2 class="engagement-heading">Notre engagement</h2>
+
+    <div class="engagement-slider">
+
+        <div class="engagement-slide"
+             th:replace="fragments/engagement-card :: fragment(
+                title='Artisanat de précision',
+                description='L\'art de la précision, où chaque détail compte.'
+             )"></div>
+
+        <div class="engagement-slide"
+             th:replace="fragments/engagement-card :: fragment(
+                title='Hyper-personnalisation',
+                description='Personnalisez chaque détail, reflétez votre personnalité.'
+             )"></div>
+
+        <div class="engagement-slide"
+             th:replace="fragments/engagement-card :: fragment(
+                title='Durabilité et longévité',
+                description='La beauté durable, pensée pour résister au quotidien.'
+             )"></div>
+
+    </div>
+
+</section>
+
+<script src="/js/engagement-slider.js"></script>
+
+<!-- FAQ -->
+<section class="faq-section">
+
+    <h2 class="faq-heading">Questions Fréquentes</h2>
+
+    <div class="faq-tabs">
+        <button class="faq-tab active" data-tab="services">Services</button>
+        <button class="faq-tab" data-tab="produits">Produits</button>
+        <button class="faq-tab" data-tab="entreprises">Entreprises</button>
+        <button class="faq-tab" data-tab="entretien">Entretien</button>
+        <button class="faq-tab" data-tab="devis">Devis</button>
+        <button class="faq-tab" data-tab="innovation">Innovation</button>
+    </div>
+
+    <div class="faq-content">
+
+        <div class="faq-panel active" id="services">
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Quels services de protection automobile proposez-vous ?',
+                answer='On propose des solutions complètes de protection esthétique et durable pour véhicules, incluant : PPF, traitements céramiques, vitres teintées, protection intérieure.'
+            )"></div>
+
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Le PPF protège-t-il vraiment contre les impacts ?',
+                answer='Oui, le PPF est conçu pour absorber les impacts légverts et protéger la peinture d’origine.'
+            )"></div>
+
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Combien de temps dure l’installation ?',
+                answer='Cela dépend du service choisi, mais la plupart des installations se font en quelques heures à une journée.'
+            )"></div>
+        </div>
+
+        <div class="faq-panel" id="produits">
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Quelle marque de film utilisez-vous ?',
+                answer='Nous utilisons des films premium reconnus pour leur durabilité et leur transparence.'
+            )"></div>
+
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Le film jaunit-il avec le temps ?',
+                answer='Non, nos films sont traités contre le jaunissement et résistent aux UV.'
+            )"></div>
+        </div>
+
+        <div class="faq-panel" id="entreprises">
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Travaillez-vous avec des flottes ou des entreprises ?',
+                answer='Oui, nous proposons des solutions adaptées aux flottes professionnelles et aux véhicules commerciaux.'
+            )"></div>
+        </div>
+
+        <div class="faq-panel" id="entretien">
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Comment entretenir un véhicule protégé par PPF ou céramique ?',
+                answer='Un entretien régulier avec des produits adaptés permet de prolonger la durée de vie des protections.'
+            )"></div>
+        </div>
+
+        <div class="faq-panel" id="devis">
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Combien de temps prend l’élaboration d’un devis ?',
+                answer='En général, un devis est fourni dans les 24 heures suivant la demande.'
+            )"></div>
+        </div>
+
+        <div class="faq-panel" id="innovation">
+            <div th:replace="fragments/faq-item :: fragment(
+                question='Quels éléments de mon véhicule peuvent être personnalisés ?',
+                answer='Presque tout : vitres, carrosserie, feux, éléments intérieurs, logos, motifs, etc.'
+            )"></div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<div th:replace="fragments/footer :: fragment"></div>
+
+</body>
+</html>
