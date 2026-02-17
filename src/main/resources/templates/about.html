@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NOTRE ÉQUIPE | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('')}"></div>
+
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">COLORS CUSTOM</span>
+      <h1>NOTRE ÉQUIPE</h1>
+      <img src="/img/placeholder-expertise.svg" alt="Notre équipe" class="mono-hero" />
+      <p>Derrière chaque véhicule, il y a des mains, des regards et des décisions précises.</p>
+      <p>Chaque intervention est réalisée dans notre atelier avec la même exigence, qu'il s'agisse d'un projet unique ou d'une flotte complète.</p>
+    </section>
+
+    <section>
+      <h2>FONDATEURS</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>SAMUEL CARLOS</h3>
+          <p>Fondateur. Structure chaque projet selon l'usage du véhicule, l'image de marque et le niveau d'exigence attendu.</p>
+        </article>
+        <article class="list-card">
+          <h3>CATALIN MOLDAVINHO</h3>
+          <p>Co-fondateur. Garantit la qualité d'exécution, la précision de pose et les finitions invisibles mais décisives.</p>
+        </article>
+        <article class="list-card">
+          <h3>UNE MEME METHODE</h3>
+          <p>Conseil clair, préparation rigoureuse, pose contrôlée, vérification finale avant livraison.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>RÔLES CLÉS</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>DIRECTION PROJET</h3>
+          <p>Vision, cadrage et priorisation des objectifs client.</p>
+        </article>
+        <article class="list-card">
+          <h3>EXPERTISE TECHNIQUE</h3>
+          <p>Choix des matériaux, protocole de pose et finition.</p>
+        </article>
+        <article class="list-card">
+          <h3>SUIVI LONG TERME</h3>
+          <p>Conseils d'entretien, contrôle post-pose et relation durable.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

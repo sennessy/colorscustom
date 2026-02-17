@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SERVICE | FEUX TEINTÉS | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
-
 <body>
-
-<div th:replace="fragments/header :: fragment"></div>
-
-<section class="service-page">
-
-    <h1>Feux teintés</h1>
-
-    <p class="service-text">
-        Les feux teintés apportent une signature visuelle forte à votre véhicule.
-        Réalisée avec des films spécifiques, cette personnalisation améliore l'esthétique
-        sans compromettre la visibilité ni la sécurité, lorsqu'elle est correctement appliquée.
-    </p>
-
-    <img src="/img/placeholder-service.jpg" class="service-page-image">
-
-    <a href="/contact" class="service-page-cta">En savoir plus</a>
-
-</section>
-
+  <div th:replace="~{fragments/header :: fragment('services')}"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">SERVICE</span>
+      <h1>FEUX TEINTÉS</h1>
+      <img src="/img/placeholder-service.svg" alt="Feux teintés" class="mono-hero" />
+      <p>Sublimez la signature visuelle du véhicule avec une finition élégante.</p>
+    </section>
+    <section>
+      <h2>RÉSULTAT ATTENDU</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>STYLE PERSONNALISÉ</h3><p>Rendu cohérent avec la ligne du véhicule.</p></article>
+        <article class="list-card"><h3>APPLICATION PRÉCISE</h3><p>Niveau de teinte ajusté au besoin.</p></article>
+        <article class="list-card"><h3>FINITIONS PROPRES</h3><p>Contrôle final avant livraison.</p></article>
+      </div>
+    </section>
+    <div th:replace="~{fragments/prefooter :: fragment}"></div>
+  </main>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

@@ -1,11 +1,13 @@
-<!-- fragments/service-card.html -->
-<div class="service-card">
-    <img src="/img/placeholder-service.jpg" alt="Image service" class="service-image">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
 
-    <div class="service-content">
-        <h2 class="service-title">[[${title}]]</h2>
-        <p class="service-description">[[${description}]]</p>
-
-        <a th:href="@{${link}}" class="service-cta">En savoir plus</a>
-    </div>
+<div class="service-card" th:fragment="fragment(title, description, link)">
+  <img src="/img/placeholder-service.svg" alt="Service" class="service-card__img" />
+  <h3 class="service-card__title" th:text="${title}">Titre</h3>
+  <p class="service-card__desc" th:text="${description}">Description</p>
+  <a class="service-card__link" th:href="@{${link}}">En savoir plus</a>
 </div>
+
+</body>
+</html>

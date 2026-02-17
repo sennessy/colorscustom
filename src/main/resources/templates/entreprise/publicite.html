@@ -1,27 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENTREPRISES | PUBLICITÉ VÉHICULE</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
-
 <body>
+  <div th:replace="~{fragments/header :: fragment('entreprise')}"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">ENTREPRISES</span>
+      <h1>PUBLICITÉ VÉHICULE</h1>
+      <img src="/img/placeholder-service.svg" alt="Publicité véhicule" class="mono-hero" />
+      <p>Votre véhicule devient un support de communication mobile.</p>
+      <p>Nous concevons et installons des solutions publicitaires efficaces, élégantes et adaptées à votre image.</p>
+    </section>
 
-<div th:replace="fragments/header :: fragment"></div>
+    <section>
+      <h2>VOTRE VÉHICULE ROULE. VOTRE PUBLICITÉ AUSSI.</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>VISIBILITÉ CONTINUE</h3><p>Chaque trajet crée des points de contact avec votre audience locale.</p></article>
+        <article class="list-card"><h3>PRÉSENCE QUOTIDIENNE</h3><p>Le véhicule est vu en circulation et à l'arrêt, dans des zones à forte affluence.</p></article>
+        <article class="list-card"><h3>MÉMORISATION</h3><p>Une identité visuelle répétée ancre votre marque durablement.</p></article>
+      </div>
+    </section>
 
-<section class="entreprise-page">
+    <section>
+      <h2>FORMATS DISPONIBLES</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>MARQUAGE PARTIEL</h3><p>Message ciblé sur zones stratégiques.</p></article>
+        <article class="list-card"><h3>HABILLAGE LATERAL / ARRIERE</h3><p>Impact visuel local renforcé.</p></article>
+        <article class="list-card"><h3>HABILLAGE COMPLET</h3><p>Présence maximale de la marque.</p></article>
+      </div>
+    </section>
 
-    <h1>Publicité sur véhicules</h1>
-
-    <p class="entreprise-text">
-        Votre véhicule devient un support de communication mobile.
-        Nous concevons et installons des solutions publicitaires efficaces, élégantes et adaptées à votre image.
-    </p>
-
-    <img src="/img/placeholder-service.jpg" class="entreprise-page-image">
-
-    <a href="/contact" class="entreprise-page-cta">En savoir plus</a>
-
-</section>
-
+    <section>
+      <h2>POURQUOI CE FORMAT</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>INVESTISSEMENT UTILE</h3><p>Un support de communication déjà présent dans votre activité.</p></article>
+        <article class="list-card"><h3>MESURABLE</h3><p>Zones de circulation et répétition permettent d'estimer la portée.</p></article>
+        <article class="list-card"><h3>DURABLE</h3><p>Matériaux posés pour résister à l'usage et aux conditions extérieures.</p></article>
+      </div>
+    </section>
+    <div th:replace="~{fragments/prefooter :: fragment}"></div>
+  </main>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

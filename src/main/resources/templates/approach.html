@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NOTRE GARAGE | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('')}"></div>
+
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">COLORS CUSTOM</span>
+      <h1>NOTRE GARAGE</h1>
+      <img src="/img/placeholder-service.svg" alt="Notre garage" class="mono-hero" />
+      <p>Notre garage n'est pas un espace marketing. C'est un atelier fonctionnel pensé pour la qualité d'exécution.</p>
+      <p>Chaque zone, chaque outil et chaque séquence de travail servent un seul objectif: un résultat propre, cohérent et durable.</p>
+    </section>
+
+    <section>
+      <h2>NOTRE APPROCHE</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>QUALITÉ SUISSE</h3>
+          <p>Processus contrôlés et standards de pose stricts.</p>
+        </article>
+        <article class="list-card">
+          <h3>UN ATELIER, PAS UN SHOWROOM</h3>
+          <p>Priorité à l'efficacité, la précision et la durabilité.</p>
+        </article>
+        <article class="list-card">
+          <h3>ANCRE LOCALEMENT</h3>
+          <p>Proximité client, réactivité et suivi dans le temps.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>STANDARD ATELIER</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>PRÉPARATION</h3>
+          <p>Contrôle initial, nettoyage adapté, identification des zones sensibles.</p>
+        </article>
+        <article class="list-card">
+          <h3>EXÉCUTION</h3>
+          <p>Application méthodique avec points de contrôle à chaque étape.</p>
+        </article>
+        <article class="list-card">
+          <h3>VALIDATION</h3>
+          <p>Vérification finale en lumière directe et en conditions réelles.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

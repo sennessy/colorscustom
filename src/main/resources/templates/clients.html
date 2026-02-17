@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NOS CLIENTS | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('')}"></div>
+
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">COLORS CUSTOM</span>
+      <h1>NOS CLIENTS</h1>
+      <img src="/img/placeholder-expertise.svg" alt="Nos clients" class="mono-hero" />
+      <p>La confiance ne se décrète pas. Elle se construit avec constance, résultat et transparence.</p>
+      <p>Chaque projet livré devient une preuve concrète de notre niveau d'exigence.</p>
+    </section>
+
+    <section>
+      <h2>PROFILS ACCOMPAGNÉS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>PARTICULIERS</h3><p>Projets esthétiques et protections longue durée.</p></article>
+        <article class="list-card"><h3>ENTREPRISES</h3><p>Véhicules de service et image de marque.</p></article>
+        <article class="list-card"><h3>FLOTTES</h3><p>Déploiements structurés par lots.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>POURQUOI ILS REVIENNENT</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>CONSTANCE</h3><p>Même niveau de qualité du premier au dernier véhicule.</p></article>
+        <article class="list-card"><h3>CLARTÉ</h3><p>Devis lisible, étapes explicites et suivi sans zone floue.</p></article>
+        <article class="list-card"><h3>RÉSULTAT</h3><p>Rendu final propre, durable et adapté à l'usage réel.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EXPERTISE | MOTO | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('services')}"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">Expertise</span>
+      <h1>MOTO</h1>
+      <img src="/img/placeholder-expertise.svg" alt="Moto" class="mono-hero" />
+      <p>Approche dédiée aux surfaces exposées et contraintes d'usage intensif.</p>
+    </section>
+    <section>
+      <h2>PRESTATIONS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>PROTECTION PIECES</h3><p>Films adaptés aux zones sensibles.</p></article>
+        <article class="list-card"><h3>HABILLAGE VISUEL</h3><p>Rendu esthétique cohérent.</p></article>
+        <article class="list-card"><h3>FINITION</h3><p>Nettoyage facilité et maintenance.</p></article>
+      </div>
+    </section>
+  </main>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

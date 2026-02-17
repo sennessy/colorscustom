@@ -1,9 +1,12 @@
-<!-- fragments/engagement-card.html -->
-<div class="engagement-card">
-    <img src="/img/placeholder-engagement.jpg" alt="Engagement" class="engagement-image">
-
-    <div class="engagement-content">
-        <h3 class="engagement-title">[[${title}]]</h3>
-        <p class="engagement-description">[[${description}]]</p>
-    </div>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<body>
+<div class="engagement-card" th:fragment="fragment(title, description)">
+  <img src="/img/placeholder-engagement.svg" alt="Engagement" class="engagement-image" />
+  <div class="engagement-content">
+    <h3 class="engagement-title" th:text="${title}">Titre</h3>
+    <p class="engagement-description" th:text="${description}">Description</p>
+  </div>
 </div>
+</body>
+</html>

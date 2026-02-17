@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#f3f3f3"/>
+  <path d="M140 520 L600 140 L1060 520" fill="none" stroke="#d3d3d3" stroke-width="10"/>
+  <text x="600" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#888">ENGAGEMENT</text>
+</svg>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('')}"></div>
+
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">Questions fréquentes</span>
+      <h1>FAQ</h1>
+      <img src="/img/placeholder-service.svg" alt="FAQ" class="mono-hero" />
+      <p>Regroupement par thèmes: services, produits, entreprises, entretien, devis, innovation.</p>
+    </section>
+
+    <section>
+      <h2>SERVICES</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>Quels services de protection automobile proposez-vous ?</h3><p>PPF, revêtement céramique, vitres teintées, covering et finitions visuelles.</p></article>
+        <article class="list-card"><h3>Le PPF protège-t-il vraiment contre les impacts ?</h3><p>Oui, il absorbe les agressions légères et limite les micro-rayures du quotidien.</p></article>
+        <article class="list-card"><h3>Combien de temps dure l'installation ?</h3><p>Selon la zone traitee, de quelques heures a plusieurs jours pour un projet complet.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>PRODUITS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>Quelle marque de film utilisez-vous ?</h3><p>Des films premium reconnus pour la tenue, la transparence et la stabilite UV.</p></article>
+        <article class="list-card"><h3>Le film jaunit-il avec le temps ?</h3><p>Les références sélectionnées sont traitées contre le jaunissement.</p></article>
+        <article class="list-card"><h3>Le film est-il visible sur la carrosserie ?</h3><p>Le rendu est discret lorsque la pose est correcte et les finitions bien contrôlées.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>ENTREPRISES & PROFESSIONNELS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>Travaillez-vous avec des flottes ou des entreprises ?</h3><p>Oui, avec planification par lots et protocole adapte au contexte operationnel.</p></article>
+        <article class="list-card"><h3>Pouvez-vous intervenir dans nos locaux ?</h3><p>Selon la nature du projet et les contraintes techniques, une solution est etudiee.</p></article>
+        <article class="list-card"><h3>Proposez-vous des tarifs adaptés aux flottes ?</h3><p>Oui, avec cadrage selon volumes, niveau de finition et délais attendus.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>ENTRETIEN & DURABILITE</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>Comment entretenir un véhicule protégé par PPF ou céramique ?</h3><p>Avec produits adaptés, lavage doux et routine régulière.</p></article>
+        <article class="list-card"><h3>Le film peut-il etre retire ?</h3><p>Oui, avec une depose contrôlée pour preserver la surface d'origine.</p></article>
+        <article class="list-card"><h3>Puis-je laver mon véhicule en station automatique ?</h3><p>Un lavage manuel est recommandé pour maximiser la durée de vie.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>DEVIS & RENDEZ-VOUS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>Combien de temps prend l'élaboration d'un devis ?</h3><p>En général, une première réponse arrive sous 24 à 48 heures.</p></article>
+        <article class="list-card"><h3>Comment se deroule le processus apres devis ?</h3><p>Validation, planification, execution atelier puis contrôle final.</p></article>
+        <article class="list-card"><h3>Le paiement est-il avant ou apres intervention ?</h3><p>Les modalites sont precisees en amont selon le type de prestation.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>INNOVATION & PERSONNALISATION</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>Quels elements peuvent etre personnalises ?</h3><p>Vitres, carrosserie, feux, logos, bandes et details d'habitacle.</p></article>
+        <article class="list-card"><h3>Proposez-vous des finitions spécifiques ?</h3><p>Oui, selon la matière, l'usage et le rendu souhaité.</p></article>
+        <article class="list-card"><h3>Quelle combinaison de protections recommandez-vous ?</h3><p>Un mix adapté au véhicule, à son usage et au niveau d'exposition.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

@@ -1,134 +1,30 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SERVICE | CRÉATION VISUELLE (DÉTAIL) | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
-
 <body>
-
-<div th:replace="fragments/header :: fragment"></div>
-
-<!-- HERO -->
-<section class="tint-hero">
-    <h1>Création visuelle personnalisée</h1>
-    <p>
-        La création visuelle sur‑mesure transforme votre véhicule en un objet unique.
-        Qu’il s’agisse d’un détail graphique discret ou d’une identité visuelle complète,
-        chaque projet est conçu pour refléter votre style, votre image ou votre marque.
-    </p>
-</section>
-
-<!-- DOUBLE SLIDER -->
-<section class="tint-sliders">
-
-    <!-- SLIDER VERTICAL -->
-    <div class="tint-vertical-slider">
-
-        <div class="tint-vertical-item active" data-index="0">
-            <h3>Design minimaliste</h3>
-            <p>Lignes fines, touches subtiles, élégance discrète.</p>
-            <span class="tint-price">À partir de CHF 120.–</span>
-        </div>
-
-        <div class="tint-vertical-item" data-index="1">
-            <h3>Design sportif</h3>
-            <p>Look dynamique, bandes racing, accents agressifs.</p>
-            <span class="tint-price">À partir de CHF 180.–</span>
-        </div>
-
-        <div class="tint-vertical-item" data-index="2">
-            <h3>Design complet</h3>
-            <p>Transformation totale : identité visuelle, branding, covering partiel.</p>
-            <span class="tint-price">À partir de CHF 350.–</span>
-        </div>
-
-    </div>
-
-    <!-- SLIDER HORIZONTAL -->
-    <div class="tint-horizontal-slider">
-
-        <div class="tint-horizontal-item active" data-index="0">
-            <img src="/img/placeholder-service.jpg">
-            <a href="/devis" class="tint-cta">Faire un devis</a>
-        </div>
-
-        <div class="tint-horizontal-item" data-index="1">
-            <img src="/img/placeholder-service.jpg">
-            <a href="/devis" class="tint-cta">Faire un devis</a>
-        </div>
-
-        <div class="tint-horizontal-item" data-index="2">
-            <img src="/img/placeholder-service.jpg">
-            <a href="/devis" class="tint-cta">Faire un devis</a>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- SECTION AVANTAGES -->
-<section class="tint-benefits">
-
-    <h2>Pourquoi choisir une création visuelle ?</h2>
-
-    <div class="benefit">
-        <h3>Identité unique</h3>
-        <p>Votre véhicule devient une extension de votre style ou de votre marque.</p>
-    </div>
-
-    <div class="benefit">
-        <h3>Impact visuel fort</h3>
-        <p>Un design qui attire l’œil et renforce votre présence.</p>
-    </div>
-
-    <div class="benefit">
-        <h3>Finition professionnelle</h3>
-        <p>Designs réalisés sur‑mesure, installation précise et durable.</p>
-    </div>
-
-</section>
-
-<!-- SECTION EXPERT -->
-<section class="tint-expert">
-    <h2>Parle à un expert</h2>
-    <ul>
-        <li>Réponse sous 24–48h</li>
-        <li>Devis gratuit et sans engagement</li>
-        <li>Solutions sur‑mesure uniquement</li>
-    </ul>
-</section>
-
-<!-- FORMULAIRE -->
-<section class="tint-form">
-
-    <h2>Votre projet commence ici.</h2>
-    <p>Chaque véhicule est différent. Dites‑nous ce que vous avez en tête.</p>
-
-    <form class="contact-form">
-
-        <input type="text" placeholder="Nom*" required>
-        <input type="email" placeholder="Email*" required>
-        <input type="text" placeholder="Téléphone*">
-
-        <label>Service</label>
-        <div class="checkboxes">
-            <label><input type="checkbox"> Création visuelle</label>
-            <label><input type="checkbox"> Covering</label>
-            <label><input type="checkbox"> Vitres teintées</label>
-            <label><input type="checkbox"> Film de protection</label>
-            <label><input type="checkbox"> Revêtement céramique</label>
-            <label><input type="checkbox"> Autre service</label>
-        </div>
-
-        <textarea placeholder="Message*" required></textarea>
-
-        <button type="submit" class="contact-submit">Envoyer</button>
-
-    </form>
-
-</section>
-
-<script src="/js/vitres.js"></script>
-
+  <div th:replace="~{fragments/header :: fragment('services')}"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">SERVICE</span>
+      <h1>CRÉATION VISUELLE - DÉTAIL</h1>
+      <img src="/img/placeholder-service.svg" alt="Creation detail" class="mono-hero" />
+      <p>Version détaillée des options de style et de marquage.</p>
+    </section>
+    <section>
+      <h2>APPROCHES DE DESIGN</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>MINIMALISTE</h3><p>Lignes et détails subtils.</p><p>À partir de CHF 120</p></article>
+        <article class="list-card"><h3>SPORTIF</h3><p>Rendu dynamique.</p><p>À partir de CHF 180</p></article>
+        <article class="list-card"><h3>COMPLET</h3><p>Identité visuelle globale.</p><p>À partir de CHF 350</p></article>
+      </div>
+    </section>
+    <div th:replace="~{fragments/prefooter :: fragment}"></div>
+  </main>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

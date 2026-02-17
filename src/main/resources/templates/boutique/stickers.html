@@ -1,28 +1,77 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOUTIQUE | STICKERS ET ELEMENTS VISUELS</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
-
 <body>
+  <div th:replace="~{fragments/header :: fragment('boutique')}"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">BOUTIQUE</span>
+      <h1>STICKERS ET ELEMENTS VISUELS</h1>
+      <img src="/img/placeholder-service.svg" alt="Stickers" class="mono-hero" />
+      <p>Les stickers et éléments visuels permettent de personnaliser un véhicule avec précision.</p>
+      <p>Discrets ou affirmés, ils sont pensés pour s'intégrer au design d'origine et renforcer l'identité visuelle.</p>
+    </section>
 
-<div th:replace="fragments/header :: fragment"></div>
+    <section>
+      <h2>TOP VENTES</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>VISUELS ICONIQUES</h3><p>References connues et editions limitees.</p></article>
+        <article class="list-card"><h3>MOTIFS GRAPHIQUES</h3><p>Lignes, formes et decors techniques.</p></article>
+        <article class="list-card"><h3>LOGOS MARQUES</h3><p>Signatures visuelles compatibles carrosserie.</p></article>
+      </div>
+    </section>
 
-<section class="boutique-page">
+    <section>
+      <h2>POP CULTURE</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>ROCK ET ICONES</h3><p>Univers musicaux et figures cultes.</p></article>
+        <article class="list-card"><h3>SPORT ET CLUBS</h3><p>References automobile et sportives.</p></article>
+        <article class="list-card"><h3>COLLECTION RETRO</h3><p>Style old school et signatures visuelles.</p></article>
+      </div>
+    </section>
 
-    <h1>Stickers et éléments visuels</h1>
+    <section>
+      <h2>FORMES ET DECORATIONS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>TRIBAL</h3><p>Formes dynamiques pour profils de caisse.</p></article>
+        <article class="list-card"><h3>GEOMETRIQUE</h3><p>Lignes nettes et composition moderne.</p></article>
+        <article class="list-card"><h3>ORNEMENTAL</h3><p>Motifs decoratifs pour rendu personnalise.</p></article>
+      </div>
+    </section>
 
-    <p class="boutique-text">
-        Les stickers et éléments visuels permettent de personnaliser votre véhicule avec précision.
-        Qu'ils soient discrets ou affirmés, chaque élément est conçu pour s'intégrer parfaitement
-        au design du véhicule.
-    </p>
+    <section>
+      <h2>LOGOS ET BRANDS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>AUTOMOBILE</h3><p>Logos de marques et sous-gammes.</p></article>
+        <article class="list-card"><h3>LIFESTYLE</h3><p>Univers mode et culture urbaine.</p></article>
+        <article class="list-card"><h3>RACING</h3><p>Badges inspires competition et performance.</p></article>
+      </div>
+    </section>
 
-    <img src="/img/placeholder-product.jpg" class="boutique-page-image">
+    <section>
+      <h2>BANDES DECORATIVES</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>DAMIER</h3><p>Codes visuels motorsport classiques.</p></article>
+        <article class="list-card"><h3>LISERETS</h3><p>Bandes fines pour contours et contraste.</p></article>
+        <article class="list-card"><h3>RACING STRIPES</h3><p>Bandes centrales et latérales personnalisées.</p></article>
+      </div>
+    </section>
 
-    <a href="/contact" class="boutique-page-cta">En savoir plus</a>
-
-</section>
-
+    <section>
+      <h2>ACTIONS DU MOMENT</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>PROMO 2x1</h3><p>Deux designs pour un usage.</p></article>
+        <article class="list-card"><h3>PROMO 3x2</h3><p>Pack mix stickers et bandes.</p></article>
+        <article class="list-card"><h3>PROMO 5x4</h3><p>Sélection atelier pour séries véhicules.</p></article>
+      </div>
+    </section>
+    <div th:replace="~{fragments/prefooter :: fragment}"></div>
+  </main>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

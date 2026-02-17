@@ -12,33 +12,21 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                // pas de CSRF pour le moment (on n'a pas de formulaires sensibles)
-                .csrf(csrf -> csrf.disable())
+                // CSRF activé partout sauf webhook Stripe (appel serveur à serveur)
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/stripe/webhook"))
 
-                // on autorise tout le monde à accéder à toutes les pages
+                // Autorise absolument toutes les requêtes
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                "/",              // accueil
-                                "/vitres-teintees",
-                                "/covering",
-                                "/tarifs",
-                                "/boutique",
-                                "/contact",
-                                "/css/**",
-                                "/js/**",
-                                "/img/**",
-                                "/h2-console/**"
-                        ).permitAll()
                         .anyRequest().permitAll()
                 )
 
-                // pas de formulaire de login
+                // Pas de login
                 .formLogin(form -> form.disable())
 
-                // pas de basic auth
+                // Pas de basic auth
                 .httpBasic(basic -> basic.disable());
 
-        // si jamais tu utilises la console H2
+        // Autorise les frames (utile en dev, ex: console H2)
         http.headers(headers -> headers.frameOptions(frame -> frame.disable()));
 
         return http.build();

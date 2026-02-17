@@ -1,113 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Tarifs – Colors Custom</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-          content="Tarifs vitres teintées chez Colors Custom : teintes avant, arrière, SUV, vans et films céramiques. Demandez un devis personnalisé.">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TARIFS | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-<header class="header header-simple">
-  <div class="logo">
-    <a th:href="@{/}">Colors Custom</a>
-  </div>
+  <div th:replace="~{fragments/header :: fragment('services')}"></div>
 
-  <nav class="nav nav-simple" aria-label="Navigation principale">
-    <!-- Services : renvoie sur la home, section #services -->
-    <a th:href="@{/#services}">Services</a>
-
-    <a th:href="@{/boutique}">Boutique</a>
-
-    <a th:href="@{/contact}" class="btn-primary">Contact</a>
-
-    <!-- Panier : visible partout -->
-    <a th:href="@{/panier}" class="nav-cart" aria-label="Panier">
-      <span class="cart-ico" aria-hidden="true">🛒</span>
-      <span class="cart-badge" th:text="${cartCount}">0</span>
-    </a>
-  </nav>
-</header>
-
-
-<main>
-
-    <section class="tarifs">
-        <h1>Tarifs vitres teintées</h1>
-        <p class="tarifs-intro">
-            Les prix varient selon le type de véhicule et la surface à teinter.
-            Les montants ci-dessous sont des prix <strong>“dès”</strong> pour une pose propre, avec des films de qualité.
-        </p>
-
-        <div class="tarif-grid">
-
-            <!-- TEINTES AVANT -->
-            <div class="tarif-card">
-                <h3>Teintes avant</h3>
-                <p class="subtitle">Tout type de véhicule</p>
-                <p class="price">dès <strong>139 CHF</strong></p>
-            </div>
-
-            <!-- TEINTES 3/4 ARRIÈRE – CITADINE 3 PORTES -->
-            <div class="tarif-card">
-                <h3>Teintes 3/4 arrière</h3>
-                <p class="subtitle">Citadine 3 portes</p>
-                <p class="price">dès <strong>249 CHF</strong></p>
-            </div>
-
-            <!-- CITADINE 5 PORTES -->
-            <div class="tarif-card">
-                <h3>Teintes 3/4 arrière</h3>
-                <p class="subtitle">Citadine 5 portes</p>
-                <p class="price">dès <strong>299 CHF</strong></p>
-            </div>
-
-            <!-- BERLINE -->
-            <div class="tarif-card">
-                <h3>Teintes 3/4 arrière</h3>
-                <p class="subtitle">Berline</p>
-                <p class="price">dès <strong>339 CHF</strong></p>
-            </div>
-
-            <!-- SUV / BREAK -->
-            <div class="tarif-card">
-                <h3>Teintes 3/4 arrière</h3>
-                <p class="subtitle">SUV / Break</p>
-                <p class="price">dès <strong>369 CHF</strong></p>
-            </div>
-
-            <!-- VAN / MONOSPACE -->
-            <div class="tarif-card">
-                <h3>Teintes 3/4 arrière</h3>
-                <p class="subtitle">Van / Monospace*</p>
-                <p class="price">dès <strong>419 CHF</strong></p>
-            </div>
-
-            <!-- CÉRAMIQUE -->
-            <div class="tarif-card ">
-                <h3>Protection céramiques</h3>
-                <p class="subtitle">Pose de produits hydrophobique</p>
-                <p class="price">dès 19 CHF</p>
-            </div>
-
-        </div>
-
-        <p class="note">
-            * Certains modèles nécessitent un devis spécifique en fonction du gabarit et de la complexité.
-        </p>
-
-        <div class="tarifs-cta">
-            <p>Un doute sur la catégorie de votre véhicule ou le type de teinte ?</p>
-            <a th:href="@{/contact}" class="btn-primary">Demander un devis précis</a>
-        </div>
+  <main class="page-shell">
+    <section>
+      <h1>TARIFS VITRES TEINTÉES</h1>
+      <p>Prix indicatifs dès selon type de véhicule et niveau de prestation.</p>
     </section>
 
-</main>
+    <section>
+      <div class="section-grid section-grid--3">
+        <article class="panel"><h3>Teintes avant</h3><p>Tout véhicule</p><p>Dès 139 CHF</p></article>
+        <article class="panel"><h3>3/4 arriere</h3><p>Citadine 3 portes</p><p>Dès 249 CHF</p></article>
+        <article class="panel"><h3>3/4 arriere</h3><p>Citadine 5 portes</p><p>Dès 299 CHF</p></article>
+        <article class="panel"><h3>3/4 arriere</h3><p>Berline</p><p>Dès 339 CHF</p></article>
+        <article class="panel"><h3>3/4 arriere</h3><p>SUV / Break</p><p>Dès 369 CHF</p></article>
+        <article class="panel"><h3>3/4 arriere</h3><p>Van / Monospace</p><p>Dès 419 CHF</p></article>
+        <article class="panel"><h3>Protection ceramique</h3><p>Traitement hydrophobe</p><p>Dès 19 CHF</p></article>
+      </div>
+    </section>
 
-<footer class="footer">
-    <p>© <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}"></span> Colors Custom. Tous droits réservés.</p>
-</footer>
+    <section>
+      <p>Certains modèles nécessitent un devis spécifique selon gabarit et complexité.</p>
+      <p><a th:href="@{/devis}">Demander un devis précis</a></p>
+    </section>
+  </main>
 
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

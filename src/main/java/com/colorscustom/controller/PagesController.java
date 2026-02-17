@@ -1,137 +1,96 @@
-// CONTROLLER CORRIGÉ ET PROPRE
+package com.colorscustom.controller;
 
-@GetMapping("/services/vitres-teintees")
-public String vitresTeintees() {
-    return "services/vitres-teintees";
-}
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@GetMapping("/services/covering")
-public String covering() {
-    return "services/covering";
-}
+@Controller
+public class PagesController {
 
-@GetMapping("/services/ceramique")
-public String ceramique() {
-    return "services/ceramique";
-}
+    // SERVICES
+    @GetMapping("/services")
+    public String servicesOverview() { return "services"; }
 
-@GetMapping("/services/feux-teintes")
-public String feuxTeintes() {
-    return "services/feux-teintees";
-}
+    @GetMapping("/services/vitres-teintees")
+    public String vitresTeintees() { return "services/vitres-teintees"; }
 
-@GetMapping("/services/creation-visuelle")
-public String creationVisuelle() {
-    return "services/creation-visuelle";
-}
+    @GetMapping("/services/covering")
+    public String covering() { return "services/covering"; }
 
-@GetMapping("/services/film-protection")
-public String filmProtection() {
-    return "services/film-protection";
-}
+    @GetMapping("/services/ceramique")
+    public String ceramique() { return "services/ceramique"; }
 
-@GetMapping("/services/ceramique-long")
-public String ceramiqueLong() {
-    return "services/ceramique-long";
-}
+    @GetMapping("/services/feux-teintees")
+    public String feuxTeintees() { return "services/feux-teintees"; }
 
-@GetMapping("/services/creation-visuelle-long")
-public String creationVisuelleLong() {
-    return "services/creation-visuelle-long";
-}
+    @GetMapping("/services/creation-visuelle")
+    public String creationVisuelle() { return "services/creation-visuelle"; }
 
-@GetMapping("/services")
-public String servicesOverview() {
-    return "services";
-}
+    @GetMapping("/services/film-protection")
+    public String filmProtection() { return "services/film-protection"; }
 
-// --------------------
-// BOUTIQUE
-// --------------------
+    @GetMapping("/services/ceramique-long")
+    public String ceramiqueLong() { return "services/ceramique-long"; }
 
-@GetMapping("/boutique")
-public String boutique() {
-    return "boutique/boutique";
-}
+    @GetMapping("/services/creation-visuelle-long")
+    public String creationVisuelleLong() { return "services/creation-visuelle-long"; }
 
-@GetMapping("/boutique/entretien")
-public String boutiqueEntretien() {
-    return "boutique/entretien";
-}
+    // ENTREPRISE
+    @GetMapping("/entreprise")
+    public String entreprise() { return "entreprise/entreprise"; }
 
-@GetMapping("/boutique/stickers")
-public String boutiqueStickers() {
-    return "boutique/stickers";
-}
+    @GetMapping("/entreprise/flotte")
+    public String flotte() { return "entreprise/flotte"; }
 
-@GetMapping("/boutique/accessoires")
-public String boutiqueAccessoires() {
-    return "boutique/accessoires";
-}
+    @GetMapping("/entreprise/publicite")
+    public String publicite() { return "entreprise/publicite"; }
 
-// --------------------
-// ENTREPRISE
-// --------------------
+    @GetMapping("/entreprise/projet-sur-mesure")
+    public String projetSurMesure() { return "entreprise/projet-sur-mesure"; }
 
-@GetMapping("/entreprise")
-public String entreprises() {
-    return "entreprise/entreprise";
-}
+    // EXPERTISE
+    @GetMapping("/expertise/voiture")
+    public String expertiseVoiture() { return "expertise-voiture"; }
 
-@GetMapping("/entreprise/flotte")
-public String flotte() {
-    return "entreprise/flotte";
-}
+    @GetMapping("/expertise/moto")
+    public String expertiseMoto() { return "expertise-moto"; }
 
-@GetMapping("/entreprise/publicite")
-public String publicite() {
-    return "entreprise/publicite";
-}
+    @GetMapping("/expertise/nautique")
+    public String expertiseNautique() { return "expertise-nautique"; }
 
-@GetMapping("/entreprise/projet-sur-mesure")
-public String projetSurMesure() {
-    return "entreprise/projet-sur-mesure";
-}
+    @GetMapping("/expertise/entreprise")
+    public String expertiseEntreprise() { return "expertise-entreprise"; }
 
-// --------------------
-// EXPERTISE
-// --------------------
+    @GetMapping("/expertise/mobilite-speciale")
+    public String expertiseMobilite() { return "expertise-mobilite"; }
 
-@GetMapping("/expertise/voiture")
-public String expertiseVoiture() {
-    return "expertise-voiture";
-}
+    // CONTACT & DEVIS & TARIFS
+    @GetMapping("/boutique/entretien")
+    public String boutiqueEntretien() { return "boutique/entretien"; }
 
-@GetMapping("/expertise/moto")
-public String expertiseMoto() {
-    return "expertise-moto";
-}
+    @GetMapping("/boutique/accessoires")
+    public String boutiqueAccessoires() { return "boutique/accessoires"; }
 
-@GetMapping("/expertise/nautique")
-public String expertiseNautique() {
-    return "expertise-nautique";
-}
+    @GetMapping("/boutique/stickers")
+    public String boutiqueStickers() { return "boutique/stickers"; }
 
-@GetMapping("/expertise/entreprise")
-public String expertiseEntreprise() {
-    return "expertise-entreprise";
-}
+    @GetMapping("/contact")
+    public String contact() { return "contact/contact"; }
 
-@GetMapping("/expertise/mobilite-speciale")
-public String expertiseMobilite() {
-    return "expertise-mobilite";
-}
+    @GetMapping("/devis")
+    public String devis() { return "devis/devis"; }
 
-// --------------------
-// CONTACT & DEVIS
-// --------------------
+    @GetMapping("/tarifs")
+    public String tarifs() { return "tarifs"; }
 
-@GetMapping("/contact")
-public String contact() {
-    return "contact/contact";
-}
+    @GetMapping("/faq")
+    public String faq() { return "faq"; }
 
-@GetMapping("/devis")
-public String devis() {
-    return "devis/devis";
+    @GetMapping("/about")
+    public String about() { return "about"; }
+
+    @GetMapping("/approach")
+    public String approach() { return "approach"; }
+
+    @GetMapping("/clients")
+    public String clients() { return "clients"; }
 }

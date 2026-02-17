@@ -1,64 +1,34 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENTREPRISES | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
-
 <body>
+  <div th:replace="~{fragments/header :: fragment('entreprise')}"></div>
 
-<div th:replace="fragments/header :: fragment"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">ENTREPRISES</span>
+      <h1>ENTREPRISES</h1>
+      <img src="/img/placeholder-expertise.svg" alt="Entreprises" class="mono-hero" />
+      <p>Solutions dédiées aux flottes, véhicules utilitaires et projets de communication.</p>
+      <p>Un parcours clair pour structurer votre besoin, de la protection de parc au projet de visibilité mobile.</p>
+    </section>
 
-<!-- HERO ENTREPRISES -->
-<section class="entreprises-hero">
+    <section>
+      <h2>PARCOURS ENTREPRISE</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>FLOTTE D'ENTREPRISE</h3><p>Protection et homogénéisation de parc.</p><a th:href="@{/entreprise/flotte}">Voir la page</a></article>
+        <article class="list-card"><h3>PUBLICITÉ VÉHICULE</h3><p>Visibilité locale et présence mobile.</p><a th:href="@{/entreprise/publicite}">Voir la page</a></article>
+        <article class="list-card"><h3>PROJET SUR MESURE</h3><p>Conception adaptée à vos contraintes.</p><a th:href="@{/entreprise/projet-sur-mesure}">Voir la page</a></article>
+      </div>
+    </section>
+    <div th:replace="~{fragments/prefooter :: fragment}"></div>
+  </main>
 
-    <h1 class="entreprises-hero-title">ENTREPRISES</h1>
-
-    <button class="entreprises-hero-btn" onclick="scrollToEntreprisesCategories()">
-        Découvrir
-    </button>
-
-    <img src="/img/placeholder-service.jpg" class="entreprises-hero-image" alt="Entreprises">
-</section>
-
-<!-- CATEGORIES -->
-<section id="entreprises-categories" class="entreprises-categories">
-
-    <!-- FLOTTE -->
-    <div class="entreprise-card">
-        <img src="/img/placeholder-service.jpg" class="entreprise-card-image">
-        <h2>Flotte d'entreprise</h2>
-        <p>
-            Nous accompagnons les entreprises dans la protection, la personnalisation et la gestion esthétique
-            de leurs flottes afin de préserver la valeur des véhicules et renforcer l'image de marque.
-        </p>
-        <a href="/entreprises/flotte" class="entreprise-card-cta">En savoir plus</a>
-    </div>
-
-    <!-- PUBLICITÉ -->
-    <div class="entreprise-card">
-        <img src="/img/placeholder-service.jpg" class="entreprise-card-image">
-        <h2>Publicité sur véhicules</h2>
-        <p>
-            Votre véhicule devient un support de communication mobile. Nous concevons et installons des solutions
-            publicitaires efficaces, élégantes et adaptées à votre image.
-        </p>
-        <a href="/entreprises/publicite" class="entreprise-card-cta">En savoir plus</a>
-    </div>
-
-    <!-- PROJET SUR MESURE -->
-    <div class="entreprise-card">
-        <img src="/img/placeholder-service.jpg" class="entreprise-card-image">
-        <h2>Projet sur mesure</h2>
-        <p>
-            Chaque entreprise a des contraintes spécifiques. Nous développons des solutions personnalisées
-            adaptées à vos enjeux techniques, esthétiques et opérationnels.
-        </p>
-        <a href="/entreprises/projet-sur-mesure" class="entreprise-card-cta">En savoir plus</a>
-    </div>
-
-</section>
-
-<script src="/js/entreprises.js"></script>
-
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

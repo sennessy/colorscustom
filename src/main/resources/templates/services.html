@@ -1,72 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SERVICES | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
-
 <body>
+  <div th:replace="~{fragments/header :: fragment('services')}"></div>
 
-<!-- HEADER -->
-<div th:replace="fragments/header :: fragment"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">SERVICES</span>
+      <h1>SERVICES</h1>
+      <img src="/img/placeholder-service.svg" alt="Services" class="mono-hero" />
+      <p>Protection et personnalisation pour véhicules privés et professionnels.</p>
+      <p>Découvrez l'ensemble des prestations COLORS CUSTOM, du confort visuel à la protection complète de carrosserie.</p>
+    </section>
 
-<!-- HERO SERVICES -->
-<section class="services-hero">
+    <section>
+      <h2>CATEGORIES</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>VITRES TEINTÉES</h3><p>Confort visuel, style et protection UV.</p><a th:href="@{/services/vitres-teintees}">En savoir plus</a></article>
+        <article class="list-card"><h3>COVERING</h3><p>Nouveau look sans compromis sur la protection.</p><a th:href="@{/services/covering}">En savoir plus</a></article>
+        <article class="list-card"><h3>REVÊTEMENT CÉRAMIQUE</h3><p>Hydrophobie, brillance et entretien facilité.</p><a th:href="@{/services/ceramique}">En savoir plus</a></article>
+        <article class="list-card"><h3>FEUX TEINTÉS</h3><p>Finition visuelle élégante et personnalisée.</p><a th:href="@{/services/feux-teintees}">En savoir plus</a></article>
+        <article class="list-card"><h3>CRÉATION VISUELLE</h3><p>Logos, stickers, bandes décoratives.</p><a th:href="@{/services/creation-visuelle}">En savoir plus</a></article>
+        <article class="list-card"><h3>FILM DE PROTECTION</h3><p>Barrière invisible contre impacts et rayures.</p><a th:href="@{/services/film-protection}">En savoir plus</a></article>
+      </div>
+    </section>
+    <div th:replace="~{fragments/prefooter :: fragment}"></div>
+  </main>
 
-    <h1 class="services-hero-title">SERVICES</h1>
-
-    <button class="services-hero-btn" onclick="scrollToCategories()">
-        Découvrir
-    </button>
-
-    <img src="/img/placeholder-service.jpg" class="services-hero-image" alt="Services">
-</section>
-
-<!-- CATEGORIES -->
-<section id="services-categories" class="services-categories">
-
-    <!-- COVERING -->
-    <div class="service-overview-card">
-        <img src="/img/placeholder-service.jpg" class="service-overview-image">
-        <h2>Covering</h2>
-        <p>
-            Le film de protection de carrosserie est la solution la plus avancée pour préserver la peinture d'origine.
-        </p>
-        <a href="/services/covering" class="service-overview-cta">En savoir plus</a>
-    </div>
-
-    <!-- REVÊTEMENT CÉRAMIQUE -->
-    <div class="service-overview-card">
-        <img src="/img/placeholder-service.jpg" class="service-overview-image">
-        <h2>Revêtement céramique</h2>
-        <p>
-            Le revêtement céramique crée une barrière invisible entre votre véhicule et les agressions extérieures.
-        </p>
-        <a href="/services/ceramique" class="service-overview-cta">En savoir plus</a>
-    </div>
-
-    <!-- FEUX TEINTÉS -->
-    <div class="service-overview-card">
-        <img src="/img/placeholder-service.jpg" class="service-overview-image">
-        <h2>Feux teintés</h2>
-        <p>
-            Les feux teintés apportent une signature visuelle forte à votre véhicule.
-        </p>
-        <a href="/services/feux-teintes" class="service-overview-cta">En savoir plus</a>
-    </div>
-
-    <!-- CRÉATION VISUELLE -->
-    <div class="service-overview-card">
-        <img src="/img/placeholder-service.jpg" class="service-overview-image">
-        <h2>Création visuelle personnalisée</h2>
-        <p>
-            La création visuelle sur-mesure transforme votre véhicule en un objet unique.
-        </p>
-        <a href="/services/creation-visuelle" class="service-overview-cta">En savoir plus</a>
-    </div>
-
-</section>
-
-<script src="/js/services.js"></script>
-
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

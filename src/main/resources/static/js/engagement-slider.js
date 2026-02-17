@@ -1,5 +1,11 @@
-const engSlider = document.querySelector('.engagement-slider');
-engSlider.addEventListener('wheel', (e) => {
+(() => {
+  const slider = document.querySelector(".engagement-slider");
+  if (!slider) return;
+
+  // Molette => horizontal
+  slider.addEventListener("wheel", (e) => {
+    if (Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
     e.preventDefault();
-    engSlider.scrollLeft += e.deltaY;
-});
+    slider.scrollLeft += e.deltaY;
+  }, { passive: false });
+})();

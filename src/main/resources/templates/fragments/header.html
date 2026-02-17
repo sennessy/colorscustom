@@ -1,61 +1,65 @@
-<script src="/js/header.js"></script>
+<header class="cc-header"
+        th:fragment="fragment(active='')">
 
-<header class="main-header">
+  <div class="cc-header__inner">
 
-    <!-- BURGER MENU (mobile) -->
-    <div class="burger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+    <!-- LOGO -->
+    <a class="cc-brand" th:href="@{/}">
+      <span class="cc-brand__name">COLORS CUSTOM</span>
+    </a>
 
-    <nav class="nav">
+    <!-- NAVIGATION -->
+    <nav class="cc-nav" aria-label="Navigation principale">
 
-        <ul class="nav-menu">
+      <div class="cc-nav__group">
+        <a class="cc-nav__link"
+           th:href="@{/services}"
+           th:classappend="${active == 'services'} ? ' is-active' : ''">
+          Services <span class="cc-nav__chevron">&lt;</span>
+        </a>
+        <div class="cc-nav__submenu">
+          <a th:href="@{/services/vitres-teintees}">Vitres teintées</a>
+          <a th:href="@{/services/covering}">Covering</a>
+          <a th:href="@{/services/ceramique}">Revêtement céramique</a>
+          <a th:href="@{/services/feux-teintees}">Feux teintés</a>
+          <a th:href="@{/services/creation-visuelle}">Création visuelle</a>
+        </div>
+      </div>
 
-            <!-- SERVICES -->
-            <li class="nav-item dropdown">
-                <a href="/services">Services</a>
+      <div class="cc-nav__group">
+        <a class="cc-nav__link"
+           th:href="@{/boutique}"
+           th:classappend="${active == 'boutique'} ? ' is-active' : ''">
+          Boutique Produits <span class="cc-nav__chevron">&lt;</span>
+        </a>
+        <div class="cc-nav__submenu">
+          <a th:href="@{/boutique/entretien}">Produits d'entretien</a>
+          <a th:href="@{/boutique/stickers}">Stickers et visuels</a>
+          <a th:href="@{/boutique/accessoires}">Accessoires et intérieurs</a>
+        </div>
+      </div>
 
-                <ul class="dropdown-menu">
-                    <li><a href="/services/vitres-teintees">Vitres teintées</a></li>
-                    <li><a href="/services/covering">Covering</a></li>
-                    <li><a href="/services/ceramique">Revêtement céramique</a></li>
-                    <li><a href="/services/feux-teintes">Feux teintés</a></li>
-                    <li><a href="/services/creation-visuelle">Création visuelle</a></li>
-                    <li><a href="/boutique/entretien">Produits d’entretien</a></li>
-                </ul>
-            </li>
+      <div class="cc-nav__group">
+        <a class="cc-nav__link"
+           th:href="@{/entreprise}"
+           th:classappend="${active == 'entreprise'} ? ' is-active' : ''">
+          Entreprises <span class="cc-nav__chevron">&lt;</span>
+        </a>
+        <div class="cc-nav__submenu">
+          <a th:href="@{/entreprise/flotte}">Flotte d'entreprise</a>
+          <a th:href="@{/entreprise/publicite}">Publicité véhicule</a>
+          <a th:href="@{/entreprise/projet-sur-mesure}">Projet sur mesure</a>
+        </div>
+      </div>
 
-            <!-- BOUTIQUE -->
-            <li class="nav-item dropdown">
-                <a href="/boutique">Boutique</a>
-
-                <ul class="dropdown-menu">
-                    <li><a href="/boutique/entretien">Produits d’entretien</a></li>
-                    <li><a href="/boutique/stickers">Stickers & éléments visuels</a></li>
-                    <li><a href="/boutique/accessoires">Accessoires & intérieurs</a></li>
-                </ul>
-            </li>
-
-            <!-- ENTREPRISES -->
-            <li class="nav-item dropdown">
-                <a href="/entreprises">Entreprises</a>
-
-                <ul class="dropdown-menu">
-                    <li><a href="/entreprises/flotte">Flotte d’entreprise</a></li>
-                    <li><a href="/entreprises/publicite">Publicité sur véhicules</a></li>
-                    <li><a href="/entreprises/projet-sur-mesure">Projet sur mesure</a></li>
-                </ul>
-            </li>
-
-            <!-- CONTACT -->
-            <li class="nav-item">
-                <a href="/contact">Contact</a>
-            </li>
-
-        </ul>
+      <a class="cc-nav__link"
+         th:href="@{/contact}"
+         th:classappend="${active == 'contact'} ? ' is-active' : ''">
+        Contact <span class="cc-nav__chevron">&lt;</span>
+      </a>
 
     </nav>
+
+  </div>
 
 </header>

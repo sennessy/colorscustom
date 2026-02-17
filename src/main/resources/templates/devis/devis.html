@@ -1,58 +1,42 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
 <head>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DEVIS | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
-
 <body>
+  <div th:replace="~{fragments/header :: fragment('contact')}"></div>
 
-<div th:replace="fragments/header :: fragment"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">Devis & Rendez-vous</span>
+      <h1>DEMANDE DE DEVIS</h1>
+      <p>Decrivez votre besoin: support, niveau de protection, rendu souhaite et delai.</p>
+    </section>
 
-<!-- HERO / INTRO -->
-<section class="tint-hero">
-    <h1>Votre projet commence ici.</h1>
-    <p>
-        Chaque véhicule est différent.  
-        Dites‑nous ce que vous avez en tête, on s’occupe du reste.
-    </p>
-</section>
+    <section>
+      <h2>INFORMATIONS DEMANDEES</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>VÉHICULE / SUPPORT</h3><p>Type, modèle et usage principal.</p></article>
+        <article class="list-card"><h3>SERVICE SOUHAITE</h3><p>PPF, vitres teintées, céramique, visuel.</p></article>
+        <article class="list-card"><h3>CONTRAINTE PLANNING</h3><p>Dates et disponibilites.</p></article>
+      </div>
+    </section>
 
-<!-- EXPERT BLOCK -->
-<section class="tint-expert">
-    <h2>Parle à un expert</h2>
-    <ul>
-        <li>Réponse sous 24–48h</li>
-        <li>Devis gratuit et sans engagement</li>
-        <li>Solutions sur‑mesure uniquement</li>
-    </ul>
-</section>
+    <section>
+      <h2>FORMULAIRE</h2>
+      <form class="inline-form">
+        <input type="text" placeholder="Nom" />
+        <input type="email" placeholder="Email" />
+        <input type="text" placeholder="Telephone" />
+        <textarea rows="6" placeholder="Projet"></textarea>
+        <button type="submit">Envoyer ma demande</button>
+      </form>
+    </section>
+  </main>
 
-<!-- FORMULAIRE DE DEVIS -->
-<section class="tint-form">
-
-    <form class="contact-form">
-
-        <input type="text" placeholder="Nom*" required>
-        <input type="email" placeholder="Email*" required>
-        <input type="text" placeholder="Téléphone*" required>
-
-        <label>Service souhaité</label>
-        <div class="checkboxes">
-            <label><input type="checkbox"> Vitres teintées</label>
-            <label><input type="checkbox"> Film de protection (PPF)</label>
-            <label><input type="checkbox"> Revêtement céramique</label>
-            <label><input type="checkbox"> Feux teintés</label>
-            <label><input type="checkbox"> Création visuelle</label>
-            <label><input type="checkbox"> Autre service</label>
-        </div>
-
-        <textarea placeholder="Décrivez votre projet*" required></textarea>
-
-        <button type="submit" class="contact-submit">Envoyer ma demande</button>
-
-    </form>
-
-</section>
-
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

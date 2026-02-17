@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EXPERTISE | NAUTIQUE | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('services')}"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">Expertise</span>
+      <h1>NAUTIQUE</h1>
+      <img src="/img/placeholder-expertise.svg" alt="Nautique" class="mono-hero" />
+      <p>Solutions durables pour supports exposés à l'humidité et aux UV.</p>
+    </section>
+    <section>
+      <h2>PRESTATIONS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>PROTECTION SURFACE</h3><p>Barrière contre agressions extérieures.</p></article>
+        <article class="list-card"><h3>PERSONNALISATION</h3><p>Habillage visuel cible.</p></article>
+        <article class="list-card"><h3>ENTRETIEN</h3><p>Finitions pour maintenance simplifiée.</p></article>
+      </div>
+    </section>
+  </main>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

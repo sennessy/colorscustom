@@ -1,21 +1,32 @@
-// Onglets
-const tabs = document.querySelectorAll('.faq-tab');
-const panels = document.querySelectorAll('.faq-panel');
+(() => {
+  // Tabs (Services / Produits / ...)
+  const tabs = document.querySelectorAll(".faq-tab");
+  const panels = document.querySelectorAll(".faq-panel");
 
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        panels.forEach(p => p.classList.remove('active'));
+  if (tabs.length && panels.length) {
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const id = tab.getAttribute("data-tab");
+        if (!id) return;
 
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.tab).classList.add('active');
+        tabs.forEach((t) => t.classList.remove("active"));
+        panels.forEach((p) => p.classList.remove("active"));
+
+        tab.classList.add("active");
+        const target = document.getElementById(id);
+        if (target) target.classList.add("active");
+      });
     });
-});
+  }
 
-// Accordéon
-document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        item.classList.toggle('open');
+  // Accordion items (question => open)
+  const items = document.querySelectorAll(".faq-item");
+  items.forEach((item) => {
+    const btn = item.querySelector(".faq-question");
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+      item.classList.toggle("open");
     });
-});
+  });
+})();

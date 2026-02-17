@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EXPERTISE | MOBILITÉ SPÉCIALE | COLORS CUSTOM</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('services')}"></div>
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">Expertise</span>
+      <h1>MOBILITÉ SPÉCIALE</h1>
+      <img src="/img/placeholder-expertise.svg" alt="Mobilite speciale" class="mono-hero" />
+      <p>Interventions sur supports atypiques avec approche sur mesure.</p>
+    </section>
+    <section>
+      <h2>PRESTATIONS</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>PROTECTION</h3><p>Surfaces non standards.</p></article>
+        <article class="list-card"><h3>HABILLAGE</h3><p>Visuels adaptés au support technique.</p></article>
+        <article class="list-card"><h3>MAINTENANCE</h3><p>Documentation et suivi d'entretien.</p></article>
+      </div>
+    </section>
+  </main>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

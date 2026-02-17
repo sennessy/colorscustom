@@ -1,0 +1,24 @@
+<div th:fragment="fragment" class="prefooter-shell">
+  <section class="prefooter-expert">
+    <h2>PARLE A UN EXPERT</h2>
+    <p>Réponse sous 24-48h</p>
+    <p>Devis gratuit et sans engagement</p>
+    <p>Solutions sur mesure uniquement</p>
+    <p><a th:href="@{/devis}" class="prefooter-link">Demander un devis</a></p>
+  </section>
+
+  <section class="prefooter-project">
+    <h2>VOTRE PROJET COMMENCE ICI.</h2>
+    <p>Chaque véhicule est différent. Dites-nous ce que vous avez en tête, on s'occupe du reste.</p>
+    <form class="prefooter-form" th:action="@{/devis}" method="get">
+      <div class="prefooter-form__grid">
+        <input type="text" name="nom" placeholder="Nom*" />
+        <input type="email" name="email" placeholder="Email*" />
+        <input type="tel" name="telephone" placeholder="Téléphone*" />
+        <input type="text" name="service" placeholder="Service*" />
+      </div>
+      <textarea name="message" rows="4" placeholder="Message*"></textarea>
+      <button type="submit">Voir le formulaire complet</button>
+    </form>
+  </section>
+</div>

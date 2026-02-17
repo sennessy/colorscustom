@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<body>
+  <article class="faq-item" th:fragment="fragment(question, answer)">
+    <button class="faq-question" type="button" th:text="${question}">Question</button>
+    <div class="faq-answer">
+      <p th:text="${answer}">Réponse</p>
+    </div>
+  </article>
+</body>
+</html>
