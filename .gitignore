@@ -1,34 +1,31 @@
-HELP.md
-target/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# macOS
+.DS_Store
 
-### STS ###
-.apt_generated
+# Eclipse / STS
 .classpath
-.factorypath
 .project
-.settings
+.settings/
 .springBeans
-.sts4-cache
+.sts4-cache/
+.apt_generated
+.factorypath
 
-### IntelliJ IDEA ###
-.idea
+# IntelliJ IDEA
+.idea/
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+# VS Code (on garde les configs utiles)
 .vscode/
-target/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# Maven
+/target/
+*.class
+*.log
+
+# Env / secrets
+.env
