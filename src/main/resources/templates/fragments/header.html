@@ -1,23 +1,22 @@
 <header class="cc-header"
         th:fragment="fragment(active='')">
-
   <div class="cc-header__inner">
-
-    <!-- LOGO -->
-    <a class="cc-brand" th:href="@{/}">
-      <span class="cc-brand__name">COLORS CUSTOM</span>
+        <a class="cc-brand" th:href="@{/}" aria-label="Colors Custom">
+      <img class="cc-brand__logo" th:src="@{/img/logo-colorscustom-officiel.svg}" src="/img/logo-colorscustom-officiel.svg" alt="Colors Custom">
     </a>
-
-    <!-- NAVIGATION -->
-    <nav class="cc-nav" aria-label="Navigation principale">
-
+        <nav class="cc-nav" aria-label="Navigation principale">
       <div class="cc-nav__group">
         <a class="cc-nav__link"
            th:href="@{/services}"
-           th:classappend="${active == 'services'} ? ' is-active' : ''">
-          Services <span class="cc-nav__chevron">&lt;</span>
+           data-nav="services"
+           aria-haspopup="true"
+           aria-controls="submenu-services"
+           aria-expanded="false"
+           th:classappend="${active == 'services'} ? ' is-active' : ''"
+           th:aria-current="${active == 'services'} ? 'page' : null">
+          Services <span class="cc-nav__chevron">v</span>
         </a>
-        <div class="cc-nav__submenu">
+        <div class="cc-nav__submenu" id="submenu-services">
           <a th:href="@{/services/vitres-teintees}">Vitres teintées</a>
           <a th:href="@{/services/covering}">Covering</a>
           <a th:href="@{/services/ceramique}">Revêtement céramique</a>
@@ -25,41 +24,48 @@
           <a th:href="@{/services/creation-visuelle}">Création visuelle</a>
         </div>
       </div>
-
       <div class="cc-nav__group">
         <a class="cc-nav__link"
            th:href="@{/boutique}"
-           th:classappend="${active == 'boutique'} ? ' is-active' : ''">
-          Boutique Produits <span class="cc-nav__chevron">&lt;</span>
+           data-nav="boutique"
+           aria-haspopup="true"
+           aria-controls="submenu-boutique"
+           aria-expanded="false"
+           th:classappend="${active == 'boutique'} ? ' is-active' : ''"
+           th:aria-current="${active == 'boutique'} ? 'page' : null">
+          Produits <span class="cc-nav__chevron">v</span>
         </a>
-        <div class="cc-nav__submenu">
+        <div class="cc-nav__submenu" id="submenu-boutique">
           <a th:href="@{/boutique/entretien}">Produits d'entretien</a>
           <a th:href="@{/boutique/stickers}">Stickers et visuels</a>
           <a th:href="@{/boutique/accessoires}">Accessoires et intérieurs</a>
         </div>
       </div>
-
       <div class="cc-nav__group">
         <a class="cc-nav__link"
            th:href="@{/entreprise}"
-           th:classappend="${active == 'entreprise'} ? ' is-active' : ''">
-          Entreprises <span class="cc-nav__chevron">&lt;</span>
+           data-nav="entreprise"
+           aria-haspopup="true"
+           aria-controls="submenu-entreprise"
+           aria-expanded="false"
+           th:classappend="${active == 'entreprise'} ? ' is-active' : ''"
+           th:aria-current="${active == 'entreprise'} ? 'page' : null">
+          Entreprises <span class="cc-nav__chevron">v</span>
         </a>
-        <div class="cc-nav__submenu">
+        <div class="cc-nav__submenu" id="submenu-entreprise">
           <a th:href="@{/entreprise/flotte}">Flotte d'entreprise</a>
           <a th:href="@{/entreprise/publicite}">Publicité véhicule</a>
           <a th:href="@{/entreprise/projet-sur-mesure}">Projet sur mesure</a>
         </div>
       </div>
-
       <a class="cc-nav__link"
          th:href="@{/contact}"
-         th:classappend="${active == 'contact'} ? ' is-active' : ''">
-        Contact <span class="cc-nav__chevron">&lt;</span>
+         data-nav="contact"
+         th:classappend="${active == 'contact'} ? ' is-active' : ''"
+         th:aria-current="${active == 'contact'} ? 'page' : null">
+        Contact <span class="cc-nav__chevron">v</span>
       </a>
-
     </nav>
-
   </div>
-
+  <script th:src="@{/js/header-active.js}"></script>
 </header>

@@ -1,88 +1,81 @@
-<!-- fragments/footer.html -->
-<footer class="footer" th:fragment="fragment">
-
-    <!-- Top CTA blocks -->
-    <div class="footer-cta-container">
-
-        <!-- Installateur -->
-        <div class="footer-cta">
-            <h3>Besoin d'un installateur ?</h3>
-            <p>Trouvez des pros qui assurent une pose parfaite de la protection.</p>
-            <a href="/contact" class="footer-btn">Nous contacter</a>
+<footer class="footer site-footer" th:fragment="fragment">
+  <section class="site-footer__cta-band">
+    <div class="site-footer__shell site-footer__cta-grid">
+      <article class="site-footer__cta-card">
+        <div class="site-footer__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="site-footer__icon">
+            <circle cx="12" cy="7.3" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+            <path d="M5.5 20a6.5 6.5 0 0 1 13 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
         </div>
-
-        <!-- Boutique -->
-        <div class="footer-cta">
-            <h3>Boutique COLORS CUSTOM</h3>
-            <p>Découvrez films de protection, outils, produits d'entretien et bien plus !</p>
-            <a href="/boutique" class="footer-btn">Voir la collection</a>
+        <h3>Besoin d'un installateur ?</h3>
+        <p>Trouvez des pros qui assurent une pose parfaite de la protection.</p>
+        <a th:href="@{/contact}" class="site-footer__cta-link">Nous contacter <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="site-footer__cta-card">
+        <div class="site-footer__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="site-footer__icon">
+            <path d="M4 5h2.5l2.1 8.1h9.3l1.8-5.6H8.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="10.4" cy="17.6" r="1.3" fill="currentColor"></circle>
+            <circle cx="17.3" cy="17.6" r="1.3" fill="currentColor"></circle>
+          </svg>
         </div>
-
-        <!-- Devis -->
-        <div class="footer-cta">
-            <h3>Demander un devis</h3>
-            <p>Partagez vos projets et découvrez comment nous pouvons les réaliser.</p>
-            <a href="/devis" class="footer-btn">En savoir plus</a>
+        <h3>Boutique Colors Custom</h3>
+        <p>Découvrez films de protection, outils, produits d'entretien et bien plus !</p>
+        <a th:href="@{/boutique}" class="site-footer__cta-link">Voir la collection <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="site-footer__cta-card">
+        <div class="site-footer__icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="site-footer__icon">
+            <path d="M7 4.8h8.5a2 2 0 0 1 2 2V19a1.2 1.2 0 0 1-1.2 1.2H7a1.2 1.2 0 0 1-1.2-1.2V6A1.2 1.2 0 0 1 7 4.8z" fill="none" stroke="currentColor" stroke-width="1.8"></path>
+            <path d="M8.8 9h5.8M8.8 12.1h5.8M8.8 15.2h4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          </svg>
         </div>
-
+        <h3>Demander un devis</h3>
+        <p>Partagez vos projets et découvrez comment nous pouvons les réaliser.</p>
+        <a th:href="@{/devis}" class="site-footer__cta-link">En savoir plus <span aria-hidden="true">→</span></a>
+      </article>
     </div>
-
-    <!-- Newsletter -->
-    <div class="footer-newsletter">
+  </section>
+  <section class="site-footer__main">
+    <div class="site-footer__shell site-footer__main-grid">
+      <div class="site-footer__newsletter">
+        <img class="site-footer__logo" th:src="@{/img/logo-colorscustom-officiel.svg}" src="/img/logo-colorscustom-officiel.svg" alt="Colors Custom">
         <h3>Restez informé des offres, nouveautés et exclusivités</h3>
-        <p>Soyez le premier à découvrir les nouveaux produits COLORS CUSTOM, les promotions, les offres exclusives et bien plus encore !</p>
-
-        <form class="footer-newsletter-form">
-            <input type="email" placeholder="Adresse Email" required>
-            <button type="submit">S'inscrire</button>
+        <p>Soyez le premier à découvrir les nouveaux produits Colors Custom, les promotions, les offres exclusives et bien plus encore !</p>
+        <form class="site-footer__newsletter-form" action="#" method="post">
+          <label class="sr-only" for="footer-newsletter-email">Adresse Email</label>
+          <input id="footer-newsletter-email" type="email" placeholder="Adresse Email" required>
+          <button type="submit" aria-label="S'inscrire">→</button>
         </form>
+      </div>
+      <div class="site-footer__col">
+        <h4>Ressources</h4>
+        <a th:href="@{/faq}">FAQ</a>
+        <a href="#">Informations de garantie</a>
+        <a href="#">Informations de paiement</a>
+        <a href="#">Livraison &amp; retours</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Entreprise</h4>
+        <a th:href="@{/about}">Qui sommes-nous</a>
+        <a th:href="@{/approach}">Notre approche</a>
+      </div>
+      <div class="site-footer__col">
+        <h4>Contact</h4>
+        <p>Route des Avouillons<br>17C Gland 1196, Suisse</p>
+        <a href="mailto:contact@colorscustom.ch">contact@colorscustom.ch</a>
+        <a href="tel:+41212113600">+41 021 211 36 00</a>
+        <a class="site-footer__map-link" href="https://www.google.com/maps/search/?api=1&query=Route+des+Avouillons+17C,+1196+Gland,+Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
+      </div>
     </div>
-
-    <!-- Footer columns -->
-    <div class="footer-columns">
-
-        <div class="footer-col">
-            <h4>Ressources</h4>
-            <ul>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="#">Informations garantie</a></li>
-                <li><a href="#">Informations paiement</a></li>
-                <li><a href="#">Livraison et retours</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>À propos</h4>
-            <ul>
-                <li><a href="/about">Notre équipe</a></li>
-                <li><a href="/approach">Notre approche</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Contact</h4>
-            <ul>
-                <li>Route des Avouillons 17C</li>
-                <li>Gland 1196, Suisse</li>
-                <li><a href="mailto:contact@colorscustom.ch">contact@colorscustom.ch</a></li>
-                <li><a href="tel:+41212113600">+41 021 211 36 00</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h4>Mentions légales</h4>
-            <ul>
-                <li><a href="#">Conditions d'utilisation</a></li>
-                <li><a href="#">Confidentialité</a></li>
-                <li><a href="#">Mentions légales</a></li>
-            </ul>
-        </div>
-
+    <div class="site-footer__shell site-footer__legal">
+      <p>© Colors Custom, 2026</p>
+      <div class="site-footer__legal-links">
+        <a href="#">Conditions d'utilisation</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Mentions légales</a>
+      </div>
     </div>
-
-    <!-- Bottom -->
-    <div class="footer-bottom">
-        <p>© COLORS CUSTOM, 2026</p>
-    </div>
-
+  </section>
 </footer>

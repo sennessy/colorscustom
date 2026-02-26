@@ -4,16 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BOUTIQUE | COLORS CUSTOM</title>
+  <meta name="description" content="Boutique Colors Custom: produits d'entretien, stickers, visuels et accessoires sélectionnés pour prolonger la qualité atelier." />
+  <link rel="canonical" th:href="@{/boutique}" href="/boutique" />
+  <meta property="og:title" content="Boutique | COLORS CUSTOM" />
+  <meta property="og:description" content="Films, outils et produits d'entretien pour protéger et personnaliser votre véhicule." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" th:content="@{/boutique}" content="/boutique" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('boutique')}"></div>
 
-  <main class="page-shell">
+  <main class="page-shell boutique-boost">
     <section>
       <span class="page-kicker">BOUTIQUE</span>
       <h1>BOUTIQUE</h1>
-      <img src="/img/placeholder-service.svg" alt="Boutique" class="mono-hero" />
+      <img src="/img/placeholder-service.svg" alt="Boutique" class="mono-hero" loading="eager" fetchpriority="high" decoding="async" />
       <p th:text="${shippingHero}">Livraison gratuite partout en Suisse.</p>
       <p>Découvrez films, outils et produits d'entretien sélectionnés pour prolonger les résultats en atelier.</p>
     </section>
@@ -22,7 +28,7 @@
       <h2>TOP VENTES</h2>
       <div class="product-grid">
         <article class="product-card" th:each="p : ${products}">
-          <img src="/img/placeholder-service.svg" alt="Produit" class="product-card__img" />
+          <img src="/img/placeholder-service.svg" alt="Produit" class="product-card__img" loading="lazy" decoding="async" />
           <h2 th:text="${p.name}">Nom produit</h2>
           <p th:text="${p.subtitle}">Description</p>
           <p class="price" th:text="${'CHF ' + #numbers.formatDecimal(p.price, 1, 2)}">CHF 0.00</p>
@@ -45,9 +51,56 @@
       </div>
       <p><a th:href="@{/panier}">Voir le panier</a> <span th:text="${'(' + cartCount + ')'}">(0)</span></p>
     </section>
-    <div th:replace="~{fragments/prefooter :: fragment}"></div>
-  </main>
 
-  <div th:replace="~{fragments/footer :: fragment}"></div>
+    <section>
+      <h2>ACHAT SANS FRICTION</h2>
+      <div class="list-grid">
+        <article class="list-card"><h3>LIVRAISON RAPIDE</h3><p>Expédition sous 24 à 48h sur les références en stock.</p></article>
+        <article class="list-card"><h3>PAIEMENT SÉCURISÉ</h3><p>Transactions protégées et suivi de commande clair.</p></article>
+        <article class="list-card"><h3>RETOURS SIMPLES</h3><p>Processus direct si un produit ne correspond pas à vos attentes.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>PACKS RECOMMANDÉS</h2>
+      <div class="section-grid section-grid--3">
+        <article class="panel">
+          <h3>PACK ENTRETIEN EXPRESS</h3>
+          <p>Nettoyage + finition pour entretien hebdomadaire.</p>
+          <a th:href="@{/boutique/entretien}">Voir le pack</a>
+        </article>
+        <article class="panel">
+          <h3>PACK LOOK &amp; DÉTAILS</h3>
+          <p>Visuels + accessoires pour personnalisation rapide.</p>
+          <a th:href="@{/boutique/stickers}">Voir le pack</a>
+        </article>
+        <article class="panel">
+          <h3>PACK CONFORT INTÉRIEUR</h3>
+          <p>Accessoires utiles au quotidien pour l'habitacle.</p>
+          <a th:href="@{/boutique/accessoires}">Voir le pack</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>AVIS CLIENTS</h2>
+      <div class="section-grid section-grid--3">
+        <article class="panel"><p>"Produits efficaces et livraison rapide. Recommandé."</p><p><strong>- Client vérifié</strong></p></article>
+        <article class="panel"><p>"Le rendu est propre, les conseils sont utiles."</p><p><strong>- Client vérifié</strong></p></article>
+        <article class="panel"><p>"Bon rapport qualité/prix sur les packs entretien."</p><p><strong>- Client vérifié</strong></p></article>
+      </div>
+    </section>
+
+    <section class="shop-map">
+      <h2>RETRAIT &amp; ATELIER</h2>
+      <div class="shop-map__card">
+        <div class="shop-map__preview" aria-hidden="true">Plan rapide - Gland (VD)</div>
+        <div class="shop-map__info">
+          <p>Route des Avouillons 17C, 1196 Gland, Suisse</p>
+          <a class="shop-map__link" href="https://www.google.com/maps/search/?api=1&query=Route+des+Avouillons+17C,+1196+Gland,+Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

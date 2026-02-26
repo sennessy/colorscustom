@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DEVIS | COLORS CUSTOM</title>
+  <meta name="description" content="Demandez un devis Colors Custom pour votre projet: vitres teintées, PPF, céramique, covering ou création visuelle sur mesure." />
+  <link rel="canonical" th:href="@{/devis}" href="/devis" />
+  <meta property="og:title" content="Demande de devis | COLORS CUSTOM" />
+  <meta property="og:description" content="Partagez votre besoin et recevez une proposition adaptée à votre véhicule et vos contraintes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" th:content="@{/devis}" content="/devis" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
@@ -13,7 +19,7 @@
     <section>
       <span class="page-kicker">Devis & Rendez-vous</span>
       <h1>DEMANDE DE DEVIS</h1>
-      <p>Decrivez votre besoin: support, niveau de protection, rendu souhaite et delai.</p>
+      <p>Décrivez votre besoin: support, niveau de protection, rendu souhaité et délai.</p>
     </section>
 
     <section>
@@ -21,17 +27,22 @@
       <div class="list-grid">
         <article class="list-card"><h3>VÉHICULE / SUPPORT</h3><p>Type, modèle et usage principal.</p></article>
         <article class="list-card"><h3>SERVICE SOUHAITE</h3><p>PPF, vitres teintées, céramique, visuel.</p></article>
-        <article class="list-card"><h3>CONTRAINTE PLANNING</h3><p>Dates et disponibilites.</p></article>
+        <article class="list-card"><h3>CONTRAINTE PLANNING</h3><p>Dates et disponibilités.</p></article>
       </div>
     </section>
 
     <section>
       <h2>FORMULAIRE</h2>
-      <form class="inline-form">
-        <input type="text" placeholder="Nom" />
-        <input type="email" placeholder="Email" />
-        <input type="text" placeholder="Telephone" />
-        <textarea rows="6" placeholder="Projet"></textarea>
+      <form class="inline-form" method="post" th:action="@{/devis}">
+        <label class="sr-only" for="devis-name">Nom</label>
+        <input id="devis-name" type="text" name="nom" placeholder="Nom" autocomplete="name" required />
+        <label class="sr-only" for="devis-email">Email</label>
+        <input id="devis-email" type="email" name="email" placeholder="Email" autocomplete="email" required />
+        <label class="sr-only" for="devis-phone">Téléphone</label>
+        <input id="devis-phone" type="tel" name="telephone" placeholder="Téléphone" autocomplete="tel" required />
+        <label class="sr-only" for="devis-project">Projet</label>
+        <textarea id="devis-project" name="projet" rows="6" placeholder="Projet" required></textarea>
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
         <button type="submit">Envoyer ma demande</button>
       </form>
     </section>

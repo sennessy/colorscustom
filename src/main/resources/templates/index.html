@@ -4,117 +4,210 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>COLORS CUSTOM</title>
+  <meta name="description" content="Colors Custom: vitres teintées, PPF, covering, céramique et personnalisation automobile en Suisse. Demandez votre devis personnalisé." />
+  <link rel="canonical" th:href="@{/}" href="/" />
+  <meta property="og:title" content="COLORS CUSTOM" />
+  <meta property="og:description" content="Protection et personnalisation automobile haut de gamme: vitres teintées, PPF, covering, céramique." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" th:content="@{/}" content="/" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('')}"></div>
+  <h1 class="sr-only">Colors Custom - Protection et personnalisation automobile</h1>
 
   <div th:replace="~{fragments/hero-slider :: heroSlider}"></div>
 
-  <main class="page-shell">
-    <section>
-      <span class="page-kicker">ACCUEIL</span>
-      <h2>B2C OR B2B</h2>
-      <div class="section-grid">
-        <article class="panel">
-          <h3>PRIVÉS</h3>
-          <p>Découvrez nos services.</p>
-          <a th:href="@{/services}">Découvrir nos services</a>
+  <section class="home-dual-hero" aria-label="Privés et entreprises">
+    <div class="home-dual-hero__shell">
+      <article class="home-dual-hero__card home-dual-hero__card--private">
+        <div class="home-dual-hero__overlay"></div>
+        <div class="home-dual-hero__content">
+          <h2>Privés</h2>
+          <a th:href="@{/services}">Découvrez nos services</a>
+        </div>
+      </article>
+      <article class="home-dual-hero__card home-dual-hero__card--business">
+        <div class="home-dual-hero__overlay"></div>
+        <div class="home-dual-hero__content">
+          <h2>Entreprises</h2>
+          <a th:href="@{/entreprise}">Votre projet en un clic</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="home-realizations" aria-label="Nos dernières réalisations">
+    <div class="home-realizations__shell">
+      <div class="home-realizations__grid">
+        <article class="home-realizations__item home-realizations__item--lead">
+          <img src="/img/home/realisations/realisation-lead.webp" alt="Dernière réalisation Colors Custom - véhicule premium" width="1536" height="1024" loading="lazy" decoding="async">
+          <span class="home-realizations__shade" aria-hidden="true"></span>
+          <h2>Nos dernières réalisations</h2>
         </article>
-        <article class="panel">
-          <h3>ENTREPRISES</h3>
-          <p>Votre projet en un clic.</p>
-          <a th:href="@{/entreprise}">Découvrir nos services</a>
+        <article class="home-realizations__item home-realizations__item--middle">
+          <img src="/img/home/realisations/realisation-middle.webp" alt="Réalisations Colors Custom en parking intérieur" width="1536" height="1024" loading="lazy" decoding="async">
+          <span class="home-realizations__shade" aria-hidden="true"></span>
+        </article>
+        <article class="home-realizations__item home-realizations__item--top-right">
+          <img src="/img/home/realisations/realisation-top-right.webp" alt="Détail arrière premium Colors Custom" width="1536" height="1024" loading="lazy" decoding="async">
+          <span class="home-realizations__shade" aria-hidden="true"></span>
+        </article>
+        <article class="home-realizations__item home-realizations__item--bottom-right">
+          <img src="/img/home/realisations/realisation-bottom-right.webp" alt="Série de véhicules sportifs personnalisés" width="1536" height="1024" loading="lazy" decoding="async">
+          <span class="home-realizations__shade" aria-hidden="true"></span>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <span class="page-kicker">ACCUEIL</span>
-      <h2>EXPERTISE</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>VOITURE</h3><p><a th:href="@{/expertise/voiture}">Découvrir nos services</a></p></article>
-        <article class="list-card"><h3>MOTO</h3><p><a th:href="@{/expertise/moto}">Découvrir nos services</a></p></article>
-        <article class="list-card"><h3>NAUTIQUE</h3><p><a th:href="@{/expertise/nautique}">Découvrir nos services</a></p></article>
-        <article class="list-card"><h3>VÉHICULES D'ENTREPRISE</h3><p><a th:href="@{/expertise/entreprise}">Découvrir nos services</a></p></article>
-        <article class="list-card"><h3>MOBILITÉ SPECIALE</h3><p><a th:href="@{/expertise/mobilite-speciale}">Découvrir nos services</a></p></article>
+  <section class="home-top-sales" aria-label="Top ventes">
+    <div class="home-top-sales__shell">
+      <h2>Top ventes</h2>
+      <div class="home-top-sales__grid">
+        <article class="home-top-sales__card">
+          <img src="/img/placeholder-b2.svg" alt="Glaco W-JET" width="1200" height="700" loading="lazy" decoding="async">
+          <div class="home-top-sales__meta">
+            <h3>Glaco W-JET</h3>
+            <p>CHF 17.90</p>
+          </div>
+        </article>
+        <article class="home-top-sales__card">
+          <img src="/img/placeholder-b2.svg" alt="Glaco DX" width="1200" height="700" loading="lazy" decoding="async">
+          <div class="home-top-sales__meta">
+            <h3>Glaco DX</h3>
+            <p>CHF 19.90</p>
+          </div>
+        </article>
+        <article class="home-top-sales__card">
+          <img src="/img/placeholder-b2.svg" alt="Glaco Deicer" width="1200" height="700" loading="lazy" decoding="async">
+          <div class="home-top-sales__meta">
+            <h3>Glaco Deicer</h3>
+            <p>CHF 15.90</p>
+          </div>
+        </article>
+        <article class="home-top-sales__card">
+          <img src="/img/placeholder-b2.svg" alt="Glaco W-JET lot" width="1200" height="700" loading="lazy" decoding="async">
+          <div class="home-top-sales__meta">
+            <h3>Glaco W-JET</h3>
+            <p>CHF 17.90</p>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <span class="page-kicker">ACCUEIL</span>
-      <h2>NOS DERNIÈRES RÉALISATIONS</h2>
-      <div class="real-grid">
-        <img src="/img/placeholder-service.svg" alt="Realisation 1" class="real-item" />
-        <img src="/img/placeholder-service.svg" alt="Realisation 2" class="real-item" />
-        <img src="/img/placeholder-service.svg" alt="Realisation 3" class="real-item" />
-      </div>
-    </section>
+  <section class="home-trust" aria-label="Preuves de confiance">
+    <div class="home-trust__shell">
+      <article class="home-trust__item">
+        <strong>+500</strong>
+        <span>projets réalisés</span>
+      </article>
+      <article class="home-trust__item">
+        <strong>48h</strong>
+        <span>pour une première réponse</span>
+      </article>
+      <article class="home-trust__item">
+        <strong>100%</strong>
+        <span>devis personnalisés</span>
+      </article>
+      <a class="home-trust__cta" th:href="@{/devis}">Demander un devis</a>
+    </div>
+  </section>
 
-    <section>
-      <span class="page-kicker">ACCUEIL</span>
-      <h2>BOUTIQUE HIGHLIGHTS</h2>
-      <div class="section-grid section-grid--4">
-        <article class="panel"><h3>GLACO W-JET</h3><p>CHF 17.90</p></article>
-        <article class="panel"><h3>GLACO DX</h3><p>CHF 19.90</p></article>
-        <article class="panel"><h3>GLACO DEICER</h3><p>CHF 15.90</p></article>
-        <article class="panel"><h3>TOP VENTES</h3><p>Produits d'entretien et accessoires.</p></article>
-      </div>
-      <p><a th:href="@{/boutique}">Voir la collection</a></p>
-    </section>
+  <section class="home-expertise-strip" aria-label="Expertises">
+    <div class="home-expertise-strip__shell">
+      <div class="home-expertise-strip__track" id="expertise-track">
+        <a class="home-expertise-tile is-active"
+           th:href="@{/expertise/voiture}"
+           data-title="Voiture"
+           data-cta="Découvrez nos services">
+          <img src="/img/hero-service.jpg" alt="Expertise voiture" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Voiture</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
 
-    <section>
-      <span class="page-kicker">ACCUEIL</span>
-      <h2>BRAND DNA</h2>
-      <h3>NOTRE ENGAGEMENT</h3>
-      <div class="list-grid">
-        <article class="list-card"><h3>ARTISANAT DE PRÉCISION</h3><p>L'art de la précision, où chaque détail compte.</p></article>
-        <article class="list-card"><h3>HYPER-PERSONNALISATION</h3><p>Personnalisez chaque détail, reflétez votre personnalité.</p></article>
-        <article class="list-card"><h3>DURABILITÉ ET LONGÉVITÉ</h3><p>La beauté durable, pensée pour résister au quotidien.</p></article>
-      </div>
-    </section>
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/moto}"
+           data-title="Moto"
+           data-cta="Découvrez nos services">
+          <img src="/img/placeholder-expertise.svg" alt="Expertise moto" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Moto</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
 
-    <section>
-      <span class="page-kicker">ACCUEIL</span>
-      <h2>QUESTIONS FRÉQUENTES</h2>
-      <div class="faq-tabs">
-        <button class="faq-tab active" data-tab="services" type="button">SERVICES</button>
-        <button class="faq-tab" data-tab="produits" type="button">PRODUITS</button>
-        <button class="faq-tab" data-tab="entreprises" type="button">ENTREPRISES</button>
-        <button class="faq-tab" data-tab="entretien" type="button">ENTRETIEN</button>
-        <button class="faq-tab" data-tab="devis" type="button">DEVIS</button>
-        <button class="faq-tab" data-tab="innovation" type="button">INNOVATION</button>
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/nautique}"
+           data-title="Nautique"
+           data-cta="Découvrez nos services">
+          <img src="/img/placeholder-engagement.svg" alt="Expertise nautique" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Nautique</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/mobilite-speciale}"
+           data-title="Mobilité spéciale"
+           data-cta="Découvrez nos services">
+          <img src="/img/placeholder-service.svg" alt="Expertise mobilité spéciale" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Mobilité spéciale</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/entreprise}"
+           data-title="Entreprises"
+           data-cta="Découvrez nos services">
+          <img src="/img/placeholder-b2.svg" alt="Expertise entreprises" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Entreprises</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-faq" id="home-faq" aria-label="Questions fréquentes">
+    <div class="home-faq__shell">
+      <h2>Questions fréquentes</h2>
+
+      <div class="home-faq__menu" id="homeFaqMenu">
+        <button class="home-faq__cat" type="button" data-faq-cat="services">Services</button>
+        <button class="home-faq__cat" type="button" data-faq-cat="produits">Produits</button>
+        <button class="home-faq__cat" type="button" data-faq-cat="entreprises">Entreprises</button>
+        <button class="home-faq__cat" type="button" data-faq-cat="entretien">Entretien</button>
+        <button class="home-faq__cat" type="button" data-faq-cat="devis">Devis</button>
+        <button class="home-faq__cat" type="button" data-faq-cat="innovation">Innovation</button>
       </div>
 
-      <div class="faq-content">
-        <div class="faq-panel active" id="services">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Quels services de protection automobile proposez-vous ?', answer='On propose des solutions complètes de protection esthétique et durable pour véhicules, incluant PPF, traitements céramiques, vitres teintées et protection intérieure.')}"/>
-          <div th:replace="~{fragments/faq-item :: fragment(question='Le PPF protège-t-il vraiment contre les impacts ?', answer='Oui, le PPF est conçu pour absorber les impacts légers et protéger la peinture d'origine.')}"/>
-        </div>
-        <div class="faq-panel" id="produits">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Quelle marque de film utilisez-vous ?', answer='Nous utilisons des films premium reconnus pour leur durabilité et leur transparence.')}"/>
-          <div th:replace="~{fragments/faq-item :: fragment(question='Le film jaunit-il avec le temps ?', answer='Non, nos films sont traités contre le jaunissement et résistent aux UV.')}"/>
-        </div>
-        <div class="faq-panel" id="entreprises">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Travaillez-vous avec des flottes ou des entreprises ?', answer='Oui, nous proposons des solutions adaptées aux flottes professionnelles et aux véhicules commerciaux.')}"/>
-        </div>
-        <div class="faq-panel" id="entretien">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Comment entretenir un véhicule protégé ?', answer='Un entretien régulier avec des produits adaptés prolonge la durée de vie des protections.')}"/>
-        </div>
-        <div class="faq-panel" id="devis">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Combien de temps prend l élaboration d un devis ?', answer='En général, un devis est fourni sous 24 à 48 heures selon la complexité.')}"/>
-        </div>
-        <div class="faq-panel" id="innovation">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Quels elements peuvent etre personnalises ?', answer='Vitres, carrosserie, feux, éléments intérieurs, logos et motifs selon vos objectifs.')}"/>
-        </div>
+      <div class="home-faq__panel-wrap" id="homeFaqPanelWrap">
+        <button class="home-faq__back" type="button" aria-label="Retour">⌂</button>
+        <div class="home-faq__panel" id="homeFaqPanel"></div>
       </div>
-      <p><a th:href="@{/faq}">Voir toute la FAQ</a></p>
-    </section>
-  </main>
+
+    </div>
+  </section>
 
   <div th:replace="~{fragments/footer :: fragment}"></div>
+  <a class="mobile-devis-cta" th:href="@{/devis}">Demander un devis</a>
 
   <script th:src="@{/js/hero-slider.js}"></script>
+  <script th:src="@{/js/home-expertise.js}"></script>
+  <script th:src="@{/js/home-faq.js}"></script>
   <script th:src="@{/js/faq.js}"></script>
 </body>
 </html>

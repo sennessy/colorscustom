@@ -4,74 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQ | COLORS CUSTOM</title>
+  <meta name="description" content="Retrouvez les réponses aux questions fréquentes sur les services Colors Custom: PPF, covering, céramique, entretien, devis et entreprises." />
+  <link rel="canonical" th:href="@{/faq}" href="/faq" />
+  <meta property="og:title" content="FAQ | COLORS CUSTOM" />
+  <meta property="og:description" content="Questions fréquentes sur nos services, produits, entreprises, entretien et devis." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" th:content="@{/faq}" content="/faq" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('')}"></div>
-
   <main class="page-shell">
     <section>
       <span class="page-kicker">Questions fréquentes</span>
       <h1>FAQ</h1>
       <img src="/img/placeholder-service.svg" alt="FAQ" class="mono-hero" />
-      <p>Regroupement par thèmes: services, produits, entreprises, entretien, devis, innovation.</p>
+      <p>Une FAQ centralisée par section. La section Services est affichée par défaut.</p>
     </section>
-
-    <section>
-      <h2>SERVICES</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>Quels services de protection automobile proposez-vous ?</h3><p>PPF, revêtement céramique, vitres teintées, covering et finitions visuelles.</p></article>
-        <article class="list-card"><h3>Le PPF protège-t-il vraiment contre les impacts ?</h3><p>Oui, il absorbe les agressions légères et limite les micro-rayures du quotidien.</p></article>
-        <article class="list-card"><h3>Combien de temps dure l'installation ?</h3><p>Selon la zone traitee, de quelques heures a plusieurs jours pour un projet complet.</p></article>
+    <section class="faq-central">
+      <div class="faq-tabs">
+        <button class="faq-tab active faq-tab--spotlight" data-tab="faq-services" type="button">SERVICES</button>
+        <button class="faq-tab" data-tab="faq-produits" type="button">PRODUITS</button>
+        <button class="faq-tab" data-tab="faq-entreprises" type="button">ENTREPRISES</button>
+        <button class="faq-tab" data-tab="faq-entretien" type="button">ENTRETIEN</button>
+        <button class="faq-tab" data-tab="faq-devis" type="button">DEVIS</button>
+        <button class="faq-tab" data-tab="faq-innovation" type="button">INNOVATION</button>
       </div>
-    </section>
-
-    <section>
-      <h2>PRODUITS</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>Quelle marque de film utilisez-vous ?</h3><p>Des films premium reconnus pour la tenue, la transparence et la stabilite UV.</p></article>
-        <article class="list-card"><h3>Le film jaunit-il avec le temps ?</h3><p>Les références sélectionnées sont traitées contre le jaunissement.</p></article>
-        <article class="list-card"><h3>Le film est-il visible sur la carrosserie ?</h3><p>Le rendu est discret lorsque la pose est correcte et les finitions bien contrôlées.</p></article>
-      </div>
-    </section>
-
-    <section>
-      <h2>ENTREPRISES & PROFESSIONNELS</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>Travaillez-vous avec des flottes ou des entreprises ?</h3><p>Oui, avec planification par lots et protocole adapte au contexte operationnel.</p></article>
-        <article class="list-card"><h3>Pouvez-vous intervenir dans nos locaux ?</h3><p>Selon la nature du projet et les contraintes techniques, une solution est etudiee.</p></article>
-        <article class="list-card"><h3>Proposez-vous des tarifs adaptés aux flottes ?</h3><p>Oui, avec cadrage selon volumes, niveau de finition et délais attendus.</p></article>
-      </div>
-    </section>
-
-    <section>
-      <h2>ENTRETIEN & DURABILITE</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>Comment entretenir un véhicule protégé par PPF ou céramique ?</h3><p>Avec produits adaptés, lavage doux et routine régulière.</p></article>
-        <article class="list-card"><h3>Le film peut-il etre retire ?</h3><p>Oui, avec une depose contrôlée pour preserver la surface d'origine.</p></article>
-        <article class="list-card"><h3>Puis-je laver mon véhicule en station automatique ?</h3><p>Un lavage manuel est recommandé pour maximiser la durée de vie.</p></article>
-      </div>
-    </section>
-
-    <section>
-      <h2>DEVIS & RENDEZ-VOUS</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>Combien de temps prend l'élaboration d'un devis ?</h3><p>En général, une première réponse arrive sous 24 à 48 heures.</p></article>
-        <article class="list-card"><h3>Comment se deroule le processus apres devis ?</h3><p>Validation, planification, execution atelier puis contrôle final.</p></article>
-        <article class="list-card"><h3>Le paiement est-il avant ou apres intervention ?</h3><p>Les modalites sont precisees en amont selon le type de prestation.</p></article>
-      </div>
-    </section>
-
-    <section>
-      <h2>INNOVATION & PERSONNALISATION</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>Quels elements peuvent etre personnalises ?</h3><p>Vitres, carrosserie, feux, logos, bandes et details d'habitacle.</p></article>
-        <article class="list-card"><h3>Proposez-vous des finitions spécifiques ?</h3><p>Oui, selon la matière, l'usage et le rendu souhaité.</p></article>
-        <article class="list-card"><h3>Quelle combinaison de protections recommandez-vous ?</h3><p>Un mix adapté au véhicule, à son usage et au niveau d'exposition.</p></article>
+      <div class="faq-content">
+        <div class="faq-panel active" id="faq-services">
+          <article class="faq-focus">
+            <h2>COMMENCEZ PAR SERVICES</h2>
+            <p>Les réponses les plus consultées sont ici: protections, délais d'installation, niveaux de prestation.</p>
+          </article>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Quels services de protection automobile proposez-vous ?', answer='PPF, revêtement céramique, vitres teintées, covering et finitions visuelles.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Le PPF protège-t-il vraiment contre les impacts ?', answer='Oui, il absorbe les agressions légères et limite les micro-rayures du quotidien.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Combien de temps dure l''installation ?', answer='Selon la zone traitée, de quelques heures à plusieurs jours pour un projet complet.')}"></div>
+        </div>
+        <div class="faq-panel" id="faq-produits">
+          <div th:replace="~{fragments/faq-item :: fragment(question='Quelle marque de film utilisez-vous ?', answer='Des films premium reconnus pour la tenue, la transparence et la stabilité UV.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Le film jaunit-il avec le temps ?', answer='Les références sélectionnées sont traitées contre le jaunissement.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Le film est-il visible sur la carrosserie ?', answer='Le rendu est discret lorsque la pose est correcte et les finitions bien contrôlées.')}"></div>
+        </div>
+        <div class="faq-panel" id="faq-entreprises">
+          <div th:replace="~{fragments/faq-item :: fragment(question='Travaillez-vous avec des flottes ou des entreprises ?', answer='Oui, avec planification par lots et protocole adapté au contexte opérationnel.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Pouvez-vous intervenir dans nos locaux ?', answer='Selon la nature du projet et les contraintes techniques, une solution est étudiée.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Proposez-vous des tarifs adaptés aux flottes ?', answer='Oui, avec cadrage selon volumes, niveau de finition et délais attendus.')}"></div>
+        </div>
+        <div class="faq-panel" id="faq-entretien">
+          <div th:replace="~{fragments/faq-item :: fragment(question='Comment entretenir un véhicule protégé par PPF ou céramique ?', answer='Avec produits adaptés, lavage doux et routine régulière.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Le film peut-il être retiré ?', answer='Oui, avec une dépose contrôlée pour préserver la surface d''origine.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Puis-je laver mon véhicule en station automatique ?', answer='Un lavage manuel est recommandé pour maximiser la durée de vie.')}"></div>
+        </div>
+        <div class="faq-panel" id="faq-devis">
+          <div th:replace="~{fragments/faq-item :: fragment(question='Combien de temps prend l''élaboration d''un devis ?', answer='En général, une première réponse arrive sous 24 à 48 heures.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Comment se déroule le processus après devis ?', answer='Validation, planification, exécution atelier puis contrôle final.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Le paiement est-il avant ou après intervention ?', answer='Les modalités sont précisées en amont selon le type de prestation.')}"></div>
+        </div>
+        <div class="faq-panel" id="faq-innovation">
+          <div th:replace="~{fragments/faq-item :: fragment(question='Quels éléments peuvent être personnalisés ?', answer='Vitres, carrosserie, feux, logos, bandes et détails d''habitacle.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Proposez-vous des finitions spécifiques ?', answer='Oui, selon la matière, l''usage et le rendu souhaité.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Quelle combinaison de protections recommandez-vous ?', answer='Un mix adapté au véhicule, à son usage et au niveau d''exposition.')}"></div>
+        </div>
       </div>
     </section>
   </main>
-
   <div th:replace="~{fragments/footer :: fragment}"></div>
+  <script th:src="@{/js/faq.js}"></script>
 </body>
 </html>
