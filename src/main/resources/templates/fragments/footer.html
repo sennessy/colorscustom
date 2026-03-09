@@ -4,8 +4,10 @@
       <article class="site-footer__cta-card">
         <div class="site-footer__icon-wrap" aria-hidden="true">
           <svg viewBox="0 0 24 24" class="site-footer__icon">
-            <circle cx="12" cy="7.3" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
-            <path d="M5.5 20a6.5 6.5 0 0 1 13 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <path d="M6 9.2h12a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path>
+            <path d="M8.2 9.2v1.7M12 9.2v1.7M15.8 9.2v1.7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+            <circle cx="12" cy="13.2" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+            <path d="M6.2 20a5.8 5.8 0 0 1 11.6 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
           </svg>
         </div>
         <h3>Besoin d'un installateur ?</h3>
@@ -41,41 +43,86 @@
     <div class="site-footer__shell site-footer__main-grid">
       <div class="site-footer__newsletter">
         <img class="site-footer__logo" th:src="@{/img/logo-colorscustom-officiel.svg}" src="/img/logo-colorscustom-officiel.svg" alt="Colors Custom">
-        <h3>Restez informé des offres, nouveautés et exclusivités</h3>
-        <p>Soyez le premier à découvrir les nouveaux produits Colors Custom, les promotions, les offres exclusives et bien plus encore !</p>
-        <form class="site-footer__newsletter-form" action="#" method="post">
+        <h3>Restez informé des nouveautés Colors Custom</h3>
+        <p>Recevez nos actualités produits, conseils d'entretien et informations utiles.</p>
+        <form class="site-footer__newsletter-form js-mailto-form" action="#" method="post" novalidate data-mailto="contact@colorscustom.ch">
           <label class="sr-only" for="footer-newsletter-email">Adresse Email</label>
-          <input id="footer-newsletter-email" type="email" placeholder="Adresse Email" required>
+          <input id="footer-newsletter-email" type="email" name="email" placeholder="Adresse Email" autocomplete="email" required data-email-helper>
+          <input type="hidden" name="service" value="Newsletter">
+          <input type="hidden" name="message" value="Je souhaite m'inscrire a la newsletter Colors Custom.">
           <button type="submit" aria-label="S'inscrire">→</button>
+          <noscript><p><a href="mailto:contact@colorscustom.ch">Ouvrir votre boite mail</a></p></noscript>
         </form>
       </div>
       <div class="site-footer__col">
-        <h4>Ressources</h4>
+        <h4><a th:href="@{/faq}">Ressources</a></h4>
         <a th:href="@{/faq}">FAQ</a>
-        <a href="#">Informations de garantie</a>
-        <a href="#">Informations de paiement</a>
-        <a href="#">Livraison &amp; retours</a>
+        <a th:href="@{/tarifs}">Informations tarifaires</a>
+        <a th:href="@{/devis}">Informations de paiement</a>
+        <a th:href="@{/contact}">Livraison &amp; retours</a>
       </div>
       <div class="site-footer__col">
-        <h4>Entreprise</h4>
-        <a th:href="@{/about}">Qui sommes-nous</a>
-        <a th:href="@{/approach}">Notre approche</a>
+        <h4><a th:href="@{/entreprise}">Entreprise</a></h4>
+        <a th:href="@{/entreprise}">Solutions entreprises</a>
+        <a th:href="@{/entreprise/flotte}">Flotte d'entreprise</a>
+        <a th:href="@{/entreprise/publicite}">Publicité véhicule</a>
+        <a th:href="@{/entreprise/projet-sur-mesure}">Projet sur mesure</a>
       </div>
       <div class="site-footer__col">
         <h4>Contact</h4>
         <p>Route des Avouillons<br>17C Gland 1196, Suisse</p>
         <a href="mailto:contact@colorscustom.ch">contact@colorscustom.ch</a>
         <a href="tel:+41212113600">+41 021 211 36 00</a>
-        <a class="site-footer__map-link" href="https://www.google.com/maps/search/?api=1&query=Route+des+Avouillons+17C,+1196+Gland,+Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
+        <a class="site-footer__map-link" href="https://www.google.com/maps?q=Route%20des%20Avouillons%2017C%2C%201196%20Gland%2C%20Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
       </div>
     </div>
     <div class="site-footer__shell site-footer__legal">
       <p>© Colors Custom, 2026</p>
       <div class="site-footer__legal-links">
-        <a href="#">Conditions d'utilisation</a>
-        <a href="#">Confidentialité</a>
-        <a href="#">Mentions légales</a>
+        <a th:href="@{/conditions-utilisation}">Conditions d'utilisation</a>
+        <a th:href="@{/confidentialite}">Confidentialité</a>
+        <a th:href="@{/mentions-legales}">Mentions légales</a>
       </div>
     </div>
   </section>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Colors Custom",
+    "url": "/",
+    "image": "/img/logo-colorscustom-officiel.svg",
+    "email": "contact@colorscustom.ch",
+    "telephone": "+41 021 211 36 00",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Route des Avouillons 17C",
+      "addressLocality": "Gland",
+      "postalCode": "1196",
+      "addressCountry": "CH"
+    },
+    "sameAs": [
+      "https://www.google.com/maps?q=Route%20des%20Avouillons%2017C%2C%201196%20Gland%2C%20Suisse"
+    ],
+    "areaServed": "Suisse"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Colors Custom",
+    "url": "/",
+    "inLanguage": "fr"
+  }
+  </script>
+  <script th:src="@{/js/lead-mailto-form.js}" defer></script>
 </footer>
+<a
+  th:if="${cartCount > 0}"
+  class="floating-cart"
+  th:href="@{/panier}"
+  th:aria-label="${'Ouvrir le panier, ' + cartCount + ' article(s)'}">
+  <span class="floating-cart__icon" aria-hidden="true">🛒</span>
+  <span class="floating-cart__count" th:text="${cartCount}">0</span>
+</a>

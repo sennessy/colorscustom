@@ -1,6 +1,13 @@
 (() => {
   const links = Array.from(document.querySelectorAll('.cc-nav__link[data-nav]'));
   if (!links.length) return;
+  const skipLink = document.querySelector('.skip-link');
+  const main = document.getElementById('main-content') || document.querySelector('main');
+  if (skipLink && main) {
+    if (!main.id) main.id = 'main-content';
+    skipLink.setAttribute('href', `#${main.id}`);
+  }
+
   const groups = Array.from(document.querySelectorAll('.cc-nav__group'));
   const mobileMedia = window.matchMedia('(max-width: 900px)');
 
@@ -24,6 +31,13 @@
     else link.removeAttribute('aria-current');
   });
 
+  const openGroup = (group) => {
+    closeAllGroups(group);
+    group.classList.add('is-open');
+    const trigger = group.querySelector('.cc-nav__link');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+  };
+
   const closeAllGroups = (except = null) => {
     groups.forEach((group) => {
       if (group === except) return;
@@ -39,6 +53,7 @@
     if (!trigger || !submenu) return;
 
     trigger.setAttribute('aria-expanded', 'false');
+    submenu.setAttribute('role', 'menu');
 
     trigger.addEventListener('click', (event) => {
       if (!mobileMedia.matches) return;
@@ -46,15 +61,37 @@
 
       if (!isOpen) {
         event.preventDefault();
-        closeAllGroups(group);
-        group.classList.add('is-open');
-        trigger.setAttribute('aria-expanded', 'true');
+        openGroup(group);
       }
+    });
+
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        closeAllGroups();
+        trigger.blur();
+        return;
+      }
+      if (!['Enter', ' ', 'ArrowDown'].includes(event.key)) return;
+
+      event.preventDefault();
+      openGroup(group);
+      const firstLink = submenu.querySelector('a');
+      if (firstLink) firstLink.focus();
+    });
+
+    submenu.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      closeAllGroups();
+      trigger.focus();
     });
   });
 
   document.addEventListener('click', (event) => {
-    if (!mobileMedia.matches) return;
+    const insideNav = event.target instanceof Node && event.target.closest('.cc-nav');
+    if (!insideNav) closeAllGroups();
+  });
+
+  document.addEventListener('focusin', (event) => {
     const insideNav = event.target instanceof Node && event.target.closest('.cc-nav');
     if (!insideNav) closeAllGroups();
   });

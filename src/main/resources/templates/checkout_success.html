@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>PAIEMENT CONFIRME | COLORS CUSTOM</title>
+  <title>PAIEMENT CONFIRMÉ | COLORS CUSTOM</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('boutique')}"></div>
@@ -13,6 +15,8 @@
     <section class="status-box">
       <h1>Paiement confirmé</h1>
       <p>Merci pour ta commande. Livraison gratuite partout en Suisse.</p>
+      <p th:if="${checkoutNotice != null}" th:text="${checkoutNotice}">Paiement simulé.</p>
+      <p th:if="${simulatedCheckout}">Mode simulation actif: aucun paiement réel n'a été déclenché.</p>
       <a th:href="@{/boutique}">Retour à la boutique</a>
     </section>
   </main>

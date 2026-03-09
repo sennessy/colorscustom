@@ -1,0 +1,20 @@
+[Unit]
+Description=ColorCustoms Spring Boot Application
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/colorscustom
+EnvironmentFile=/opt/colorscustom/.env
+ExecStart=/usr/bin/env bash -lc 'exec /usr/bin/java ${JAVA_OPTS:-"-Xms256m -Xmx512m"} -jar /opt/colorscustom/colorcustoms.jar'
+SuccessExitStatus=143
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

@@ -11,12 +11,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" th:content="@{/}" content="/" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('')}"></div>
-  <h1 class="sr-only">Colors Custom - Protection et personnalisation automobile</h1>
+  <main id="main-content">
+    <h1 class="sr-only">Colors Custom - Protection et personnalisation automobile</h1>
 
-  <div th:replace="~{fragments/hero-slider :: heroSlider}"></div>
+    <div th:replace="~{fragments/hero-slider :: heroSlider}"></div>
 
   <section class="home-dual-hero" aria-label="Privés et entreprises">
     <div class="home-dual-hero__shell">
@@ -37,24 +44,118 @@
     </div>
   </section>
 
+  <section class="home-expertise-strip" aria-label="Expertises">
+    <div class="home-expertise-strip__shell">
+      <div class="home-expertise-strip__track" id="expertise-track">
+        <a class="home-expertise-tile is-active"
+           th:href="@{/expertise/voiture}"
+           data-title="Voiture"
+           data-cta="Découvrez nos services">
+          <img src="/img/home/home-expertise-voiture-final.webp" alt="Expertise voiture" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Voiture</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/moto}"
+           data-title="Moto"
+           data-cta="Découvrez nos services">
+          <img src="/img/home/home-expertise-moto-final.webp" alt="Expertise moto" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Moto</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/nautique}"
+           data-title="Nautique"
+           data-cta="Découvrez nos services">
+          <img src="/img/home/home-expertise-nautique-final.webp" alt="Expertise nautique" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Nautique</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/mobilite-speciale}"
+           data-title="Mobilité spéciale"
+           data-cta="Découvrez nos services">
+          <img src="/img/home/home-expertise-mobilite-final.webp" alt="Expertise mobilité spéciale" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Mobilité spéciale</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+
+        <a class="home-expertise-tile"
+           th:href="@{/expertise/entreprise}"
+           data-title="Entreprises"
+           data-cta="Découvrez nos services">
+          <img src="/img/home/home-expertise-entreprises-final.webp" alt="Expertise entreprises" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+          <span class="home-expertise-tile__content">
+            <strong>Entreprises</strong>
+            <em>Découvrez nos services</em>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-commitment" aria-label="Notre engagement">
+    <div class="home-commitment__shell">
+      <h2>Notre engagement</h2>
+      <div class="home-commitment__grid">
+        <article class="home-commitment__card" tabindex="0">
+          <img src="/img/home/home-commitment-1-final.webp" alt="Artisanat de précision" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-commitment__shade" aria-hidden="true"></span>
+          <div class="home-commitment__copy">
+            <strong>Artisanat de précision</strong>
+            <em>L'art de la précision, où chaque détail compte.</em>
+          </div>
+        </article>
+        <article class="home-commitment__card" tabindex="0">
+          <img src="/img/IMG_9870.jpeg" alt="Hyper-personnalisation" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-commitment__shade" aria-hidden="true"></span>
+          <div class="home-commitment__copy">
+            <strong>Hyper-personnalisation</strong>
+            <em>Personnalisez chaque détail, reflétez votre personnalité.</em>
+          </div>
+        </article>
+        <article class="home-commitment__card" tabindex="0">
+          <img src="/img/home/home-commitment-3-final.webp" alt="Durabilité et longévité" width="1200" height="700" loading="lazy" decoding="async">
+          <span class="home-commitment__shade" aria-hidden="true"></span>
+          <div class="home-commitment__copy">
+            <strong>Durabilité et longévité</strong>
+            <em>La beauté durable, pensée pour résister au quotidien.</em>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="home-realizations" aria-label="Nos dernières réalisations">
     <div class="home-realizations__shell">
+      <h2>Nos dernières réalisations</h2>
       <div class="home-realizations__grid">
         <article class="home-realizations__item home-realizations__item--lead">
-          <img src="/img/home/realisations/realisation-lead.webp" alt="Dernière réalisation Colors Custom - véhicule premium" width="1536" height="1024" loading="lazy" decoding="async">
-          <span class="home-realizations__shade" aria-hidden="true"></span>
-          <h2>Nos dernières réalisations</h2>
-        </article>
-        <article class="home-realizations__item home-realizations__item--middle">
-          <img src="/img/home/realisations/realisation-middle.webp" alt="Réalisations Colors Custom en parking intérieur" width="1536" height="1024" loading="lazy" decoding="async">
+          <img src="/img/home/realisations/realisation-merged-left-final.webp" alt="Dernière réalisation Colors Custom - véhicule premium" width="1536" height="1024" loading="lazy" decoding="async">
           <span class="home-realizations__shade" aria-hidden="true"></span>
         </article>
         <article class="home-realizations__item home-realizations__item--top-right">
-          <img src="/img/home/realisations/realisation-top-right.webp" alt="Détail arrière premium Colors Custom" width="1536" height="1024" loading="lazy" decoding="async">
+          <img src="/img/home/realisations/realisation-top-right-final.webp" alt="Détail arrière premium Colors Custom" width="1536" height="1024" loading="lazy" decoding="async">
           <span class="home-realizations__shade" aria-hidden="true"></span>
         </article>
         <article class="home-realizations__item home-realizations__item--bottom-right">
-          <img src="/img/home/realisations/realisation-bottom-right.webp" alt="Série de véhicules sportifs personnalisés" width="1536" height="1024" loading="lazy" decoding="async">
+          <img src="/img/home/realisations/realisation-bottom-right-final.webp" alt="Série de véhicules sportifs personnalisés" width="1536" height="1024" loading="lazy" decoding="async">
           <span class="home-realizations__shade" aria-hidden="true"></span>
         </article>
       </div>
@@ -66,32 +167,40 @@
       <h2>Top ventes</h2>
       <div class="home-top-sales__grid">
         <article class="home-top-sales__card">
-          <img src="/img/placeholder-b2.svg" alt="Glaco W-JET" width="1200" height="700" loading="lazy" decoding="async">
-          <div class="home-top-sales__meta">
-            <h3>Glaco W-JET</h3>
-            <p>CHF 17.90</p>
-          </div>
+          <a th:href="@{/boutique}" aria-label="Découvrir Glaco W-JET en boutique">
+            <img src="/img/products/12_glaco_x_applicator_pad.webp" alt="Glaco W-JET" width="1200" height="700" loading="lazy" decoding="async">
+            <div class="home-top-sales__meta">
+              <h3>Glaco W-JET</h3>
+              <p>CHF 17.90</p>
+            </div>
+          </a>
         </article>
         <article class="home-top-sales__card">
-          <img src="/img/placeholder-b2.svg" alt="Glaco DX" width="1200" height="700" loading="lazy" decoding="async">
-          <div class="home-top-sales__meta">
-            <h3>Glaco DX</h3>
-            <p>CHF 19.90</p>
-          </div>
+          <a th:href="@{/boutique}" aria-label="Découvrir Glaco DX en boutique">
+            <img src="/img/products/11_glaco_x_rain_repellent.webp" alt="Glaco DX" width="1200" height="700" loading="lazy" decoding="async">
+            <div class="home-top-sales__meta">
+              <h3>Glaco DX</h3>
+              <p>CHF 19.90</p>
+            </div>
+          </a>
         </article>
         <article class="home-top-sales__card">
-          <img src="/img/placeholder-b2.svg" alt="Glaco Deicer" width="1200" height="700" loading="lazy" decoding="async">
-          <div class="home-top-sales__meta">
-            <h3>Glaco Deicer</h3>
-            <p>CHF 15.90</p>
-          </div>
+          <a th:href="@{/boutique}" aria-label="Découvrir Glaco Deicer en boutique">
+            <img src="/img/products/15_glaco_ice_x_de_icer.webp" alt="Glaco Deicer" width="1200" height="700" loading="lazy" decoding="async">
+            <div class="home-top-sales__meta">
+              <h3>Glaco Deicer</h3>
+              <p>CHF 15.90</p>
+            </div>
+          </a>
         </article>
         <article class="home-top-sales__card">
-          <img src="/img/placeholder-b2.svg" alt="Glaco W-JET lot" width="1200" height="700" loading="lazy" decoding="async">
-          <div class="home-top-sales__meta">
-            <h3>Glaco W-JET</h3>
-            <p>CHF 17.90</p>
-          </div>
+          <a th:href="@{/boutique}" aria-label="Découvrir le lot Glaco W-JET en boutique">
+            <img src="/img/products/12_glaco_x_applicator_pad.webp" alt="Glaco W-JET lot" width="1200" height="700" loading="lazy" decoding="async">
+            <div class="home-top-sales__meta">
+              <h3>Glaco W-JET</h3>
+              <p>CHF 17.90</p>
+            </div>
+          </a>
         </article>
       </div>
     </div>
@@ -115,72 +224,6 @@
     </div>
   </section>
 
-  <section class="home-expertise-strip" aria-label="Expertises">
-    <div class="home-expertise-strip__shell">
-      <div class="home-expertise-strip__track" id="expertise-track">
-        <a class="home-expertise-tile is-active"
-           th:href="@{/expertise/voiture}"
-           data-title="Voiture"
-           data-cta="Découvrez nos services">
-          <img src="/img/hero-service.jpg" alt="Expertise voiture" loading="lazy" decoding="async">
-          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
-          <span class="home-expertise-tile__content">
-            <strong>Voiture</strong>
-            <em>Découvrez nos services</em>
-          </span>
-        </a>
-
-        <a class="home-expertise-tile"
-           th:href="@{/expertise/moto}"
-           data-title="Moto"
-           data-cta="Découvrez nos services">
-          <img src="/img/placeholder-expertise.svg" alt="Expertise moto" width="1200" height="700" loading="lazy" decoding="async">
-          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
-          <span class="home-expertise-tile__content">
-            <strong>Moto</strong>
-            <em>Découvrez nos services</em>
-          </span>
-        </a>
-
-        <a class="home-expertise-tile"
-           th:href="@{/expertise/nautique}"
-           data-title="Nautique"
-           data-cta="Découvrez nos services">
-          <img src="/img/placeholder-engagement.svg" alt="Expertise nautique" width="1200" height="700" loading="lazy" decoding="async">
-          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
-          <span class="home-expertise-tile__content">
-            <strong>Nautique</strong>
-            <em>Découvrez nos services</em>
-          </span>
-        </a>
-
-        <a class="home-expertise-tile"
-           th:href="@{/expertise/mobilite-speciale}"
-           data-title="Mobilité spéciale"
-           data-cta="Découvrez nos services">
-          <img src="/img/placeholder-service.svg" alt="Expertise mobilité spéciale" width="1200" height="700" loading="lazy" decoding="async">
-          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
-          <span class="home-expertise-tile__content">
-            <strong>Mobilité spéciale</strong>
-            <em>Découvrez nos services</em>
-          </span>
-        </a>
-
-        <a class="home-expertise-tile"
-           th:href="@{/expertise/entreprise}"
-           data-title="Entreprises"
-           data-cta="Découvrez nos services">
-          <img src="/img/placeholder-b2.svg" alt="Expertise entreprises" width="1200" height="700" loading="lazy" decoding="async">
-          <span class="home-expertise-tile__shade" aria-hidden="true"></span>
-          <span class="home-expertise-tile__content">
-            <strong>Entreprises</strong>
-            <em>Découvrez nos services</em>
-          </span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <section class="home-faq" id="home-faq" aria-label="Questions fréquentes">
     <div class="home-faq__shell">
       <h2>Questions fréquentes</h2>
@@ -201,13 +244,13 @@
 
     </div>
   </section>
+  </main>
 
   <div th:replace="~{fragments/footer :: fragment}"></div>
   <a class="mobile-devis-cta" th:href="@{/devis}">Demander un devis</a>
 
-  <script th:src="@{/js/hero-slider.js}"></script>
-  <script th:src="@{/js/home-expertise.js}"></script>
-  <script th:src="@{/js/home-faq.js}"></script>
-  <script th:src="@{/js/faq.js}"></script>
+  <script th:src="@{/js/hero-slider.js}" defer></script>
+  <script th:src="@{/js/home-expertise.js}" defer></script>
+  <script th:src="@{/js/home-faq.js}" defer></script>
 </body>
 </html>

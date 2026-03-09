@@ -4,7 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PANIER | COLORS CUSTOM</title>
+  <meta name="robots" content="noindex, nofollow" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('boutique')}"></div>
@@ -13,6 +15,10 @@
     <section>
       <h1>PANIER</h1>
       <p th:text="${shippingHero}">Livraison gratuite partout en Suisse.</p>
+    </section>
+
+    <section th:if="${checkoutError != null}" class="status-box">
+      <p th:text="${checkoutError}">Erreur de paiement.</p>
     </section>
 
     <section th:if="${#maps.isEmpty(cart)}" class="status-box">
@@ -30,7 +36,7 @@
             <input type="hidden" name="productId" th:value="${it.product.id}" />
             <input type="number" name="qty" min="0" th:value="${it.quantity}" class="qty-input" />
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-            <button type="submit">Mettre a jour</button>
+            <button type="submit">Mettre à jour</button>
           </form>
 
           <form th:action="@{/cart/remove}" method="post" class="inline-form">
@@ -45,6 +51,14 @@
         <p th:text="${'Sous-total: CHF ' + #numbers.formatDecimal(subtotal, 1, 2)}">Sous-total: CHF 0.00</p>
         <p th:text="${'Livraison: CHF ' + #numbers.formatDecimal(shipping, 1, 2)}">Livraison: CHF 0.00</p>
         <p class="total-line" th:text="${'Total: CHF ' + #numbers.formatDecimal(total, 1, 2)}">Total: CHF 0.00</p>
+        <div class="payment-methods">
+          <p class="payment-methods__title">Modes de paiement</p>
+          <ul class="payment-methods__list" aria-label="Modes de paiement disponibles">
+            <li th:each="paymentMethod : ${paymentMethods}" th:text="${paymentMethod}">TWINT</li>
+          </ul>
+          <p class="payment-methods__hint"
+             th:text="${paymentMethodsHint}">Selon disponibilité Stripe et votre appareil.</p>
+        </div>
 
         <form th:action="@{/checkout}" method="post" class="inline-form">
           <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />

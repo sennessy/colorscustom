@@ -11,64 +11,86 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" th:content="@{/faq}" content="/faq" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
-<body>
+<body class="faq-page">
   <div th:replace="~{fragments/header :: fragment('')}"></div>
-  <main class="page-shell">
-    <section>
+  <main class="page-shell faq-page-shell" data-page="faq">
+    <section class="faq-hero">
       <span class="page-kicker">Questions fréquentes</span>
-      <h1>FAQ</h1>
-      <img src="/img/placeholder-service.svg" alt="FAQ" class="mono-hero" />
-      <p>Une FAQ centralisée par section. La section Services est affichée par défaut.</p>
+      <h1>FAQ interactive</h1>
+      <p>
+        Une navigation guidée, pensée pour aller vite: commencez par une catégorie,
+        posez votre question, puis ouvrez uniquement ce dont vous avez besoin.
+      </p>
+      <div class="faq-toolbar" role="group" aria-label="Outils FAQ">
+        <label class="faq-search">
+          <span class="sr-only">Rechercher une question</span>
+          <input id="faq-search" type="search" placeholder="Rechercher: délai, PPF, devis, entretien..." autocomplete="off" />
+        </label>
+        <button id="faq-open-all" class="faq-tool-btn" type="button">Tout ouvrir</button>
+        <button id="faq-close-all" class="faq-tool-btn" type="button">Tout fermer</button>
+      </div>
+      <p class="faq-meta">
+        <span id="faq-count">0</span> réponse(s) affichée(s)
+      </p>
     </section>
     <section class="faq-central">
-      <div class="faq-tabs">
-        <button class="faq-tab active faq-tab--spotlight" data-tab="faq-services" type="button">SERVICES</button>
-        <button class="faq-tab" data-tab="faq-produits" type="button">PRODUITS</button>
-        <button class="faq-tab" data-tab="faq-entreprises" type="button">ENTREPRISES</button>
-        <button class="faq-tab" data-tab="faq-entretien" type="button">ENTRETIEN</button>
-        <button class="faq-tab" data-tab="faq-devis" type="button">DEVIS</button>
-        <button class="faq-tab" data-tab="faq-innovation" type="button">INNOVATION</button>
+      <div class="faq-tabs" role="tablist" aria-label="Catégories FAQ">
+        <button class="faq-tab active faq-tab--spotlight" data-tab="faq-services" type="button" role="tab" aria-controls="faq-services" aria-selected="true">SERVICES</button>
+        <button class="faq-tab" data-tab="faq-produits" type="button" role="tab" aria-controls="faq-produits" aria-selected="false">PRODUITS</button>
+        <button class="faq-tab" data-tab="faq-entreprises" type="button" role="tab" aria-controls="faq-entreprises" aria-selected="false">ENTREPRISES</button>
+        <button class="faq-tab" data-tab="faq-entretien" type="button" role="tab" aria-controls="faq-entretien" aria-selected="false">ENTRETIEN</button>
+        <button class="faq-tab" data-tab="faq-devis" type="button" role="tab" aria-controls="faq-devis" aria-selected="false">DEVIS</button>
+        <button class="faq-tab" data-tab="faq-innovation" type="button" role="tab" aria-controls="faq-innovation" aria-selected="false">INNOVATION</button>
       </div>
       <div class="faq-content">
-        <div class="faq-panel active" id="faq-services">
+        <div class="faq-panel active" id="faq-services" role="tabpanel">
           <article class="faq-focus">
             <h2>COMMENCEZ PAR SERVICES</h2>
-            <p>Les réponses les plus consultées sont ici: protections, délais d'installation, niveaux de prestation.</p>
+            <p>
+              Séquence recommandée: comprendre les protections, comparer les niveaux
+              de couverture, puis confirmer le délai de pose.
+            </p>
           </article>
           <div th:replace="~{fragments/faq-item :: fragment(question='Quels services de protection automobile proposez-vous ?', answer='PPF, revêtement céramique, vitres teintées, covering et finitions visuelles.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Le PPF protège-t-il vraiment contre les impacts ?', answer='Oui, il absorbe les agressions légères et limite les micro-rayures du quotidien.')}"></div>
-          <div th:replace="~{fragments/faq-item :: fragment(question='Combien de temps dure l''installation ?', answer='Selon la zone traitée, de quelques heures à plusieurs jours pour un projet complet.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Combien de temps dure l’installation ?', answer='Selon la zone traitée, de quelques heures à plusieurs jours pour un projet complet.')}"></div>
         </div>
-        <div class="faq-panel" id="faq-produits">
+        <div class="faq-panel" id="faq-produits" role="tabpanel">
           <div th:replace="~{fragments/faq-item :: fragment(question='Quelle marque de film utilisez-vous ?', answer='Des films premium reconnus pour la tenue, la transparence et la stabilité UV.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Le film jaunit-il avec le temps ?', answer='Les références sélectionnées sont traitées contre le jaunissement.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Le film est-il visible sur la carrosserie ?', answer='Le rendu est discret lorsque la pose est correcte et les finitions bien contrôlées.')}"></div>
         </div>
-        <div class="faq-panel" id="faq-entreprises">
+        <div class="faq-panel" id="faq-entreprises" role="tabpanel">
           <div th:replace="~{fragments/faq-item :: fragment(question='Travaillez-vous avec des flottes ou des entreprises ?', answer='Oui, avec planification par lots et protocole adapté au contexte opérationnel.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Pouvez-vous intervenir dans nos locaux ?', answer='Selon la nature du projet et les contraintes techniques, une solution est étudiée.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Proposez-vous des tarifs adaptés aux flottes ?', answer='Oui, avec cadrage selon volumes, niveau de finition et délais attendus.')}"></div>
         </div>
-        <div class="faq-panel" id="faq-entretien">
+        <div class="faq-panel" id="faq-entretien" role="tabpanel">
           <div th:replace="~{fragments/faq-item :: fragment(question='Comment entretenir un véhicule protégé par PPF ou céramique ?', answer='Avec produits adaptés, lavage doux et routine régulière.')}"></div>
-          <div th:replace="~{fragments/faq-item :: fragment(question='Le film peut-il être retiré ?', answer='Oui, avec une dépose contrôlée pour préserver la surface d''origine.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Le film peut-il être retiré ?', answer='Oui, avec une dépose contrôlée pour préserver la surface d’origine.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Puis-je laver mon véhicule en station automatique ?', answer='Un lavage manuel est recommandé pour maximiser la durée de vie.')}"></div>
         </div>
-        <div class="faq-panel" id="faq-devis">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Combien de temps prend l''élaboration d''un devis ?', answer='En général, une première réponse arrive sous 24 à 48 heures.')}"></div>
+        <div class="faq-panel" id="faq-devis" role="tabpanel">
+          <div th:replace="~{fragments/faq-item :: fragment(question='Combien de temps prend l’élaboration d’un devis ?', answer='En général, une première réponse arrive sous 24 à 48 heures.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Comment se déroule le processus après devis ?', answer='Validation, planification, exécution atelier puis contrôle final.')}"></div>
           <div th:replace="~{fragments/faq-item :: fragment(question='Le paiement est-il avant ou après intervention ?', answer='Les modalités sont précisées en amont selon le type de prestation.')}"></div>
         </div>
-        <div class="faq-panel" id="faq-innovation">
-          <div th:replace="~{fragments/faq-item :: fragment(question='Quels éléments peuvent être personnalisés ?', answer='Vitres, carrosserie, feux, logos, bandes et détails d''habitacle.')}"></div>
-          <div th:replace="~{fragments/faq-item :: fragment(question='Proposez-vous des finitions spécifiques ?', answer='Oui, selon la matière, l''usage et le rendu souhaité.')}"></div>
-          <div th:replace="~{fragments/faq-item :: fragment(question='Quelle combinaison de protections recommandez-vous ?', answer='Un mix adapté au véhicule, à son usage et au niveau d''exposition.')}"></div>
+        <div class="faq-panel" id="faq-innovation" role="tabpanel">
+          <div th:replace="~{fragments/faq-item :: fragment(question='Quels éléments peuvent être personnalisés ?', answer='Vitres, carrosserie, feux, logos, bandes et détails d’habitacle.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Proposez-vous des finitions spécifiques ?', answer='Oui, selon la matière, l’usage et le rendu souhaité.')}"></div>
+          <div th:replace="~{fragments/faq-item :: fragment(question='Quelle combinaison de protections recommandez-vous ?', answer='Un mix adapté au véhicule, à son usage et au niveau d’exposition.')}"></div>
         </div>
       </div>
     </section>
   </main>
   <div th:replace="~{fragments/footer :: fragment}"></div>
-  <script th:src="@{/js/faq.js}"></script>
+  <script th:src="@{/js/faq.js}" defer></script>
 </body>
 </html>

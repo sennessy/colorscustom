@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SERVICE | FILM DE PROTECTION | COLORS CUSTOM</title>
+  <title>PPF COLORÉ</title>
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('services')}"></div>
   <main class="page-shell">
     <section>
-      <span class="page-kicker">SERVICE</span>
-      <h1>FILM DE PROTECTION (PPF)</h1>
-      <img src="/img/placeholder-service.svg" alt="Film de protection" class="mono-hero" />
-      <p>Protection invisible qui preserve la peinture contre impacts et micro-rayures.</p>
+      <h1>PPF COLORÉ</h1>
+      <img src="/img/services-s6-final.webp" alt="Film de protection" class="mono-hero" />
+      <p>Protection colorée qui préserve la peinture contre impacts et micro-rayures.</p>
+      <p class="service-price">Dès CHF 350.-</p>
     </section>
     <section>
       <h2>FORMULES</h2>
       <div class="list-grid">
-        <article class="list-card"><h3>PPF TRANSPARENT</h3><p>Protection discrète et auto-cicatrisante.</p><p>À partir de CHF 350</p></article>
-        <article class="list-card"><h3>PPF SATIN / MATTE</h3><p>Rendu spécifique avec niveau de protection élevé.</p><p>À partir de CHF 450</p></article>
-        <article class="list-card"><h3>PPF COLORE</h3><p>Protection + style distinctif.</p><p>À partir de CHF 550</p></article>
+        <article class="list-card"><h3>PPF TRANSPARENT</h3><p>Protection discrète et auto-cicatrisante.</p><p class="service-price">Dès CHF 350.-</p></article>
+        <article class="list-card"><h3>PPF SATIN / MATTE</h3><p>Rendu spécifique avec niveau de protection élevé.</p><p class="service-price">Dès CHF 450.-</p></article>
+        <article class="list-card"><h3>PPF COLORÉ</h3><p>Protection + style distinctif.</p><p class="service-price">Dès CHF 550.-</p></article>
       </div>
     </section>
     <div th:replace="~{fragments/prefooter :: fragment}"></div>

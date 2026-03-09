@@ -18,6 +18,14 @@ public class Product {
         this.price = price;
     }
 
+    public Product(Long id, String name, String subtitle, BigDecimal price, String imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.subtitle = subtitle;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

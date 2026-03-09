@@ -11,6 +11,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" th:content="@{/devis}" content="/devis" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('contact')}"></div>
@@ -23,31 +29,61 @@
     </section>
 
     <section>
-      <h2>INFORMATIONS DEMANDEES</h2>
+      <h2>INFORMATIONS DEMANDÉES</h2>
       <div class="list-grid">
         <article class="list-card"><h3>VÉHICULE / SUPPORT</h3><p>Type, modèle et usage principal.</p></article>
-        <article class="list-card"><h3>SERVICE SOUHAITE</h3><p>PPF, vitres teintées, céramique, visuel.</p></article>
+        <article class="list-card"><h3>SERVICE SOUHAITÉ</h3><p>PPF, vitres teintées, céramique, visuel.</p></article>
         <article class="list-card"><h3>CONTRAINTE PLANNING</h3><p>Dates et disponibilités.</p></article>
       </div>
     </section>
 
     <section>
       <h2>FORMULAIRE</h2>
-      <form class="inline-form" method="post" th:action="@{/devis}">
-        <label class="sr-only" for="devis-name">Nom</label>
-        <input id="devis-name" type="text" name="nom" placeholder="Nom" autocomplete="name" required />
-        <label class="sr-only" for="devis-email">Email</label>
-        <input id="devis-email" type="email" name="email" placeholder="Email" autocomplete="email" required />
-        <label class="sr-only" for="devis-phone">Téléphone</label>
-        <input id="devis-phone" type="tel" name="telephone" placeholder="Téléphone" autocomplete="tel" required />
+      <form class="prefooter-form lead-form js-mailto-form" action="#" method="post" novalidate data-mailto="contact@colorscustom.ch">
+        <div class="prefooter-form__grid">
+          <label class="sr-only" for="devis-name">Nom</label>
+          <input id="devis-name" type="text" name="nom" placeholder="Nom*" autocomplete="name" required />
+
+          <label class="sr-only" for="devis-email">Email</label>
+          <input id="devis-email" type="email" name="email" placeholder="Email*" autocomplete="email" required data-email-helper />
+          <datalist class="lead-email-suggestions"></datalist>
+
+          <label class="sr-only" for="devis-phone">Téléphone</label>
+          <input id="devis-phone" type="tel" name="telephone" placeholder="+41 79 000 00 00*" autocomplete="tel" inputmode="tel" value="+41 " required data-phone-prefix="+41 " />
+
+          <label class="sr-only" for="devis-service">Service</label>
+          <select id="devis-service" name="service" required data-service-select>
+            <option value="">Service*</option>
+            <optgroup label="Services atelier">
+              <option value="Vitres teintées">Vitres teintées</option>
+              <option value="Covering">Covering</option>
+              <option value="Revêtement céramique">Revêtement céramique</option>
+              <option value="Feux teintés">Feux teintés</option>
+              <option value="Création visuelle">Création visuelle</option>
+              <option value="PPF coloré">PPF coloré</option>
+            </optgroup>
+            <optgroup label="Solutions entreprises">
+              <option value="Flotte d'entreprise">Flotte d'entreprise</option>
+              <option value="Publicité véhicule">Publicité véhicule</option>
+              <option value="Projet sur mesure">Projet sur mesure</option>
+            </optgroup>
+            <optgroup label="Boutique">
+              <option value="Produits d'entretien">Produits d'entretien</option>
+              <option value="Stickers et visuels">Stickers et visuels</option>
+              <option value="Accessoires intérieurs">Accessoires intérieurs</option>
+            </optgroup>
+          </select>
+        </div>
         <label class="sr-only" for="devis-project">Projet</label>
-        <textarea id="devis-project" name="projet" rows="6" placeholder="Projet" required></textarea>
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-        <button type="submit">Envoyer ma demande</button>
+        <textarea id="devis-project" name="message" rows="6" placeholder="Message*" required></textarea>
+        <p class="lead-form__hint">Astuce: saisissez votre adresse avant le @ (ex: prenom.nom), le domaine vous sera proposé.</p>
+        <button type="submit">Envoyer par email</button>
+        <noscript><p><a href="mailto:contact@colorscustom.ch">Ouvrir votre boîte mail</a></p></noscript>
       </form>
     </section>
   </main>
 
   <div th:replace="~{fragments/footer :: fragment}"></div>
+  <script th:src="@{/js/lead-mailto-form.js}" defer></script>
 </body>
 </html>

@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block utility/transaction pages from indexing
+Disallow: /panier
+Disallow: /checkout/cancel
+Disallow: /checkout/success
+
+Sitemap: /sitemap.xml

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MENTIONS LÉGALES | COLORS CUSTOM</title>
+  <meta name="description" content="Mentions légales du site Colors Custom: éditeur, hébergement, propriété intellectuelle et responsabilité." />
+  <link rel="canonical" th:href="@{/mentions-legales}" href="/mentions-legales" />
+  <meta property="og:title" content="Mentions légales | COLORS CUSTOM" />
+  <meta property="og:description" content="Informations légales relatives à l'édition et à l'utilisation du site Colors Custom." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" th:content="@{/mentions-legales}" content="/mentions-legales" />
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
+</head>
+<body>
+  <div th:replace="~{fragments/header :: fragment('')}"></div>
+
+  <main class="page-shell">
+    <section>
+      <span class="page-kicker">Informations légales</span>
+      <h1>MENTIONS LÉGALES</h1>
+      <p>Dernière mise à jour: 5 mars 2026.</p>
+      <p>Les présentes mentions légales encadrent l'utilisation du site internet de Colors Custom.</p>
+    </section>
+
+    <section>
+      <h2>ÉDITEUR DU SITE</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>IDENTITÉ</h3>
+          <p>Colors Custom</p>
+          <p>Route des Avouillons 17C, 1196 Gland, Suisse</p>
+        </article>
+        <article class="list-card">
+          <h3>CONTACT</h3>
+          <p>Email: <a href="mailto:contact@colorscustom.ch">contact@colorscustom.ch</a></p>
+          <p>Téléphone: <a href="tel:+41212113600">+41 021 211 36 00</a></p>
+        </article>
+        <article class="list-card">
+          <h3>RESPONSABLE DE PUBLICATION</h3>
+          <p>Colors Custom</p>
+          <p>Direction: Samuel Carlos et Catalin Moldavinho</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>HÉBERGEMENT</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>HÉBERGEUR TECHNIQUE</h3>
+          <p>Nom de l'hébergeur: à compléter</p>
+          <p>Adresse de l'hébergeur: à compléter</p>
+          <p>Contact de l'hébergeur: à compléter</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>PROPRIÉTÉ INTELLECTUELLE</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>CONTENUS</h3>
+          <p>L'ensemble des contenus du site (textes, visuels, éléments graphiques, logos, vidéos, structure) est protégé par les règles de propriété intellectuelle.</p>
+        </article>
+        <article class="list-card">
+          <h3>UTILISATION</h3>
+          <p>Toute reproduction, diffusion, extraction ou réutilisation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
+        </article>
+        <article class="list-card">
+          <h3>MARQUES</h3>
+          <p>Les marques et signes distinctifs présents sur le site restent la propriété de leurs titulaires respectifs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>RESPONSABILITÉ</h2>
+      <div class="list-grid">
+        <article class="list-card">
+          <h3>INFORMATIONS PUBLIÉES</h3>
+          <p>Colors Custom met en oeuvre des moyens raisonnables pour fournir des informations fiables et à jour, sans garantie d'exhaustivité.</p>
+        </article>
+        <article class="list-card">
+          <h3>DISPONIBILITÉ</h3>
+          <p>Le site peut être interrompu pour maintenance, mise à jour ou incident technique, sans préavis.</p>
+        </article>
+        <article class="list-card">
+          <h3>LIENS EXTERNES</h3>
+          <p>Les liens vers des sites tiers sont fournis à titre informatif; Colors Custom ne contrôle pas leur contenu.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>DROIT APPLICABLE</h2>
+      <p>Les présentes mentions légales sont régies par le droit suisse. En cas de litige, les tribunaux compétents du canton de Vaud sont compétents, sous réserve de dispositions légales impératives.</p>
+    </section>
+  </main>
+
+  <div th:replace="~{fragments/footer :: fragment}"></div>
+</body>
+</html>

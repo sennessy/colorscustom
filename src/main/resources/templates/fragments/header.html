@@ -1,5 +1,6 @@
 <header class="cc-header"
         th:fragment="fragment(active='')">
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
   <div class="cc-header__inner">
         <a class="cc-brand" th:href="@{/}" aria-label="Colors Custom">
       <img class="cc-brand__logo" th:src="@{/img/logo-colorscustom-officiel.svg}" src="/img/logo-colorscustom-officiel.svg" alt="Colors Custom">
@@ -36,7 +37,7 @@
           Produits <span class="cc-nav__chevron">v</span>
         </a>
         <div class="cc-nav__submenu" id="submenu-boutique">
-          <a th:href="@{/boutique/entretien}">Produits d'entretien</a>
+          <a th:href="@{/boutique} + '#boutique-top-ventes'">Produits d'entretien</a>
           <a th:href="@{/boutique/stickers}">Stickers et visuels</a>
           <a th:href="@{/boutique/accessoires}">Accessoires et intérieurs</a>
         </div>
@@ -67,5 +68,5 @@
       </a>
     </nav>
   </div>
-  <script th:src="@{/js/header-active.js}"></script>
+  <script th:src="@{/js/header-active.js}" defer></script>
 </header>

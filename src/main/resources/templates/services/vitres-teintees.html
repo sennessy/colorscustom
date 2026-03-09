@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SERVICE | VITRES TEINTÉES | COLORS CUSTOM</title>
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('services')}"></div>
@@ -12,19 +18,81 @@
     <section>
       <span class="page-kicker">SERVICE</span>
       <h1>VITRES TEINTÉES</h1>
-      <img src="/img/placeholder-service.svg" alt="Vitres teintées" class="mono-hero" />
+      <img src="/img/services-s1-final.webp" alt="Vitres teintées" class="mono-hero" />
       <p>Réduisez l'éblouissement et roulez avec style en conservant un confort visuel optimal.</p>
+      <p class="service-price">Dès CHF 249.-</p>
     </section>
-    <section>
+    <section class="tint-benefits-section">
       <h2>BÉNÉFICES</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>CONFORT VISUEL</h3><p>Réduction de l'éblouissement et fatigue limitée.</p></article>
-        <article class="list-card"><h3>PROTECTION UV</h3><p>Moins d'exposition pour l'habitacle et les occupants.</p></article>
-        <article class="list-card"><h3>RENDU PROPRE</h3><p>Finition homogène et durable.</p></article>
+      <p>3 catégories essentielles pour choisir rapidement. Cliquez sur <strong>En savoir plus</strong> pour dérouler uniquement ce qui vous intéresse.</p>
+      <nav class="service-benefits-quicklinks" aria-label="Navigation rapide bénéfices vitres teintées">
+        <a href="#benefice-teintes">Teintes</a>
+        <a href="#benefice-legalite">Légalité</a>
+        <a href="#benefice-confort">Confort & intimité</a>
+      </nav>
+      <div class="list-grid tint-benefits-grid">
+        <article class="list-card service-benefit-card" id="benefice-teintes">
+          <h3>TEINTES & RENDU VISUEL</h3>
+          <p>Du discret au plus sombre selon votre style, votre usage et votre véhicule.</p>
+          <p class="service-benefit-levels">85% · 70% · 50% · 35% · 20% · 5%</p>
+          <details class="service-benefit-more">
+            <summary>
+              <span class="service-benefit-more__text service-benefit-more__text--more">En savoir plus</span>
+              <span class="service-benefit-more__text service-benefit-more__text--less">En savoir moins</span>
+            </summary>
+            <div class="service-benefit-more__content">
+              <ul class="service-benefit-list">
+                <li>85% à 70%: rendu léger, proche de l'origine, très discret.</li>
+                <li>50% à 35%: bon équilibre entre look, confort visuel et intimité.</li>
+                <li>20% à 5%: rendu plus marqué, surtout adapté aux vitrages arrière.</li>
+                <li>Validation visuelle avec vous avant la pose pour un résultat cohérent.</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+        <article class="list-card service-benefit-card" id="benefice-legalite">
+          <h3>LÉGALITÉ & CONFORMITÉ</h3>
+          <p>Pose pensée pour rester conforme et éviter les mauvaises surprises.</p>
+          <p class="service-benefit-levels">Contrôle de conformité</p>
+          <details class="service-benefit-more">
+            <summary>
+              <span class="service-benefit-more__text service-benefit-more__text--more">En savoir plus</span>
+              <span class="service-benefit-more__text service-benefit-more__text--less">En savoir moins</span>
+            </summary>
+            <div class="service-benefit-more__content">
+              <ul class="service-benefit-list">
+                <li>Vérification de la transmission lumineuse selon l'usage du véhicule.</li>
+                <li>Pare-brise et vitres avant traités uniquement dans les limites autorisées.</li>
+                <li>Plus de flexibilité sur les zones arrière selon la configuration du véhicule.</li>
+                <li>Conseil clair avant pose pour aligner style et règles en vigueur.</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+        <article class="list-card service-benefit-card" id="benefice-confort">
+          <h3>CONFORT, UV & PROTECTION DES REGARDS</h3>
+          <p>Un habitacle plus agréable au quotidien, pour le conducteur et les passagers.</p>
+          <p class="service-benefit-levels">Confort + intimité</p>
+          <details class="service-benefit-more">
+            <summary>
+              <span class="service-benefit-more__text service-benefit-more__text--more">En savoir plus</span>
+              <span class="service-benefit-more__text service-benefit-more__text--less">En savoir moins</span>
+            </summary>
+            <div class="service-benefit-more__content">
+              <ul class="service-benefit-list">
+                <li>Réduction de l'éblouissement en plein soleil et la nuit.</li>
+                <li>Filtration UV pour mieux protéger occupants, sellerie et plastiques.</li>
+                <li>Moins de regards directs dans l'habitacle, surtout à l'arrêt.</li>
+                <li>Confort thermique amélioré pour les trajets longs et urbains.</li>
+              </ul>
+            </div>
+          </details>
+        </article>
       </div>
     </section>
     <div th:replace="~{fragments/prefooter :: fragment}"></div>
   </main>
   <div th:replace="~{fragments/footer :: fragment}"></div>
+  <script th:src="@{/js/benefit-accordion.js}" defer></script>
 </body>
 </html>

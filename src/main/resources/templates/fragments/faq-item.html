@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="fr">
-<body>
-  <article class="faq-item" th:fragment="fragment(question, answer)">
-    <button class="faq-question" type="button" th:text="${question}">Question</button>
-    <div class="faq-answer">
-      <p th:text="${answer}">Réponse</p>
-    </div>
-  </article>
-</body>
-</html>
+<article class="faq-item" th:fragment="fragment(question, answer)">
+  <button class="faq-question" type="button" aria-expanded="false">
+    <span class="faq-question__text" th:text="${question}">Question</span>
+    <span class="faq-question__icon" aria-hidden="true"></span>
+  </button>
+  <div class="faq-answer" hidden>
+    <p th:text="${answer}">Réponse</p>
+  </div>
+</article>

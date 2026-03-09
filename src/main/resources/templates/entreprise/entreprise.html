@@ -11,30 +11,302 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" th:content="@{/entreprise}" content="/entreprise" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('entreprise')}"></div>
 
-  <main class="page-shell">
-    <section>
-      <span class="page-kicker">ENTREPRISES</span>
-      <h1>ENTREPRISES</h1>
-      <img src="/img/placeholder-expertise.svg" alt="Entreprises" class="mono-hero" />
-      <p>Solutions dédiées aux flottes, véhicules utilitaires et projets de communication.</p>
-      <p>Un parcours clair pour structurer votre besoin, de la protection de parc au projet de visibilité mobile.</p>
-    </section>
+  <main class="page-shell entreprise-page-shell">
+    <section class="hero-slider" aria-label="Slider entreprise">
+      <div class="hero-slide hero-slide--ent-0 active">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h2 class="hero-title">GRANDS COMPTES</h2>
+          <p class="hero-text">Protection et image de flotte multi-sites avec planning de pose sans blocage opérationnel.</p>
+          <p class="hero-text">Objectif: réduire le coût d'entretien, homogénéiser le rendu de parc et améliorer la visibilité de marque.</p>
+          <div class="enterprise-hero-actions">
+            <a class="hero-btn" th:href="@{/contact}">Planifier un appel 20 min</a>
+            <a class="hero-btn hero-btn--secondary" th:href="@{/devis}">Demander une offre cadre</a>
+          </div>
+        </div>
+      </div>
 
-    <section>
-      <h2>PARCOURS ENTREPRISE</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>FLOTTE D'ENTREPRISE</h3><p>Protection et homogénéisation de parc.</p><a th:href="@{/entreprise/flotte}">Voir la page</a></article>
-        <article class="list-card"><h3>PUBLICITÉ VÉHICULE</h3><p>Visibilité locale et présence mobile.</p><a th:href="@{/entreprise/publicite}">Voir la page</a></article>
-        <article class="list-card"><h3>PROJET SUR MESURE</h3><p>Conception adaptée à vos contraintes.</p><a th:href="@{/entreprise/projet-sur-mesure}">Voir la page</a></article>
+      <div class="hero-slide hero-slide--ent-1">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h2 class="hero-title">Flotte d'entreprise</h2>
+          <p class="hero-text">Protection et homogénéisation de parc pour une image cohérente et durable.</p>
+          <a class="hero-btn" th:href="@{/entreprise/flotte}">En savoir plus</a>
+        </div>
+      </div>
+
+      <div class="hero-slide hero-slide--ent-2">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h2 class="hero-title">Publicité véhicule</h2>
+          <p class="hero-text">Visibilité locale et présence mobile pour transformer chaque trajet en support de communication.</p>
+          <a class="hero-btn" th:href="@{/entreprise/publicite}">En savoir plus</a>
+        </div>
+      </div>
+
+      <div class="hero-slide hero-slide--ent-3">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h2 class="hero-title">Projet sur mesure</h2>
+          <p class="hero-text">Conception adaptée à vos contraintes opérationnelles, à votre secteur et à vos objectifs.</p>
+          <a class="hero-btn" th:href="@{/entreprise/projet-sur-mesure}">En savoir plus</a>
+        </div>
+      </div>
+
+      <div class="hero-nav" aria-hidden="false">
+        <button class="hero-arrow hero-arrow--prev" type="button" aria-label="Slide précédente">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+        </button>
+        <button class="hero-arrow hero-arrow--next" type="button" aria-label="Slide suivante">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>
+        </button>
+      </div>
+
+      <div class="hero-dots" role="tablist" aria-label="Navigation du slider entreprise">
+        <button class="hero-dot active" type="button" aria-label="Slide 1"></button>
+        <button class="hero-dot" type="button" aria-label="Slide 2"></button>
+        <button class="hero-dot" type="button" aria-label="Slide 3"></button>
+        <button class="hero-dot" type="button" aria-label="Slide 4"></button>
       </div>
     </section>
-    <div th:replace="~{fragments/prefooter :: fragment}"></div>
+
+    <section class="home-expertise-strip entreprise-km-strip" id="ent-km" aria-label="Réalisations utilitaires entreprise">
+      <div class="home-expertise-strip__shell">
+        <h2 class="ent-km-fixed-title">CHAQUE KILOMÈTRE COMPTE</h2>
+        <div class="home-expertise-strip__track" id="expertise-track">
+          <a class="home-expertise-tile is-active"
+             th:href="@{/entreprise}"
+             aria-label="Voir réalisation utilitaire vue 1">
+            <img src="/img/entreprise-km-van-1.jpg" alt="Habillage utilitaire vue 1" loading="lazy" decoding="async">
+            <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+            <span class="home-expertise-tile__content">
+              <strong>VISIBILITÉ MOBILE</strong>
+              <em>Votre marque est vue à chaque trajet.</em>
+            </span>
+          </a>
+
+          <a class="home-expertise-tile"
+             th:href="@{/entreprise}"
+             aria-label="Voir réalisation utilitaire vue 2">
+            <img src="/img/entreprise-km-van-2.jpg" alt="Habillage utilitaire vue 2" loading="lazy" decoding="async">
+            <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+            <span class="home-expertise-tile__content">
+              <strong>IMAGE UNIFIÉE</strong>
+              <em>Même standard visuel sur tout le parc.</em>
+            </span>
+          </a>
+
+          <a class="home-expertise-tile"
+             th:href="@{/entreprise}"
+             aria-label="Voir réalisation utilitaire vue 3">
+            <img src="/img/entreprise-km-van-3.jpg" alt="Habillage utilitaire vue 3" loading="lazy" decoding="async">
+            <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+            <span class="home-expertise-tile__content">
+              <strong>DURABILITÉ PRO</strong>
+              <em>Pose propre et tenue pensée pour l'usage terrain.</em>
+            </span>
+          </a>
+
+          <a class="home-expertise-tile"
+             th:href="@{/entreprise}"
+             aria-label="Voir réalisation utilitaire vue 4">
+            <img src="/img/entreprise-km-van-4.jpg" alt="Habillage utilitaire vue 4" loading="lazy" decoding="async">
+            <span class="home-expertise-tile__shade" aria-hidden="true"></span>
+            <span class="home-expertise-tile__content">
+              <strong>IMPACT MESURABLE</strong>
+              <em>Chaque véhicule devient un support rentable.</em>
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="enterprise-b2b-section enterprise-b2b-section--intro" aria-label="Bénéfices grand compte">
+      <span class="page-kicker">BÉNÉFICES</span>
+      <div class="enterprise-benefits-grid" data-accordion-exclusive="false">
+        <article class="enterprise-benefit-card">
+          <details class="enterprise-benefit-more">
+            <summary>
+              <span class="enterprise-benefit-summary__text">
+                <strong class="enterprise-benefit-summary__title">COÛTS MAÎTRISÉS</strong>
+                <span class="enterprise-benefit-summary__desc">Réduction des retouches et meilleure stabilité du budget entretien flotte.</span>
+              </span>
+              <span class="enterprise-benefit-more__btn">
+                <span class="enterprise-benefit-more__text enterprise-benefit-more__text--more">En savoir plus</span>
+                <span class="enterprise-benefit-more__text enterprise-benefit-more__text--less">Moins de détails</span>
+              </span>
+            </summary>
+            <div class="enterprise-benefit-more__content">
+              <ul class="enterprise-benefit-list">
+                <li>Planification par lot pour limiter les interventions répétées.</li>
+                <li>Protection durable qui réduit les reprises esthétiques.</li>
+                <li>Suivi consolidé pour piloter le coût au trimestre.</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+        <article class="enterprise-benefit-card">
+          <details class="enterprise-benefit-more">
+            <summary>
+              <span class="enterprise-benefit-summary__text">
+                <strong class="enterprise-benefit-summary__title">DISPONIBILITÉ OPÉRATIONNELLE</strong>
+                <span class="enterprise-benefit-summary__desc">Déploiement structuré pour garder les véhicules en circulation.</span>
+              </span>
+              <span class="enterprise-benefit-more__btn">
+                <span class="enterprise-benefit-more__text enterprise-benefit-more__text--more">En savoir plus</span>
+                <span class="enterprise-benefit-more__text enterprise-benefit-more__text--less">Moins de détails</span>
+              </span>
+            </summary>
+            <div class="enterprise-benefit-more__content">
+              <ul class="enterprise-benefit-list">
+                <li>Créneaux réservés selon vos contraintes de planning.</li>
+                <li>Coordination multi-sites pour les flottes étendues.</li>
+                <li>SLA prioritaire pour les besoins urgents.</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+        <article class="enterprise-benefit-card">
+          <details class="enterprise-benefit-more">
+            <summary>
+              <span class="enterprise-benefit-summary__text">
+                <strong class="enterprise-benefit-summary__title">IMAGE DE MARQUE UNIFORME</strong>
+                <span class="enterprise-benefit-summary__desc">Rendu cohérent sur l'ensemble du parc, partout et dans la durée.</span>
+              </span>
+              <span class="enterprise-benefit-more__btn">
+                <span class="enterprise-benefit-more__text enterprise-benefit-more__text--more">En savoir plus</span>
+                <span class="enterprise-benefit-more__text enterprise-benefit-more__text--less">Moins de détails</span>
+              </span>
+            </summary>
+            <div class="enterprise-benefit-more__content">
+              <ul class="enterprise-benefit-list">
+                <li>Standard visuel défini avant déploiement.</li>
+                <li>Contrôle qualité homogène sur chaque lot.</li>
+                <li>Reporting photo pour validation et traçabilité.</li>
+              </ul>
+            </div>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section class="enterprise-b2b-section" id="b2b-packs" aria-label="Offres par taille de flotte">
+      <h2>OFFRES FLEXIBLES</h2>
+      <div class="enterprise-packs-grid">
+        <article class="list-card enterprise-pack-card">
+          <h3>DÈS 1 VÉHICULE</h3>
+          <p>Solution starter pour TPE/PME qui veulent lancer une première flotte visible et protégée.</p>
+          <ul>
+            <li>Fenêtre de pose: 2 à 5 jours ouvrés</li>
+            <li>Intervention unitaire ou petit lot (1 à 5 véhicules)</li>
+            <li>Reporting mensuel synthétique</li>
+          </ul>
+        </article>
+        <article class="list-card enterprise-pack-card">
+          <h3>10 À 50 VÉHICULES</h3>
+          <p>Solution performance pour structurer une flotte en croissance avec cadence régulière.</p>
+          <ul>
+            <li>Fenêtre de pose: 3 à 5 jours ouvrés</li>
+            <li>Intervention par lot de 5 à 15 véhicules</li>
+            <li>Reporting KPI détaillé + revue trimestrielle</li>
+          </ul>
+        </article>
+        <article class="list-card enterprise-pack-card">
+          <h3>50+ VÉHICULES</h3>
+          <p>Solution grand compte avec SLA dédié pour déploiement multi-sites à grande échelle.</p>
+          <ul>
+            <li>SLA prioritaire et créneaux réservés</li>
+            <li>Intervention multi-sites coordonnée</li>
+            <li>Dashboard et comité de pilotage mensuel</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="enterprise-b2b-section" id="b2b-process" aria-label="Process de déploiement">
+      <h2>DÉPLOIEMENT EN 4 ÉTAPES</h2>
+      <div class="enterprise-process-grid">
+        <article class="list-card enterprise-process-card">
+          <span class="enterprise-process-step">01</span>
+          <h3>AUDIT FLOTTE</h3>
+          <p>Cartographie des véhicules, usage, contraintes site et niveau de priorité.</p>
+        </article>
+        <article class="list-card enterprise-process-card">
+          <span class="enterprise-process-step">02</span>
+          <h3>PLAN D'ACTION</h3>
+          <p>Scénario de déploiement, lots de pose, SLA et fenêtre d'intervention validée.</p>
+        </article>
+        <article class="list-card enterprise-process-card">
+          <span class="enterprise-process-step">03</span>
+          <h3>DÉPLOIEMENT</h3>
+          <p>Exécution atelier et/ou multi-sites, contrôle qualité et suivi d'avancement.</p>
+        </article>
+        <article class="list-card enterprise-process-card">
+          <span class="enterprise-process-step">04</span>
+          <h3>SUIVI TRIMESTRIEL</h3>
+          <p>Reporting consolidé, recommandations d'optimisation et pilotage de continuité.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="enterprise-b2b-section" id="b2b-contact" aria-label="Formulaire grand compte">
+      <h2>CONTACT GRAND COMPTE</h2>
+      <p>Format court pour cadrer votre besoin. Réponse en 24h ouvrées avec proposition de plan d'action.</p>
+      <form class="prefooter-form lead-form js-mailto-form enterprise-account-form" action="#" method="post" novalidate data-mailto="contact@colorscustom.ch">
+        <div class="prefooter-form__grid">
+          <label class="sr-only" for="enterprise-account-contact">Nom du contact</label>
+          <input id="enterprise-account-contact" type="text" name="nom" placeholder="Nom du contact*" autocomplete="name" required />
+
+          <label class="sr-only" for="enterprise-account-company">Société</label>
+          <input id="enterprise-account-company" type="text" name="societe" placeholder="Société*" required data-mail-label="Société" />
+
+          <label class="sr-only" for="enterprise-account-email">Email professionnel</label>
+          <input id="enterprise-account-email" type="email" name="email" placeholder="Email professionnel*" autocomplete="email" required data-email-helper />
+
+          <label class="sr-only" for="enterprise-account-phone">Téléphone</label>
+          <input id="enterprise-account-phone" type="tel" name="telephone" placeholder="+41 79 000 00 00*" autocomplete="tel" inputmode="tel" value="+41 " required data-phone-prefix="+41 " />
+
+          <label class="sr-only" for="enterprise-account-size">Taille de flotte</label>
+          <select id="enterprise-account-size" name="taille_flotte" required data-mail-label="Taille de flotte">
+            <option value="">Taille de flotte*</option>
+            <option value="Dès 1 véhicule">Dès 1 véhicule</option>
+            <option value="10 à 50 véhicules">10 à 50 véhicules</option>
+            <option value="50+ véhicules">50+ véhicules</option>
+          </select>
+
+          <label class="sr-only" for="enterprise-account-service">Type de demande</label>
+          <select id="enterprise-account-service" name="service" required data-service-select>
+            <option value="">Type de demande*</option>
+            <option value="Flotte d'entreprise">Flotte d'entreprise</option>
+            <option value="Publicité véhicule">Publicité véhicule</option>
+            <option value="Projet sur mesure">Projet sur mesure</option>
+            <option value="Audit flotte multi-sites">Audit flotte multi-sites</option>
+          </select>
+        </div>
+        <label class="sr-only" for="enterprise-account-objective">Objectif</label>
+        <textarea id="enterprise-account-objective" name="message" rows="4" placeholder="Objectif principal (coût, image de marque, délai, déploiement multi-sites...)*" required></textarea>
+        <p class="lead-form__hint">Astuce: saisissez votre email avant le @ (ex: prenom.nom), le domaine vous sera proposé automatiquement.</p>
+        <button type="submit">Recevoir une proposition en 24h</button>
+      </form>
+    </section>
+
   </main>
 
   <div th:replace="~{fragments/footer :: fragment}"></div>
+  <script th:src="@{/js/lead-mailto-form.js}" defer></script>
+  <script th:src="@{/js/home-expertise.js}" defer></script>
+  <script th:src="@{/js/hero-slider.js}" defer></script>
+  <script th:src="@{/js/benefit-accordion.js}" defer></script>
 </body>
 </html>

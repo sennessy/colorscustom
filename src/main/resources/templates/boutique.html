@@ -11,24 +11,56 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" th:content="@{/boutique}" content="/boutique" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('boutique')}"></div>
 
-  <main class="page-shell boutique-boost">
-    <section>
-      <span class="page-kicker">BOUTIQUE</span>
-      <h1>BOUTIQUE</h1>
-      <img src="/img/placeholder-service.svg" alt="Boutique" class="mono-hero" loading="eager" fetchpriority="high" decoding="async" />
-      <p th:text="${shippingHero}">Livraison gratuite partout en Suisse.</p>
-      <p>Découvrez films, outils et produits d'entretien sélectionnés pour prolonger les résultats en atelier.</p>
+  <main class="page-shell boutique-boost boutique-page-shell">
+    <section class="boutique-hero-section">
+      <img src="/img/boutique-s0-final.webp" alt="Boutique" class="mono-hero boutique-s0-image" loading="eager" fetchpriority="high" decoding="async" />
+      <div class="boutique-hero-section__overlay"></div>
+      <div class="boutique-hero-section__content">
+        <span class="page-kicker">SÉLECTION</span>
+        <h1>Notre Boutique</h1>
+      </div>
     </section>
 
     <section>
+      <h2>CATÉGORIES</h2>
+      <div class="boutique-categories-grid">
+        <article class="boutique-category-card boutique-category-card--borderless">
+          <img src="/img/boutique-entretien-hero-final.webp" alt="Produits d'entretien" loading="lazy" decoding="async" />
+          <span class="boutique-category-card__shade" aria-hidden="true"></span>
+          <div class="boutique-category-card__content">
+            <h3>PRODUITS D'ENTRETIEN</h3>
+            <p>Nettoyage, effet déperlant, finition.</p>
+            <a href="#boutique-top-ventes">Voir</a>
+          </div>
+        </article>
+        <article class="boutique-category-card">
+          <img src="/img/boutique-stickers-link-final.webp" alt="Stickers et visuels" loading="lazy" decoding="async" />
+          <span class="boutique-category-card__shade" aria-hidden="true"></span>
+          <div class="boutique-category-card__content">
+            <h3>STICKERS ET VISUELS</h3>
+            <p>Créations personnelles, logos, bandes décoratives.</p>
+            <a th:href="@{/boutique/stickers}">Voir</a>
+          </div>
+        </article>
+      </div>
+      <p><a th:href="@{/panier}">Voir le panier</a> <span th:text="${'(' + cartCount + ')'}">(0)</span></p>
+    </section>
+
+    <section id="boutique-top-ventes">
       <h2>TOP VENTES</h2>
       <div class="product-grid">
         <article class="product-card" th:each="p : ${products}">
-          <img src="/img/placeholder-service.svg" alt="Produit" class="product-card__img" loading="lazy" decoding="async" />
+          <img th:src="${p.imageUrl}" src="/img/placeholder-service.svg" th:alt="${p.name}" alt="Produit" class="product-card__img" loading="lazy" decoding="async" />
           <h2 th:text="${p.name}">Nom produit</h2>
           <p th:text="${p.subtitle}">Description</p>
           <p class="price" th:text="${'CHF ' + #numbers.formatDecimal(p.price, 1, 2)}">CHF 0.00</p>
@@ -42,14 +74,24 @@
       </div>
     </section>
 
-    <section>
-      <h2>CATEGORIES</h2>
+    <section id="boutique-entretien-essentiels">
+      <h2>ESSENTIELS PRODUITS D'ENTRETIEN</h2>
+      <p>Nos produits d'entretien sont sélectionnés pour prolonger les performances et l'esthétique des services Colors Custom.</p>
+      <p>Chaque formule respecte les surfaces traitées et aide à maintenir brillance, protection et propreté au quotidien.</p>
       <div class="list-grid">
-        <article class="list-card"><h3>PRODUITS D'ENTRETIEN</h3><p>Nettoyage, effet déperlant, finition.</p><a th:href="@{/boutique/entretien}">Voir</a></article>
-        <article class="list-card"><h3>STICKERS ET VISUELS</h3><p>Pop culture, logos, bandes décoratives.</p><a th:href="@{/boutique/stickers}">Voir</a></article>
-        <article class="list-card"><h3>ACCESSOIRES INTÉRIEURS</h3><p>Éclairage, housses, tapis, diffuseurs.</p><a th:href="@{/boutique/accessoires}">Voir</a></article>
+        <article class="list-card">
+          <h3>NETTOYAGE</h3>
+          <p>Pré-lavage, nettoyants ciblés et microfibres pour une base propre sans agresser les surfaces.</p>
+        </article>
+        <article class="list-card">
+          <h3>EFFET DÉPERLANT</h3>
+          <p>Traitements hydrophobes pour améliorer la visibilité sous pluie et ralentir l'accroche des saletés.</p>
+        </article>
+        <article class="list-card">
+          <h3>FINITION</h3>
+          <p>Produits de finition pour un rendu net, homogène et une protection visuelle durable.</p>
+        </article>
       </div>
-      <p><a th:href="@{/panier}">Voir le panier</a> <span th:text="${'(' + cartCount + ')'}">(0)</span></p>
     </section>
 
     <section>
@@ -61,46 +103,30 @@
       </div>
     </section>
 
-    <section>
-      <h2>PACKS RECOMMANDÉS</h2>
-      <div class="section-grid section-grid--3">
-        <article class="panel">
-          <h3>PACK ENTRETIEN EXPRESS</h3>
-          <p>Nettoyage + finition pour entretien hebdomadaire.</p>
-          <a th:href="@{/boutique/entretien}">Voir le pack</a>
-        </article>
-        <article class="panel">
-          <h3>PACK LOOK &amp; DÉTAILS</h3>
-          <p>Visuels + accessoires pour personnalisation rapide.</p>
-          <a th:href="@{/boutique/stickers}">Voir le pack</a>
-        </article>
-        <article class="panel">
-          <h3>PACK CONFORT INTÉRIEUR</h3>
-          <p>Accessoires utiles au quotidien pour l'habitacle.</p>
-          <a th:href="@{/boutique/accessoires}">Voir le pack</a>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2>AVIS CLIENTS</h2>
-      <div class="section-grid section-grid--3">
-        <article class="panel"><p>"Produits efficaces et livraison rapide. Recommandé."</p><p><strong>- Client vérifié</strong></p></article>
-        <article class="panel"><p>"Le rendu est propre, les conseils sont utiles."</p><p><strong>- Client vérifié</strong></p></article>
-        <article class="panel"><p>"Bon rapport qualité/prix sur les packs entretien."</p><p><strong>- Client vérifié</strong></p></article>
-      </div>
-    </section>
-
     <section class="shop-map">
       <h2>RETRAIT &amp; ATELIER</h2>
-      <div class="shop-map__card">
-        <div class="shop-map__preview" aria-hidden="true">Plan rapide - Gland (VD)</div>
+      <div class="shop-map__card shop-map__card--single">
         <div class="shop-map__info">
           <p>Route des Avouillons 17C, 1196 Gland, Suisse</p>
-          <a class="shop-map__link" href="https://www.google.com/maps/search/?api=1&query=Route+des+Avouillons+17C,+1196+Gland,+Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
+          <a class="shop-map__link" href="https://www.google.com/maps?q=Route%20des%20Avouillons%2017C%2C%201196%20Gland%2C%20Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
         </div>
       </div>
     </section>
   </main>
+
+  <aside
+    th:if="${cartToastMessage != null}"
+    id="cartToast"
+    class="cart-toast"
+    th:classappend="${cartToastType == 'error'} ? ' cart-toast--error' : ' cart-toast--success'"
+    role="status"
+    aria-live="polite">
+    <p th:text="${cartToastMessage}">Produit ajouté au panier.</p>
+    <div class="cart-toast__actions">
+      <a th:href="@{/panier}">Voir le panier</a>
+      <button type="button" class="cart-toast__close" aria-label="Fermer la notification">Fermer</button>
+    </div>
+  </aside>
+  <script th:src="@{/js/cart-toast.js}" defer></script>
 </body>
 </html>

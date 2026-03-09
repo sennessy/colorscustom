@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SERVICE | CRÉATION VISUELLE (DÉTAIL) | COLORS CUSTOM</title>
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('services')}"></div>
@@ -12,15 +18,16 @@
     <section>
       <span class="page-kicker">SERVICE</span>
       <h1>CRÉATION VISUELLE - DÉTAIL</h1>
-      <img src="/img/placeholder-service.svg" alt="Creation detail" class="mono-hero" />
+      <img src="/img/entreprise-publicite-chatgpt-20260305.webp" alt="Creation detail" class="mono-hero" />
       <p>Version détaillée des options de style et de marquage.</p>
+      <p class="service-price">Dès CHF 120.-</p>
     </section>
     <section>
       <h2>APPROCHES DE DESIGN</h2>
       <div class="list-grid">
-        <article class="list-card"><h3>MINIMALISTE</h3><p>Lignes et détails subtils.</p><p>À partir de CHF 120</p></article>
-        <article class="list-card"><h3>SPORTIF</h3><p>Rendu dynamique.</p><p>À partir de CHF 180</p></article>
-        <article class="list-card"><h3>COMPLET</h3><p>Identité visuelle globale.</p><p>À partir de CHF 350</p></article>
+        <article class="list-card"><h3>MINIMALISTE</h3><p>Lignes et détails subtils.</p><p class="service-price">Dès CHF 120.-</p></article>
+        <article class="list-card"><h3>SPORTIF</h3><p>Rendu dynamique.</p><p class="service-price">Dès CHF 180.-</p></article>
+        <article class="list-card"><h3>COMPLET</h3><p>Identité visuelle globale.</p><p class="service-price">Dès CHF 350.-</p></article>
       </div>
     </section>
     <div th:replace="~{fragments/prefooter :: fragment}"></div>

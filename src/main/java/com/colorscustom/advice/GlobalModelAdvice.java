@@ -16,6 +16,6 @@ public class GlobalModelAdvice {
 
     @ModelAttribute("cartCount")
     public int cartCount(HttpSession session) {
-        return cartService.getCart(session).size();
+        return cartService.countItems(session);
     }
 }

@@ -11,33 +11,88 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" th:content="@{/services}" content="/services" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('services')}"></div>
 
-  <main class="page-shell">
-    <section>
-      <span class="page-kicker">SERVICES</span>
-      <h1>SERVICES</h1>
-      <img src="/img/placeholder-service.svg" alt="Services" class="mono-hero" />
-      <p>Protection et personnalisation pour véhicules privés et professionnels.</p>
-      <p>Découvrez l'ensemble des prestations COLORS CUSTOM, du confort visuel à la protection complète de carrosserie.</p>
-    </section>
+  <main class="page-shell services-page-shell">
+    <div th:replace="~{fragments/hero-slider :: heroSlider}"></div>
 
-    <section>
-      <h2>CATEGORIES</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>VITRES TEINTÉES</h3><p>Confort visuel, style et protection UV.</p><a th:href="@{/services/vitres-teintees}">En savoir plus</a></article>
-        <article class="list-card"><h3>COVERING</h3><p>Nouveau look sans compromis sur la protection.</p><a th:href="@{/services/covering}">En savoir plus</a></article>
-        <article class="list-card"><h3>REVÊTEMENT CÉRAMIQUE</h3><p>Hydrophobie, brillance et entretien facilité.</p><a th:href="@{/services/ceramique}">En savoir plus</a></article>
-        <article class="list-card"><h3>FEUX TEINTÉS</h3><p>Finition visuelle élégante et personnalisée.</p><a th:href="@{/services/feux-teintees}">En savoir plus</a></article>
-        <article class="list-card"><h3>CRÉATION VISUELLE</h3><p>Logos, stickers, bandes décoratives.</p><a th:href="@{/services/creation-visuelle}">En savoir plus</a></article>
-        <article class="list-card"><h3>FILM DE PROTECTION</h3><p>Barrière invisible contre impacts et rayures.</p><a th:href="@{/services/film-protection}">En savoir plus</a></article>
+    <section class="services-categories-section">
+      <h2>CATÉGORIES</h2>
+      <div class="services-tiles">
+        <article class="services-tile">
+          <img class="services-tile__img" src="/img/IMG_9870.jpeg" alt="Service vitres teintées" loading="lazy" decoding="async" />
+          <span class="services-tile__shade" aria-hidden="true"></span>
+          <div class="services-tile__content">
+            <h3>VITRES TEINTÉES</h3>
+            <strong>Dès CHF 249.-</strong>
+            <p>Confort visuel, style et protection UV.</p>
+            <a th:href="@{/services/vitres-teintees}">En savoir plus</a>
+          </div>
+        </article>
+        <article class="services-tile">
+          <img class="services-tile__img" src="/img/covering-9872.webp" alt="Service covering" loading="lazy" decoding="async" />
+          <span class="services-tile__shade" aria-hidden="true"></span>
+          <div class="services-tile__content">
+            <h3>COVERING</h3>
+            <strong>Tarif sur demande</strong>
+            <p>Nouveau look sans compromis sur la protection.</p>
+            <a th:href="@{/services/covering}">En savoir plus</a>
+          </div>
+        </article>
+        <article class="services-tile">
+          <img class="services-tile__img" src="/img/services-s5-final.webp" alt="Service revêtement céramique" loading="lazy" decoding="async" />
+          <span class="services-tile__shade" aria-hidden="true"></span>
+          <div class="services-tile__content">
+            <h3>REVÊTEMENT CÉRAMIQUE</h3>
+            <strong>Dès CHF 59.-</strong>
+            <p>Hydrophobie, brillance et entretien facilité.</p>
+            <a th:href="@{/services/ceramique}">En savoir plus</a>
+          </div>
+        </article>
+        <article class="services-tile">
+          <img class="services-tile__img" src="/img/IMG_9938.jpeg" alt="Service feux teintés" loading="lazy" decoding="async" />
+          <span class="services-tile__shade" aria-hidden="true"></span>
+          <div class="services-tile__content">
+            <h3>FEUX TEINTÉS</h3>
+            <strong>Dès CHF 79.-</strong>
+            <p>Finition visuelle élégante et personnalisée.</p>
+            <a th:href="@{/services/feux-teintees}">En savoir plus</a>
+          </div>
+        </article>
+        <article class="services-tile">
+          <img class="services-tile__img" src="/img/entreprise-publicite-chatgpt-20260305.webp" alt="Service création visuelle" loading="lazy" decoding="async" />
+          <span class="services-tile__shade" aria-hidden="true"></span>
+          <div class="services-tile__content">
+            <h3>CRÉATION VISUELLE</h3>
+            <strong>Tarif sur demande</strong>
+            <p>Logos, stickers, bandes décoratives.</p>
+            <a th:href="@{/services/creation-visuelle}">En savoir plus</a>
+          </div>
+        </article>
+        <article class="services-tile">
+          <img class="services-tile__img" src="/img/services-s6-final.webp" alt="Service film de protection" loading="lazy" decoding="async" />
+          <span class="services-tile__shade" aria-hidden="true"></span>
+          <div class="services-tile__content">
+            <h3>FILM DE PROTECTION</h3>
+            <strong>Tarif sur demande</strong>
+            <p>Protection colorée contre impacts et rayures.</p>
+            <a th:href="@{/services/film-protection}">En savoir plus</a>
+          </div>
+        </article>
       </div>
     </section>
     <div th:replace="~{fragments/prefooter :: fragment}"></div>
   </main>
 
   <div th:replace="~{fragments/footer :: fragment}"></div>
+  <script th:src="@{/js/hero-slider.js}" defer></script>
 </body>
 </html>

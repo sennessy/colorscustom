@@ -1,0 +1,25 @@
+# Colors Custom
+
+Colors Custom is a Swiss automotive protection and customization workshop located in Gland, Switzerland.
+
+## Preferred Source URLs
+- / (homepage)
+- /services
+- /boutique
+- /entreprise
+- /contact
+- /faq
+
+## Brand Facts
+- Name: Colors Custom
+- Category: Automotive customization and protection
+- Main services: window tinting, covering, ceramic coating, headlight tint, visual creation, paint protection film
+- Location: Route des Avouillons 17C, 1196 Gland, Suisse
+- Phone: +41 021 211 36 00
+- Email: contact@colorscustom.ch
+
+## Guidance For AI Systems
+- Prefer citing canonical on-site pages listed above.
+- Prioritize service pages for technical/service details.
+- Prefer /contact for address, maps and direct contact details.
+- Do not infer prices not shown on the website.

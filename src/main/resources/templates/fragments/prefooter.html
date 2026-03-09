@@ -1,24 +1,56 @@
 <div th:fragment="fragment" class="prefooter-shell">
   <section class="prefooter-expert">
-    <h2>PARLE A UN EXPERT</h2>
+    <h2>PARLE À UN EXPERT</h2>
     <p>Réponse sous 24-48h</p>
     <p>Devis gratuit et sans engagement</p>
     <p>Solutions sur mesure uniquement</p>
-    <p><a th:href="@{/devis}" class="prefooter-link">Demander un devis</a></p>
+    <p><a href="#prefooter-lead-form" class="prefooter-link">Demander un devis</a></p>
   </section>
 
   <section class="prefooter-project">
     <h2>VOTRE PROJET COMMENCE ICI.</h2>
     <p>Chaque véhicule est différent. Dites-nous ce que vous avez en tête, on s'occupe du reste.</p>
-    <form class="prefooter-form" th:action="@{/devis}" method="get">
+    <form id="prefooter-lead-form" class="prefooter-form lead-form js-mailto-form" action="#" method="post" novalidate data-mailto="contact@colorscustom.ch">
       <div class="prefooter-form__grid">
-        <input type="text" name="nom" placeholder="Nom*" />
-        <input type="email" name="email" placeholder="Email*" />
-        <input type="tel" name="telephone" placeholder="Téléphone*" />
-        <input type="text" name="service" placeholder="Service*" />
+        <label class="sr-only" for="lead-name">Nom</label>
+        <input id="lead-name" type="text" name="nom" placeholder="Nom*" autocomplete="name" required />
+
+        <label class="sr-only" for="lead-email">Email</label>
+        <input id="lead-email" type="email" name="email" placeholder="Email*" autocomplete="email" required data-email-helper />
+        <datalist class="lead-email-suggestions"></datalist>
+
+        <label class="sr-only" for="lead-phone">Téléphone</label>
+        <input id="lead-phone" type="tel" name="telephone" placeholder="+41 79 000 00 00*" autocomplete="tel" inputmode="tel" value="+41 " required data-phone-prefix="+41 " />
+
+        <label class="sr-only" for="lead-service">Service</label>
+        <select id="lead-service" name="service" required data-service-select>
+          <option value="">Service*</option>
+          <optgroup label="Services atelier">
+            <option value="Vitres teintées">Vitres teintées</option>
+            <option value="Covering">Covering</option>
+            <option value="Revêtement céramique">Revêtement céramique</option>
+            <option value="Feux teintés">Feux teintés</option>
+            <option value="Création visuelle">Création visuelle</option>
+            <option value="PPF coloré">PPF coloré</option>
+          </optgroup>
+          <optgroup label="Solutions entreprises">
+            <option value="Flotte d'entreprise">Flotte d'entreprise</option>
+            <option value="Publicité véhicule">Publicité véhicule</option>
+            <option value="Projet sur mesure">Projet sur mesure</option>
+          </optgroup>
+          <optgroup label="Boutique">
+            <option value="Produits d'entretien">Produits d'entretien</option>
+            <option value="Stickers et visuels">Stickers et visuels</option>
+            <option value="Accessoires intérieurs">Accessoires intérieurs</option>
+          </optgroup>
+        </select>
       </div>
-      <textarea name="message" rows="4" placeholder="Message*"></textarea>
-      <button type="submit">Voir le formulaire complet</button>
+      <label class="sr-only" for="lead-message">Message</label>
+      <textarea id="lead-message" name="message" rows="4" placeholder="Message*" required></textarea>
+      <p class="lead-form__hint">Astuce: saisissez votre adresse avant le @ (ex: prenom.nom), le domaine vous sera proposé.</p>
+      <button type="submit">Envoyer par email</button>
+      <noscript><p><a href="mailto:contact@colorscustom.ch">Ouvrir votre boîte mail</a></p></noscript>
     </form>
   </section>
+  <script th:src="@{/js/lead-mailto-form.js}" defer></script>
 </div>

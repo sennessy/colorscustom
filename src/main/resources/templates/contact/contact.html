@@ -11,48 +11,51 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" th:content="@{/contact}" content="/contact" />
   <link rel="stylesheet" th:href="@{/css/style.css}" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta property="og:site_name" content="COLORS CUSTOM" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Colors Custom LLMs" />
 </head>
 <body>
   <div th:replace="~{fragments/header :: fragment('contact')}"></div>
   <main class="contact-hero">
     <section class="contact-hero__shell">
+      <article class="contact-hero__intro">
+        <img src="/img/contact-card1-chatgpt-20260306-180609.png" alt="Colors Custom intro" loading="eager" fetchpriority="high" decoding="async">
+      </article>
+    </section>
+    <section class="contact-hero__shell">
       <div class="contact-hero__slider" id="contactHeroSlider" aria-label="Contact slider">
-        <article class="contact-hero__slide contact-hero__slide--intro is-active">
-          <img src="/img/hero-service.jpg" alt="Colors Custom intro" loading="eager" fetchpriority="high" decoding="async">
-          <span class="contact-hero__overlay" aria-hidden="true"></span>
-          <div class="contact-hero__content contact-hero__content--center">
-            <img class="contact-hero__logo" src="/img/contact-slide-logo.svg" alt="Colors Custom" width="3492" height="3492" loading="lazy" decoding="async">
-            <a class="contact-hero__cta" href="/services">Découvrir</a>
-          </div>
-        </article>
-        <article class="contact-hero__slide contact-hero__slide--team">
-          <img src="/img/placeholder-engagement.svg" alt="Notre équipe" width="1200" height="700" loading="lazy" decoding="async">
+        <article class="contact-hero__slide contact-hero__slide--team is-active">
+          <img src="/img/contact-team-20260309-000748.png" alt="Notre équipe" width="1536" height="1024" loading="lazy" decoding="async">
           <span class="contact-hero__overlay" aria-hidden="true"></span>
           <div class="contact-hero__content">
             <h2>Notre<br>Équipe</h2>
             <p class="contact-hero__lead">Derrière chaque véhicule, il y a des mains, des regards et des décisions précises.</p>
             <p>Notre équipe réunit des profils complémentaires, tous animés par la même exigence du détail et du travail bien fait.</p>
-            <a class="contact-hero__cta" href="/about">En savoir plus</a>
+            <a class="contact-hero__cta" href="/devis">Nous contacter</a>
           </div>
         </article>
         <article class="contact-hero__slide contact-hero__slide--garage">
-          <img src="/img/placeholder-expertise.svg" alt="Notre garage" width="1200" height="700" loading="lazy" decoding="async">
+          <img src="/img/contact-garage-20260306.webp" alt="Notre garage" width="1536" height="1024" loading="lazy" decoding="async">
           <span class="contact-hero__overlay" aria-hidden="true"></span>
           <div class="contact-hero__content">
             <h2>Notre<br>Garage</h2>
             <p class="contact-hero__lead">Notre garage est un espace pensé pour travailler dans des conditions optimales.</p>
             <p>Propre, organisé et équipé pour garantir des interventions précises et durables.</p>
-            <a class="contact-hero__cta" href="/services">En savoir plus</a>
+            <a class="contact-hero__cta" href="/devis">Nous contacter</a>
           </div>
         </article>
         <article class="contact-hero__slide contact-hero__slide--clients">
-          <img src="/img/placeholder-service.svg" alt="Nos clients" width="1200" height="700" loading="lazy" decoding="async">
+          <img src="/img/contact-clients-20260306.webp" alt="Nos clients" width="1536" height="1024" loading="lazy" decoding="async">
           <span class="contact-hero__overlay" aria-hidden="true"></span>
           <div class="contact-hero__content">
             <h2>Nos<br>Clients</h2>
-            <p class="contact-hero__lead">Nos clients nous confient leurs véhicules pour une raison simple: particuliers exigeants, passionnés ou entreprises.</p>
-            <p>Chaque projet est traité avec le même niveau d'attention.</p>
-            <a class="contact-hero__cta" href="/clients">En savoir plus</a>
+            <p class="contact-hero__lead">Particuliers exigeants, passionnés et entreprises nous choisissent pour la qualité et la constance du résultat.</p>
+            <p>Du premier échange à la remise des clés, chaque projet suit la même exigence de précision.</p>
+            <a class="contact-hero__cta" href="/devis">Nous contacter</a>
           </div>
         </article>
         <div class="contact-hero__nav" aria-hidden="false">
@@ -67,12 +70,16 @@
           <button class="contact-hero__dot is-active" type="button" aria-label="Slide 1" aria-selected="true"></button>
           <button class="contact-hero__dot" type="button" aria-label="Slide 2" aria-selected="false"></button>
           <button class="contact-hero__dot" type="button" aria-label="Slide 3" aria-selected="false"></button>
-          <button class="contact-hero__dot" type="button" aria-label="Slide 4" aria-selected="false"></button>
         </div>
+      </div>
+    </section>
+    <section class="contact-note">
+      <div class="contact-note__shell">
+        <a class="shop-map__link" href="https://www.google.com/maps?q=Route%20des%20Avouillons%2017C%2C%201196%20Gland%2C%20Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
       </div>
     </section>
   </main>
   <div th:replace="~{fragments/footer :: fragment}"></div>
-  <script th:src="@{/js/contact-hero-slider.js}"></script>
+  <script th:src="@{/js/contact-hero-slider.js}" defer></script>
 </body>
 </html>

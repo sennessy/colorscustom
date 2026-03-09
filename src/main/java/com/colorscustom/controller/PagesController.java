@@ -65,7 +65,7 @@ public class PagesController {
 
     // CONTACT & DEVIS & TARIFS
     @GetMapping("/boutique/entretien")
-    public String boutiqueEntretien() { return "boutique/entretien"; }
+    public String boutiqueEntretien() { return "redirect:/boutique#boutique-top-ventes"; }
 
     @GetMapping("/boutique/accessoires")
     public String boutiqueAccessoires() { return "boutique/accessoires"; }
@@ -93,4 +93,13 @@ public class PagesController {
 
     @GetMapping("/clients")
     public String clients() { return "clients"; }
+
+    @GetMapping("/mentions-legales")
+    public String mentionsLegales() { return "mentions-legales"; }
+
+    @GetMapping("/conditions-utilisation")
+    public String conditionsUtilisation() { return "conditions-utilisation"; }
+
+    @GetMapping("/confidentialite")
+    public String confidentialite() { return "confidentialite"; }
 }
