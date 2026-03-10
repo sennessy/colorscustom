@@ -53,10 +53,17 @@
           </div>
         </article>
       </div>
-      <p><a th:href="@{/panier}">Voir le panier</a> <span th:text="${'(' + cartCount + ')'}">(0)</span></p>
     </section>
 
     <section id="boutique-top-ventes">
+      <div class="boutique-cart-bubble-wrap boutique-cart-bubble-wrap--top">
+        <a class="boutique-cart-bubble"
+           th:href="@{/panier}"
+           th:aria-label="${'Voir mon panier, ' + cartCount + ' article(s)'}">
+          <span class="boutique-cart-bubble__label">Voir mon panier</span>
+          <span class="boutique-cart-bubble__count" th:text="${cartCount}">0</span>
+        </a>
+      </div>
       <h2>TOP VENTES</h2>
       <div class="product-grid">
         <article class="product-card" th:each="p : ${products}">
@@ -110,6 +117,17 @@
           <p>Route des Avouillons 17C, 1196 Gland, Suisse</p>
           <a class="shop-map__link" href="https://www.google.com/maps?q=Route%20des%20Avouillons%2017C%2C%201196%20Gland%2C%20Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
         </div>
+      </div>
+    </section>
+
+    <section class="boutique-cart-footer-cta">
+      <div class="boutique-cart-bubble-wrap boutique-cart-bubble-wrap--bottom">
+        <a class="boutique-cart-bubble"
+           th:href="@{/panier}"
+           th:aria-label="${'Voir mon panier, ' + cartCount + ' article(s)'}">
+          <span class="boutique-cart-bubble__label">Voir mon panier</span>
+          <span class="boutique-cart-bubble__count" th:text="${cartCount}">0</span>
+        </a>
       </div>
     </section>
   </main>
