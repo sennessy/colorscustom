@@ -36,6 +36,15 @@ public class ShopController {
     @Value("${app.checkout.simulation-enabled:true}")
     private boolean checkoutSimulationEnabled;
 
+    @Value("${app.bank-transfer.enabled:false}")
+    private boolean bankTransferEnabled;
+
+    @Value("${app.bank-transfer.recipient:}")
+    private String bankTransferRecipient;
+
+    @Value("${app.bank-transfer.iban:}")
+    private String bankTransferIban;
+
     private static final String CURRENCY = "chf";
     private static final String SHIPPING_HERO = "Livraison gratuite partout en Suisse";
     private static final List<String> PREFERRED_PAYMENT_METHOD_TYPES = List.of("card", "twint");
@@ -97,6 +106,9 @@ public class ShopController {
         model.addAttribute("shippingHero", SHIPPING_HERO);
         model.addAttribute("paymentMethods", PAYMENT_METHOD_LABELS);
         model.addAttribute("paymentMethodsHint", PAYMENT_METHODS_HINT);
+        model.addAttribute("bankTransferEnabled", bankTransferEnabled);
+        model.addAttribute("bankTransferRecipient", bankTransferRecipient);
+        model.addAttribute("bankTransferIban", bankTransferIban);
         model.addAttribute("cart", cart);
         model.addAttribute("subtotal", subtotal);
         model.addAttribute("shipping", BigDecimal.ZERO);
