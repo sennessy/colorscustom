@@ -7,6 +7,8 @@ import com.stripe.Stripe;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import jakarta.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,8 @@ import java.util.Map;
 
 @Controller
 public class ShopController {
+
+    private static final Logger log = LoggerFactory.getLogger(ShopController.class);
 
     private final ProductService productService;
     private final CartService cartService;
@@ -48,7 +52,6 @@ public class ShopController {
     private static final String CURRENCY = "chf";
     private static final String SHIPPING_HERO = "Livraison gratuite partout en Suisse";
     private static final List<String> PREFERRED_PAYMENT_METHOD_TYPES = List.of("card", "twint");
-    private static final List<String> CARD_ONLY_PAYMENT_METHOD_TYPES = List.of("card");
     private static final List<String> PAYMENT_METHOD_LABELS = List.of(
             "TWINT",
             "Carte de crédit / débit (Visa, Mastercard)",
@@ -162,19 +165,17 @@ public class ShopController {
             Session checkoutSession = createCheckoutSession(cart, PREFERRED_PAYMENT_METHOD_TYPES);
             return "redirect:" + checkoutSession.getUrl();
         } catch (Exception ex) {
-            if (isTwintUnavailable(ex)) {
-                try {
-                    Session checkoutSession = createCheckoutSession(cart, CARD_ONLY_PAYMENT_METHOD_TYPES);
-                    return "redirect:" + checkoutSession.getUrl();
-                } catch (Exception fallbackEx) {
-                    redirectAttributes.addFlashAttribute("checkoutError",
-                            "Erreur Stripe temporaire. Réessaie dans un instant.");
-                    return "redirect:/panier";
-                }
+            log.warn("Stripe checkout with explicit payment method types failed: {}", ex.getMessage());
+            // Fallback robuste: en cas de changement API Stripe ou méthode indisponible,
+            // relancer la session sans payment_method_types pour laisser Stripe décider.
+            try {
+                Session checkoutSession = createCheckoutSession(cart, null);
+                return "redirect:" + checkoutSession.getUrl();
+            } catch (Exception fallbackEx) {
+                log.error("Stripe checkout failed after automatic fallback", fallbackEx);
+                redirectAttributes.addFlashAttribute("checkoutError", mapStripeError(fallbackEx));
+                return "redirect:/panier";
             }
-            redirectAttributes.addFlashAttribute("checkoutError",
-                    "Erreur Stripe temporaire. Réessaie dans un instant.");
-            return "redirect:/panier";
         }
     }
 
@@ -213,8 +214,11 @@ public class ShopController {
         SessionCreateParams.Builder builder = SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
                 .setSuccessUrl(normalizedBaseUrl() + "/checkout/success")
-                .setCancelUrl(normalizedBaseUrl() + "/checkout/cancel")
-                .putExtraParam("payment_method_types", paymentMethodTypes);
+                .setCancelUrl(normalizedBaseUrl() + "/checkout/cancel");
+
+        if (paymentMethodTypes != null && !paymentMethodTypes.isEmpty()) {
+            builder.putExtraParam("payment_method_types", paymentMethodTypes);
+        }
 
         // Items du panier
         for (CartItem item : cart.values()) {
@@ -248,13 +252,22 @@ public class ShopController {
         return Session.create(builder.build());
     }
 
-    private boolean isTwintUnavailable(Exception ex) {
+    private String mapStripeError(Exception ex) {
         String message = ex.getMessage();
         if (message == null || message.isBlank()) {
-            return false;
+            return "Erreur Stripe temporaire. Réessaie dans un instant.";
         }
         String normalizedMessage = message.toLowerCase(Locale.ROOT);
-        return normalizedMessage.contains("twint")
-                || normalizedMessage.contains("payment_method_types");
+        if (normalizedMessage.contains("invalid api key")
+                || normalizedMessage.contains("api key provided")) {
+            return "Configuration Stripe invalide: vérifie STRIPE_SECRET_KEY (sk_live_...).";
+        }
+        if (normalizedMessage.contains("payment_method_types")) {
+            return "Configuration des moyens de paiement Stripe invalide. Vérifie le Dashboard Stripe.";
+        }
+        if (normalizedMessage.contains("twint")) {
+            return "TWINT indisponible actuellement. Réessaie ou utilise la carte.";
+        }
+        return "Erreur Stripe temporaire. Réessaie dans un instant.";
     }
 }
