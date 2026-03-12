@@ -13,10 +13,8 @@
 
   <main class="page-shell">
     <section class="status-box">
-      <h1>Paiement confirmé</h1>
-      <p>Merci pour ta commande. Livraison gratuite partout en Suisse.</p>
-      <p th:if="${checkoutNotice != null}" th:text="${checkoutNotice}">Paiement simulé.</p>
-      <p th:if="${simulatedCheckout}">Mode simulation actif: aucun paiement réel n'a été déclenché.</p>
+      <h1>Paiement validé</h1>
+      <p>Votre paiement est validé et votre commande est en cours de traitement.</p>
       <a th:href="@{/boutique}">Retour à la boutique</a>
     </section>
   </main>

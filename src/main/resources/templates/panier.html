@@ -60,9 +60,7 @@
              th:text="${paymentMethodsHint}">Selon disponibilité Stripe et votre appareil.</p>
           <div class="payment-methods__bank" th:if="${bankTransferEnabled}">
             <p class="payment-methods__title">Virement bancaire</p>
-            <p><strong>Bénéficiaire:</strong> <span th:text="${bankTransferRecipient}">Carlos Ferros Samuel</span></p>
-            <p><strong>IBAN:</strong> <span th:text="${bankTransferIban}">CH00 0000 0000 0000 0000 0</span></p>
-            <p class="payment-methods__hint">Indiquez votre nom et votre numéro de commande comme référence.</p>
+            <p class="payment-methods__hint">Paiement validé: votre commande est en cours de traitement.</p>
           </div>
         </div>
 
@@ -71,7 +69,7 @@
           <button type="submit">Passer au paiement</button>
         </form>
         <p th:if="${!stripeCheckoutAvailable}" class="payment-methods__hint">
-          Paiement carte/TWINT temporairement indisponible: finalisez par virement bancaire ci-dessus.
+          Paiement carte/TWINT temporairement indisponible. Réessayez dans quelques instants.
         </p>
       </div>
     </section>
