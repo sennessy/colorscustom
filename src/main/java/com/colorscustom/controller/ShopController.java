@@ -164,14 +164,15 @@ public class ShopController {
         Stripe.apiKey = stripeSecretKey;
 
         try {
-            Session checkoutSession = createCheckoutSession(cart, PREFERRED_PAYMENT_METHOD_TYPES);
+            // Priorité conversion: laisser Stripe activer automatiquement les moyens disponibles
+            // selon pays, appareil et wallet (Apple Pay / Google Pay / TWINT, etc.).
+            Session checkoutSession = createCheckoutSession(cart, null);
             return "redirect:" + checkoutSession.getUrl();
         } catch (Exception ex) {
-            log.warn("Stripe checkout with explicit payment method types failed: {}", ex.getMessage());
-            // Fallback robuste: en cas de changement API Stripe ou méthode indisponible,
-            // relancer la session sans payment_method_types pour laisser Stripe décider.
+            log.warn("Stripe checkout with automatic payment methods failed: {}", ex.getMessage());
+            // Fallback robuste: forcer les moyens principaux si la config auto échoue.
             try {
-                Session checkoutSession = createCheckoutSession(cart, null);
+                Session checkoutSession = createCheckoutSession(cart, PREFERRED_PAYMENT_METHOD_TYPES);
                 return "redirect:" + checkoutSession.getUrl();
             } catch (Exception fallbackEx) {
                 log.error("Stripe checkout failed after automatic fallback", fallbackEx);

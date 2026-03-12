@@ -47,12 +47,22 @@
         </div>
       </article>
 
-      <div class="totals-box">
-        <p th:text="${'Sous-total: CHF ' + #numbers.formatDecimal(subtotal, 1, 2)}">Sous-total: CHF 0.00</p>
-        <p th:text="${'Livraison: CHF ' + #numbers.formatDecimal(shipping, 1, 2)}">Livraison: CHF 0.00</p>
-        <p class="total-line" th:text="${'Total: CHF ' + #numbers.formatDecimal(total, 1, 2)}">Total: CHF 0.00</p>
-        <div class="payment-methods">
-          <p class="payment-methods__title">Modes de paiement</p>
+      <div class="totals-box totals-box--checkout">
+        <p class="totals-line">
+          <span>Sous-total</span>
+          <strong th:text="${'CHF ' + #numbers.formatDecimal(subtotal, 1, 2)}">CHF 0.00</strong>
+        </p>
+        <p class="totals-line">
+          <span>Livraison</span>
+          <strong th:text="${'CHF ' + #numbers.formatDecimal(shipping, 1, 2)}">CHF 0.00</strong>
+        </p>
+        <p class="total-line">
+          <span>Total</span>
+          <strong th:text="${'CHF ' + #numbers.formatDecimal(total, 1, 2)}">CHF 0.00</strong>
+        </p>
+
+        <div class="checkout-reassurance">
+          <p class="checkout-reassurance__title">Paiement 100% sécurisé via Stripe</p>
           <ul class="payment-methods__list" aria-label="Modes de paiement disponibles">
             <li th:each="paymentMethod : ${paymentMethods}" th:text="${paymentMethod}">TWINT</li>
           </ul>
@@ -60,15 +70,22 @@
              th:text="${paymentMethodsHint}">Selon disponibilité Stripe et votre appareil.</p>
           <div class="payment-methods__bank" th:if="${bankTransferEnabled}">
             <p class="payment-methods__title">Virement bancaire</p>
-            <p class="payment-methods__hint">Paiement validé: votre commande est en cours de traitement.</p>
+            <p class="payment-methods__hint">Disponible sur demande après validation de commande.</p>
           </div>
         </div>
 
-        <form th:if="${stripeCheckoutAvailable}" th:action="@{/checkout}" method="post" class="inline-form">
+        <form th:if="${stripeCheckoutAvailable}" th:action="@{/checkout}" method="post" class="inline-form checkout-form">
           <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-          <button type="submit">Passer au paiement</button>
+          <button type="submit"
+                  class="checkout-cta"
+                  th:text="${'Payer CHF ' + #numbers.formatDecimal(total, 1, 2) + ' maintenant'}">
+            Payer CHF 0.00 maintenant
+          </button>
         </form>
-        <p th:if="${!stripeCheckoutAvailable}" class="payment-methods__hint">
+        <p th:if="${stripeCheckoutAvailable}" class="checkout-legal">
+          Validation instantanée de la commande après paiement.
+        </p>
+        <p th:if="${!stripeCheckoutAvailable}" class="payment-methods__hint payment-methods__hint--error">
           Paiement carte/TWINT temporairement indisponible. Réessayez dans quelques instants.
         </p>
       </div>
