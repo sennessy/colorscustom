@@ -5443,3 +5443,391 @@ img,
         min-height: 44px;
     }
 }
+
+/* Mobile typography refinement */
+@media (max-width: 900px) {
+    body {
+        font-size: 16px;
+        line-height: 1.56;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    :is(
+        .page-shell h1,
+        .hero-title,
+        .services-hero-section h1,
+        .boutique-hero-section h1,
+        .entreprise-hero-section h1,
+        .boutique-maintenance-hero__content h2,
+        .boutique-entretien-hero__content h1,
+        .home-realizations__shell h2,
+        .home-top-sales__shell h2,
+        .home-commitment__shell h2,
+        .home-faq__shell h2
+    ) {
+        font-size: clamp(1.55rem, 6.4vw, 2rem);
+        line-height: 1.16;
+        letter-spacing: 0.01em;
+        text-wrap: balance;
+    }
+
+    :is(
+        .page-shell h2,
+        .page-shell section h2,
+        .product-card h2,
+        .services-tile__content h3,
+        .home-top-sales__meta h3,
+        .home-faq__item-title,
+        .faq-focus h2,
+        .service-overview-card h2,
+        .entreprise-card h2
+    ) {
+        font-size: clamp(1.15rem, 4.6vw, 1.45rem);
+        line-height: 1.24;
+        letter-spacing: 0.01em;
+        text-wrap: balance;
+    }
+
+    :is(
+        .page-shell h3,
+        .list-card h3,
+        .panel h3,
+        .home-trust__item strong
+    ) {
+        font-size: clamp(1.02rem, 4.1vw, 1.2rem);
+        line-height: 1.3;
+    }
+
+    :is(
+        .page-shell p,
+        .panel p,
+        .list-card p,
+        .product-card p,
+        .status-box p,
+        .totals-box p,
+        .payment-methods__hint,
+        .services-tile__content p,
+        .service-overview-card p,
+        .entreprise-card p,
+        .faq-focus p,
+        .home-top-sales__meta p,
+        .home-trust__item span,
+        .home-faq__answer
+    ) {
+        font-size: clamp(0.98rem, 3.6vw, 1.04rem);
+        line-height: 1.58;
+        overflow-wrap: anywhere;
+    }
+
+    :is(
+        .page-shell li,
+        .payment-methods__list li,
+        .home-faq__answer li
+    ) {
+        font-size: clamp(0.94rem, 3.3vw, 1rem);
+        line-height: 1.5;
+    }
+
+    .payment-methods__list li {
+        padding: 6px 10px;
+    }
+
+    .page-kicker {
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-shell {
+        padding: 16px 10px 26px;
+    }
+
+    .page-shell section {
+        margin-bottom: 18px;
+    }
+
+    :is(
+        .page-shell h1,
+        .hero-title,
+        .services-hero-section h1,
+        .boutique-hero-section h1,
+        .entreprise-hero-section h1,
+        .boutique-maintenance-hero__content h2,
+        .boutique-entretien-hero__content h1
+    ) {
+        font-size: clamp(1.35rem, 7vw, 1.72rem);
+        line-height: 1.14;
+    }
+
+    :is(
+        .hero-text,
+        .services-hero-section p,
+        .boutique-hero-section__content p,
+        .entreprise-hero-section p,
+        .boutique-maintenance-hero__content p,
+        .boutique-entretien-hero__content p,
+        .contact-hero__content p
+    ) {
+        font-size: 1rem;
+        line-height: 1.55;
+        max-width: 34ch;
+    }
+
+    .home-faq__cat {
+        font-size: clamp(1.08rem, 5.3vw, 1.28rem);
+    }
+
+    .home-commitment__copy strong {
+        font-size: clamp(1.2rem, 5.5vw, 1.5rem);
+    }
+
+    .home-expertise-tile__content strong {
+        font-size: clamp(1.1rem, 5.2vw, 1.35rem);
+    }
+}
+
+/* Targeted mobile text pass: home, boutique, entreprise */
+@media (max-width: 900px) {
+    /* Home */
+    .home-dual-hero__content h2 {
+        font-size: clamp(1.45rem, 6.8vw, 1.95rem);
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+    }
+
+    .home-dual-hero__content a {
+        font-size: 0.96rem;
+        line-height: 1.25;
+    }
+
+    .home-expertise-tile__content strong {
+        font-size: clamp(1.2rem, 6vw, 1.55rem);
+        line-height: 1.12;
+    }
+
+    .home-expertise-tile__content em {
+        font-size: 0.92rem;
+        line-height: 1.35;
+        padding: 8px 12px;
+    }
+
+    .home-realizations__shell h2,
+    .home-top-sales__shell h2,
+    .home-commitment__shell h2,
+    .home-faq__shell h2 {
+        line-height: 1.12;
+    }
+
+    .home-top-sales__meta {
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        padding: 8px 9px;
+    }
+
+    .home-top-sales__meta h3 {
+        font-size: clamp(1rem, 4.8vw, 1.22rem);
+        line-height: 1.2;
+    }
+
+    .home-top-sales__meta p {
+        font-size: clamp(0.92rem, 3.8vw, 1rem);
+        line-height: 1.2;
+    }
+
+    .home-trust__item strong {
+        line-height: 1.1;
+    }
+
+    .home-trust__item span {
+        line-height: 1.35;
+    }
+
+    .home-faq__cat {
+        white-space: normal;
+        text-wrap: balance;
+        line-height: 1.12;
+        padding: 10px;
+    }
+
+    .home-faq__answer {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    /* Boutique */
+    .boutique-page-shell > section h2 {
+        font-size: clamp(1.2rem, 5.2vw, 1.55rem);
+        line-height: 1.2;
+    }
+
+    .boutique-page-shell .boutique-category-card__content h3 {
+        font-size: clamp(1.04rem, 4.4vw, 1.26rem);
+        line-height: 1.2;
+    }
+
+    .boutique-page-shell .boutique-category-card__content p {
+        font-size: 0.98rem;
+        line-height: 1.48;
+        max-width: 28ch;
+    }
+
+    .boutique-page-shell .product-card h2 {
+        font-size: clamp(1.05rem, 4.6vw, 1.24rem);
+        line-height: 1.22;
+    }
+
+    .boutique-page-shell .product-card p {
+        font-size: 0.97rem;
+        line-height: 1.52;
+    }
+
+    .boutique-page-shell .product-card .price {
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    .boutique-page-shell .shop-map__info p {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+    .boutique-page-shell .boutique-cart-bubble__label {
+        font-size: 0.92rem;
+    }
+
+    /* Entreprise */
+    .entreprise-page-shell .hero-title {
+        font-size: clamp(1.35rem, 6.6vw, 1.95rem);
+        line-height: 1.14;
+    }
+
+    .entreprise-page-shell .hero-text {
+        font-size: 1rem;
+        line-height: 1.55;
+        max-width: 34ch;
+    }
+
+    .entreprise-page-shell #ent-km .ent-km-fixed-title {
+        font-size: clamp(1.12rem, 6vw, 1.45rem);
+        line-height: 1.14;
+    }
+
+    .entreprise-page-shell #ent-km .home-expertise-tile__content strong {
+        font-size: clamp(1rem, 4.8vw, 1.16rem);
+        line-height: 1.2;
+    }
+
+    .entreprise-page-shell #ent-km .home-expertise-tile__content em {
+        font-size: 0.92rem;
+        line-height: 1.4;
+    }
+
+    .entreprise-page-shell .enterprise-b2b-section h2 {
+        font-size: clamp(1.2rem, 5vw, 1.55rem);
+        line-height: 1.2;
+    }
+
+    .entreprise-page-shell .enterprise-b2b-section > p {
+        font-size: 1rem;
+        line-height: 1.58;
+    }
+
+    .entreprise-page-shell .enterprise-benefit-summary__title {
+        font-size: 1rem;
+        line-height: 1.25;
+    }
+
+    .entreprise-page-shell .enterprise-benefit-summary__desc {
+        font-size: 0.98rem;
+        line-height: 1.5;
+    }
+
+    .entreprise-page-shell .enterprise-benefit-more__btn {
+        font-size: 0.86rem;
+        line-height: 1.2;
+        padding: 6px 10px;
+    }
+
+    .entreprise-page-shell .enterprise-pack-card h3,
+    .entreprise-page-shell .enterprise-process-card h3 {
+        font-size: clamp(1rem, 4.5vw, 1.2rem);
+        line-height: 1.25;
+    }
+
+    .entreprise-page-shell .enterprise-pack-card p,
+    .entreprise-page-shell .enterprise-process-card p,
+    .entreprise-page-shell .enterprise-pack-card li {
+        font-size: 0.97rem;
+        line-height: 1.55;
+    }
+
+    .entreprise-page-shell .enterprise-account-form input,
+    .entreprise-page-shell .enterprise-account-form select,
+    .entreprise-page-shell .enterprise-account-form textarea {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Home */
+    .home-dual-hero__content {
+        inset: auto 0 12px 0;
+        padding: 0 12px;
+    }
+
+    .home-dual-hero__content h2 {
+        font-size: clamp(1.25rem, 7.2vw, 1.55rem);
+    }
+
+    .home-expertise-tile__content {
+        bottom: 12px;
+        padding: 0 12px;
+    }
+
+    .home-expertise-tile__content em {
+        font-size: 0.88rem;
+        padding: 7px 10px;
+    }
+
+    .home-faq__cat {
+        height: 78px;
+        font-size: clamp(0.95rem, 5.2vw, 1.15rem);
+    }
+
+    /* Boutique */
+    .boutique-page-shell .boutique-category-card__content {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .boutique-page-shell .boutique-category-card__content p {
+        max-width: 100%;
+    }
+
+    .boutique-page-shell .product-card h2 {
+        font-size: 1.06rem;
+    }
+
+    /* Entreprise */
+    .entreprise-page-shell .enterprise-benefit-more summary {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .entreprise-page-shell .enterprise-benefit-more__btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .entreprise-page-shell .enterprise-process-step {
+        width: 42px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+}
