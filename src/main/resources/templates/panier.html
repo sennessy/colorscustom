@@ -66,10 +66,13 @@
           </div>
         </div>
 
-        <form th:action="@{/checkout}" method="post" class="inline-form">
+        <form th:if="${stripeCheckoutAvailable}" th:action="@{/checkout}" method="post" class="inline-form">
           <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
           <button type="submit">Passer au paiement</button>
         </form>
+        <p th:if="${!stripeCheckoutAvailable}" class="payment-methods__hint">
+          Paiement carte/TWINT temporairement indisponible: finalisez par virement bancaire ci-dessus.
+        </p>
       </div>
     </section>
 

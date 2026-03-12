@@ -105,10 +105,12 @@ public class ShopController {
     public String panier(HttpSession session, Model model) {
         Map<Long, CartItem> cart = cartService.getCart(session);
         BigDecimal subtotal = cartService.subtotal(session);
+        boolean stripeCheckoutAvailable = isStripeSecretKeyConfigured();
 
         model.addAttribute("shippingHero", SHIPPING_HERO);
         model.addAttribute("paymentMethods", PAYMENT_METHOD_LABELS);
         model.addAttribute("paymentMethodsHint", PAYMENT_METHODS_HINT);
+        model.addAttribute("stripeCheckoutAvailable", stripeCheckoutAvailable);
         model.addAttribute("bankTransferEnabled", bankTransferEnabled);
         model.addAttribute("bankTransferRecipient", bankTransferRecipient);
         model.addAttribute("bankTransferIban", bankTransferIban);
@@ -147,7 +149,7 @@ public class ShopController {
             return "redirect:/panier";
         }
 
-        if (stripeSecretKey == null || stripeSecretKey.isBlank()) {
+        if (!isStripeSecretKeyConfigured()) {
             if (checkoutSimulationEnabled) {
                 cartService.clear(session);
                 redirectAttributes.addFlashAttribute("checkoutNotice",
@@ -250,6 +252,14 @@ public class ShopController {
         }
 
         return Session.create(builder.build());
+    }
+
+    private boolean isStripeSecretKeyConfigured() {
+        if (stripeSecretKey == null) {
+            return false;
+        }
+        String normalized = stripeSecretKey.trim();
+        return !normalized.isBlank() && normalized.startsWith("sk_");
     }
 
     private String mapStripeError(Exception ex) {
