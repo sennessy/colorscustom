@@ -1,8 +1,13 @@
 package com.colorscustom.model;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Product {
+public class Product implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
     private Long id;
     private String name;
     private String subtitle;

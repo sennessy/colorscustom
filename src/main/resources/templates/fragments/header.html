@@ -2,10 +2,18 @@
         th:fragment="fragment(active='')">
   <a class="skip-link" href="#main-content">Aller au contenu principal</a>
   <div class="cc-header__inner">
-        <a class="cc-brand" th:href="@{/}" aria-label="Colors Custom">
+    <a class="cc-brand" th:href="@{/}" aria-label="Colors Custom">
       <img class="cc-brand__logo" th:src="@{/img/logo-colorscustom-officiel.svg}" src="/img/logo-colorscustom-officiel.svg" alt="Colors Custom">
     </a>
-        <nav class="cc-nav" aria-label="Navigation principale">
+    <button class="cc-nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">
+      <span class="cc-nav-toggle__label">Menu</span>
+      <span class="cc-nav-toggle__icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+    <nav class="cc-nav" id="site-nav" aria-label="Navigation principale">
       <div class="cc-nav__group">
         <a class="cc-nav__link"
            th:href="@{/services}"

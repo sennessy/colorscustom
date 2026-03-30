@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: main
+    runtime: docker
+    plan: starter
+    dockerContext: .
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /actuator/health
+    autoDeployTrigger: commit
+    domains:
+      - colorscustom.ch
+      - www.colorscustom.ch
+    envVars:
+      - key: APP_BASE_URL
+        value: https://colorscustom.ch
+      - key: JAVA_OPTS
+        value: -Xms256m -Xmx512m

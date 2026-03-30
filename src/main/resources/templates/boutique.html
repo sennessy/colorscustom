@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BOUTIQUE | COLORS CUSTOM</title>
-  <meta name="description" content="Boutique Colors Custom: produits d'entretien, stickers, visuels et accessoires sélectionnés pour prolonger la qualité atelier." />
+  <meta name="description" content="Catalogue Colors Custom: produits d'entretien, stickers, visuels et accessoires sélectionnés pour prolonger la qualité atelier." />
   <link rel="canonical" th:href="@{/boutique}" href="/boutique" />
   <meta property="og:title" content="Boutique | COLORS CUSTOM" />
   <meta property="og:description" content="Films, outils et produits d'entretien pour protéger et personnaliser votre véhicule." />
@@ -21,7 +21,8 @@
 <body>
   <div th:replace="~{fragments/header :: fragment('boutique')}"></div>
 
-  <main class="page-shell boutique-boost boutique-page-shell">
+  <main class="page-shell boutique-boost boutique-page-shell" id="main-content">
+
     <section class="boutique-hero-section">
       <img src="/img/boutique-s0-final.webp" alt="Boutique" class="mono-hero boutique-s0-image" loading="eager" fetchpriority="high" decoding="async" />
       <div class="boutique-hero-section__overlay"></div>
@@ -56,27 +57,14 @@
     </section>
 
     <section id="boutique-top-ventes">
-      <div class="boutique-cart-bubble-wrap boutique-cart-bubble-wrap--top">
-        <a class="boutique-cart-bubble"
-           th:href="@{/panier}"
-           th:aria-label="${'Voir mon panier, ' + cartCount + ' article(s)'}">
-          <span class="boutique-cart-bubble__label">Voir mon panier</span>
-          <span class="boutique-cart-bubble__count" th:text="${cartCount}">0</span>
-        </a>
-      </div>
-      <h2>TOP VENTES</h2>
+      <h2>PRODUITS D'ENTRETIEN</h2>
+      <p>Disponibles à l'atelier. Contactez-nous pour les disponibilités.</p>
       <div class="product-grid">
         <article class="product-card" th:each="p : ${products}">
           <img th:src="${p.imageUrl}" src="/img/placeholder-service.svg" th:alt="${p.name}" alt="Produit" class="product-card__img" loading="lazy" decoding="async" />
           <h2 th:text="${p.name}">Nom produit</h2>
           <p th:text="${p.subtitle}">Description</p>
           <p class="price" th:text="${'CHF ' + #numbers.formatDecimal(p.price, 1, 2)}">CHF 0.00</p>
-          <form th:action="@{/cart/add}" method="post" class="inline-form">
-            <input type="hidden" name="productId" th:value="${p.id}" />
-            <input type="number" name="qty" value="1" min="1" class="qty-input" />
-            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-            <button type="submit">Ajouter</button>
-          </form>
         </article>
       </div>
     </section>
@@ -101,50 +89,22 @@
       </div>
     </section>
 
-    <section>
-      <h2>ACHAT SANS FRICTION</h2>
-      <div class="list-grid">
-        <article class="list-card"><h3>LIVRAISON RAPIDE</h3><p>Expédition sous 24 à 48h sur les références en stock.</p></article>
-        <article class="list-card"><h3>PAIEMENT SÉCURISÉ</h3><p>Transactions protégées et suivi de commande clair.</p></article>
-        <article class="list-card"><h3>RETOURS SIMPLES</h3><p>Processus direct si un produit ne correspond pas à vos attentes.</p></article>
-      </div>
-    </section>
-
     <section class="shop-map">
-      <h2>RETRAIT &amp; ATELIER</h2>
+      <h2>DISPONIBLE À L'ATELIER</h2>
+      <p>Nos produits sont disponibles exclusivement en boutique physique. Passez nous voir ou contactez-nous pour vérifier les disponibilités.</p>
       <div class="shop-map__card shop-map__card--single">
         <div class="shop-map__info">
           <p>Route des Avouillons 17C, 1196 Gland, Suisse</p>
           <a class="shop-map__link" href="https://www.google.com/maps?q=Route%20des%20Avouillons%2017C%2C%201196%20Gland%2C%20Suisse" target="_blank" rel="noopener noreferrer">Ouvrir sur Google Maps</a>
         </div>
       </div>
-    </section>
-
-    <section class="boutique-cart-footer-cta">
-      <div class="boutique-cart-bubble-wrap boutique-cart-bubble-wrap--bottom">
-        <a class="boutique-cart-bubble"
-           th:href="@{/panier}"
-           th:aria-label="${'Voir mon panier, ' + cartCount + ' article(s)'}">
-          <span class="boutique-cart-bubble__label">Voir mon panier</span>
-          <span class="boutique-cart-bubble__count" th:text="${cartCount}">0</span>
-        </a>
+      <div style="margin-top:1.5rem;">
+        <a th:href="@{/contact}">Nous contacter</a>
       </div>
     </section>
+
   </main>
 
-  <aside
-    th:if="${cartToastMessage != null}"
-    id="cartToast"
-    class="cart-toast"
-    th:classappend="${cartToastType == 'error'} ? ' cart-toast--error' : ' cart-toast--success'"
-    role="status"
-    aria-live="polite">
-    <p th:text="${cartToastMessage}">Produit ajouté au panier.</p>
-    <div class="cart-toast__actions">
-      <a th:href="@{/panier}">Voir le panier</a>
-      <button type="button" class="cart-toast__close" aria-label="Fermer la notification">Fermer</button>
-    </div>
-  </aside>
-  <script th:src="@{/js/cart-toast.js}" defer></script>
+  <div th:replace="~{fragments/footer :: fragment}"></div>
 </body>
 </html>

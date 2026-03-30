@@ -13,8 +13,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                // CSRF activé partout sauf webhook Stripe (appel serveur à serveur)
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/stripe/webhook"))
+                .csrf(csrf -> {})
 
                 // Autorise absolument toutes les requêtes
                 .authorizeHttpRequests(auth -> auth

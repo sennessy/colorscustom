@@ -56,11 +56,39 @@ Variables minimales:
 ```env
 APP_BASE_URL=https://colorscustom.ch
 CHECKOUT_SIMULATION_ENABLED=false
+TWINT_ENABLED=true
+TWINT_PAYLINK_BASE_URL=https://go.twint.ch/merchant?qrcode=replace-me
+ORDERS_STORAGE_PATH=/opt/colorscustom/orders/twint-orders.jsonl
+STRIPE_SECRET_KEY=
+STRIPE_PUBLIC_KEY=
+STRIPE_WEBHOOK_SECRET=
+JAVA_OPTS=-Xms256m -Xmx512m
+SERVER_PORT=8080
+```
+
+Pour activer un checkout `TWINT only`, garde `CHECKOUT_SIMULATION_ENABLED=false`,
+active `TWINT_ENABLED=true`, puis colle ton lien marchand `go.twint.ch/...` dans `TWINT_PAYLINK_BASE_URL`.
+Le site genere automatiquement `amount` et `trxInfo` depuis le panier, puis enregistre la commande client
+dans `ORDERS_STORAGE_PATH` avec la reference, les coordonnees et les articles.
+
+Pour lire les commandes capturees sur le serveur:
+
+```bash
+tail -f /opt/colorscustom/orders/twint-orders.jsonl
+```
+
+Pour remettre le site en ligne en mode simulation temporaire, garde `CHECKOUT_SIMULATION_ENABLED=true`.
+Dans ce mode, l'application contourne Stripe et TWINT meme si des cles ou un lien sont encore presents dans l'env.
+
+Quand Stripe sera valide plus tard, repasse en production reelle:
+
+```env
+CHECKOUT_SIMULATION_ENABLED=false
+TWINT_ENABLED=false
+TWINT_PAYLINK_BASE_URL=
 STRIPE_SECRET_KEY=sk_live_xxx
 STRIPE_PUBLIC_KEY=pk_live_xxx
 STRIPE_WEBHOOK_SECRET=whsec_xxx
-JAVA_OPTS=-Xms256m -Xmx512m
-SERVER_PORT=8080
 ```
 
 ## 4) Service systemd

@@ -1,6 +1,9 @@
 (() => {
   const links = Array.from(document.querySelectorAll('.cc-nav__link[data-nav]'));
   if (!links.length) return;
+  const header = document.querySelector('.cc-header');
+  const nav = document.querySelector('.cc-nav');
+  const navToggle = document.querySelector('.cc-nav-toggle');
   const skipLink = document.querySelector('.skip-link');
   const main = document.getElementById('main-content') || document.querySelector('main');
   if (skipLink && main) {
@@ -47,6 +50,29 @@
     });
   };
 
+  const setMenuOpen = (open) => {
+    if (!header || !navToggle) return;
+    header.classList.toggle('is-menu-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    navToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    document.body.classList.toggle('nav-open', open);
+    if (!open) closeAllGroups();
+  };
+
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      if (!mobileMedia.matches) return;
+      const willOpen = !header?.classList.contains('is-menu-open');
+      setMenuOpen(willOpen);
+    });
+
+    navToggle.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      setMenuOpen(false);
+      navToggle.blur();
+    });
+  }
+
   groups.forEach((group) => {
     const trigger = group.querySelector('.cc-nav__link');
     const submenu = group.querySelector('.cc-nav__submenu');
@@ -61,6 +87,7 @@
 
       if (!isOpen) {
         event.preventDefault();
+        setMenuOpen(true);
         openGroup(group);
       }
     });
@@ -87,16 +114,39 @@
   });
 
   document.addEventListener('click', (event) => {
-    const insideNav = event.target instanceof Node && event.target.closest('.cc-nav');
-    if (!insideNav) closeAllGroups();
+    const insideHeader = event.target instanceof Node && event.target.closest('.cc-header');
+    if (!insideHeader) {
+      closeAllGroups();
+      setMenuOpen(false);
+    }
   });
 
   document.addEventListener('focusin', (event) => {
-    const insideNav = event.target instanceof Node && event.target.closest('.cc-nav');
-    if (!insideNav) closeAllGroups();
+    const insideHeader = event.target instanceof Node && event.target.closest('.cc-header');
+    if (!insideHeader) {
+      closeAllGroups();
+      setMenuOpen(false);
+    }
   });
 
   mobileMedia.addEventListener('change', (event) => {
-    if (!event.matches) closeAllGroups();
+    if (!event.matches) {
+      closeAllGroups();
+      setMenuOpen(false);
+    }
+  });
+
+  nav?.addEventListener('click', (event) => {
+    if (!mobileMedia.matches) return;
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const clickedLink = target.closest('.cc-nav__submenu a, .cc-nav > .cc-nav__link[data-nav]');
+    if (!clickedLink) return;
+    setMenuOpen(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    setMenuOpen(false);
   });
 })();
