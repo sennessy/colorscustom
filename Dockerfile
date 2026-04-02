@@ -13,7 +13,7 @@ WORKDIR /app
 
 COPY --from=build /app/target/colorcustoms-0.0.1-SNAPSHOT.jar /app/app.jar
 
-ENV JAVA_OPTS="-Xms256m -Xmx512m"
+ENV JAVA_OPTS="-Xms96m -Xmx384m -XX:MaxMetaspaceSize=128m -XX:+UseSerialGC -XX:+ExitOnOutOfMemoryError -XX:+HeapDumpOnOutOfMemoryError"
 
 EXPOSE 8080
 

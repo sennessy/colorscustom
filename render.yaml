@@ -6,6 +6,9 @@ services:
     dockerContext: .
     dockerfilePath: ./Dockerfile
     healthCheckPath: /actuator/health
+    # NOTE: plan: starter causes spin-down after 15min inactivity.
+    # Upgrade to "starter-plus" (~$7/mo) to eliminate spin-down permanently.
+    # The keepalive cron on UptimeRobot (free) is the workaround in the meantime.
     autoDeployTrigger: commit
     domains:
       - colorscustom.ch
@@ -14,4 +17,4 @@ services:
       - key: APP_BASE_URL
         value: https://colorscustom.ch
       - key: JAVA_OPTS
-        value: -Xms256m -Xmx512m
+        value: -Xms96m -Xmx384m -XX:MaxMetaspaceSize=128m -XX:+UseSerialGC -XX:+ExitOnOutOfMemoryError
