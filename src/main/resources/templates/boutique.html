@@ -57,8 +57,7 @@
     </section>
 
     <section id="boutique-top-ventes">
-      <h2>PRODUITS D'ENTRETIEN</h2>
-      <p>Disponibles à l'atelier. Contactez-nous pour les disponibilités.</p>
+      <h2>TOP VENTES</h2>
       <div class="product-grid">
         <article class="product-card" th:each="p : ${products}">
           <img th:src="${p.imageUrl}" src="/img/placeholder-service.svg" th:alt="${p.name}" alt="Produit" class="product-card__img" loading="lazy" decoding="async" />
@@ -90,8 +89,7 @@
     </section>
 
     <section class="shop-map">
-      <h2>DISPONIBLE À L'ATELIER</h2>
-      <p>Nos produits sont disponibles exclusivement en boutique physique. Passez nous voir ou contactez-nous pour vérifier les disponibilités.</p>
+      <h2>RETRAIT &amp; ATELIER</h2>
       <div class="shop-map__card shop-map__card--single">
         <div class="shop-map__info">
           <p>Route des Avouillons 17C, 1196 Gland, Suisse</p>
