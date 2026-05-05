@@ -12,8 +12,11 @@ RUN ./mvnw -B -DskipTests dependency:go-offline || true
 COPY src src
 RUN ./mvnw -B -Pnative -DskipTests native:compile
 
-# Stage 2: tiny glibc runtime, no JVM
-FROM gcr.io/distroless/base-debian12
+# Stage 2: minimal Debian runtime — needs libz for GraalVM native binary
+FROM debian:bookworm-slim
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends zlib1g \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY --from=build /app/target/colorcustoms /app/colorcustoms
 
