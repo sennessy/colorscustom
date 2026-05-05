@@ -4,7 +4,7 @@
   }
   window.__leadMailtoFormInitialized = true;
 
-  const MAIL_TO_DEFAULT = "contact@colorscustom.ch";
+  const MAIL_TO_DEFAULT = "contact@colorscustom.com";
   const EMAIL_DOMAINS = [
     "gmail.com",
     "hotmail.com",
